@@ -23,17 +23,17 @@ imports:
 
 classes:
 
-  NamedThing:
+  NamedEntity:
     description: >-
       A generic grouping for any identifiable entity
     slots:
       - id
       - name
       - description
-    class_uri: schema:Thing
+    class_uri: schema:Entity
 
   Sample:
-    is_a: NamedThing
+    is_a: NamedEntity
     description: >-
       Represents a Sample
     slots:
