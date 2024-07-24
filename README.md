@@ -1,6 +1,7 @@
 # hzb-metadata-schema
 
 (Meta)data schema HZB labs. A datamodel for describing entities and their semantic associations (vocabularies/ontologies) for scientific (particularly catalytic) data at HZB.
+
 At the moment, this schema is organized into 2 separate modules:
 * energy definitions
 * matter definitions 
