@@ -1,6 +1,14 @@
 # hzb-metadata-schema
 
-(Meta)data schema HZB labs
+(Meta)data schema HZB labs. At the moment, this schema is organized into 2 separate modules:
+* energy definitions
+* matter definitions 
+
+# Content for our yml schema definitions:
+* names, identifiers, and metadata
+ * id – the unique identifier for the schema, as a IRI
+
+
 
 ## Website
 
