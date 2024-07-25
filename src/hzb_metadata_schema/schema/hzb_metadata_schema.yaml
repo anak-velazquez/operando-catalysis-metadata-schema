@@ -22,8 +22,26 @@ imports:
   - linkml:types
 
 classes:
+  
+  device:
+    is_a: named thing
+    description: >-
+      A thing made or adapted for a particular purpose, especially
+      a piece of mechanical or electronic equipment
+    narrow_mappings:
+      # Devices
+      - UMLSSG:DEVI
+      # Medical Device
+      - STY:T074
+      # Research Device
+      - STY:T075
+      # Drug Delivery Device
+      - STY:T203
+      # Biomedical or Dental Material
+      - STY:T122
 
-  NamedEntity:
+
+  NamedThing:
     description: >-
       A generic grouping for any identifiable entity
     slots:
@@ -33,7 +51,7 @@ classes:
     class_uri: schema:Entity
 
   Sample:
-    is_a: NamedEntity
+    is_a: NamedThing
     description: >-
       Represents a Sample
     slots:
