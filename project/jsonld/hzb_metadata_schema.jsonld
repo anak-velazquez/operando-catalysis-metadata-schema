@@ -522,12 +522,34 @@
   ],
   "classes": [
     {
+      "name": "Device",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
+      "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "narrow_mappings": [
+        "UMLSSG:DEVI",
+        "STY:T074",
+        "STY:T075",
+        "STY:T203",
+        "STY:T122"
+      ],
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "NamedThing",
       "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
       "description": "A generic grouping for any identifiable entity",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "mappings": [
-        "schema:Thing"
+        "schema:Entity"
       ],
       "slots": [
         "id",
@@ -535,7 +557,7 @@
         "description"
       ],
       "slot_usage": {},
-      "class_uri": "http://schema.org/Thing",
+      "class_uri": "http://schema.org/Entity",
       "@type": "ClassDefinition"
     },
     {
@@ -582,9 +604,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "hzb_metadata_schema.yaml",
-  "source_file_date": "2024-07-23T13:56:55",
-  "source_file_size": 2243,
-  "generation_date": "2024-07-23T13:57:41",
+  "source_file_date": "2024-07-25T14:36:27",
+  "source_file_size": 2665,
+  "generation_date": "2024-07-25T14:36:35",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/hzb_metadata_schema.context.jsonld",

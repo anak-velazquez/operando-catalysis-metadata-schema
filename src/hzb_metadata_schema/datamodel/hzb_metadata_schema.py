@@ -1,5 +1,5 @@
 # Auto generated from hzb_metadata_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-23T13:57:42
+# Generation date: 2024-07-25T14:36:35
 # Schema: hzb-metadata-schema
 #
 # id: https://w3id.org/anak-velazquez/hzb-metadata-schema
@@ -33,6 +33,8 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
+STY = CurieNamespace('STY', 'http://example.org/UNKNOWN/STY/')
+UMLSSG = CurieNamespace('UMLSSG', 'http://example.org/UNKNOWN/UMLSSG/')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 HZB_METADATA_SCHEMA = CurieNamespace('hzb_metadata_schema', 'https://w3id.org/anak-velazquez/hzb-metadata-schema/')
@@ -48,6 +50,10 @@ class NamedThingId(URIorCURIE):
     pass
 
 
+class DeviceId(NamedThingId):
+    pass
+
+
 class SampleId(NamedThingId):
     pass
 
@@ -59,8 +65,8 @@ class NamedThing(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
-    class_class_curie: ClassVar[str] = "schema:Thing"
+    class_class_uri: ClassVar[URIRef] = SCHEMA["Entity"]
+    class_class_curie: ClassVar[str] = "schema:Entity"
     class_name: ClassVar[str] = "NamedThing"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.NamedThing
 
@@ -79,6 +85,29 @@ class NamedThing(YAMLRoot):
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Device(NamedThing):
+    """
+    A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Device"]
+    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Device"
+    class_name: ClassVar[str] = "device"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Device
+
+    id: Union[str, DeviceId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DeviceId):
+            self.id = DeviceId(self.id)
 
         super().__post_init__(**kwargs)
 

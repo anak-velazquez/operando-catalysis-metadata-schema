@@ -1,6 +1,13 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
+// A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+message Device
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
 // A generic grouping for any identifiable entity
 message NamedThing
  {

@@ -24,7 +24,7 @@ imports:
 classes:
   
   device:
-    is_a: named thing
+    is_a: NamedThing
     description: >-
       A thing made or adapted for a particular purpose, especially
       a piece of mechanical or electronic equipment

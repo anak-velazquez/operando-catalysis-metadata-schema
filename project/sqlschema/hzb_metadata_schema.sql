@@ -1,3 +1,7 @@
+-- # Class: "device" Description: "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment"
+--     * Slot: id Description: A unique identifier for a thing
+--     * Slot: name Description: A human-readable name for a thing
+--     * Slot: description Description: A human-readable description for a thing
 -- # Class: "NamedThing" Description: "A generic grouping for any identifiable entity"
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
@@ -14,6 +18,12 @@
 -- # Class: "SampleCollection" Description: "A holder for Sample objects"
 --     * Slot: id Description: 
 
+CREATE TABLE device (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "NamedThing" (
 	id TEXT NOT NULL, 
 	name TEXT, 

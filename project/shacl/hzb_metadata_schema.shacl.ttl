@@ -5,29 +5,54 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-schema1:Thing a sh:NodeShape ;
+schema1:Entity a sh:NodeShape ;
     sh:closed true ;
     sh:description "A generic grouping for any identifiable entity" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path schema1:description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:name ] ;
-    sh:targetClass schema1:Thing .
+    sh:targetClass schema1:Entity .
+
+hzb_metadata_schema:Device a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:name ] ;
+    sh:targetClass hzb_metadata_schema:Device .
 
 hzb_metadata_schema:SampleCollection a sh:NodeShape ;
     sh:closed true ;
@@ -43,7 +68,13 @@ hzb_metadata_schema:Sample a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents a Sample" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "living or dead status" ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ],
+        [ sh:description "living or dead status" ;
             sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
             sh:maxCount 1 ;
             sh:order 3 ;
@@ -54,6 +85,18 @@ hzb_metadata_schema:Sample a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path hzb_metadata_schema:age_in_years ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date on which a person is born" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:birthDate ],
         [ sh:datatype xsd:anyURI ;
             sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
@@ -61,30 +104,12 @@ hzb_metadata_schema:Sample a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path schema1:identifier ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date on which a person is born" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:birthDate ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
         [ sh:datatype xsd:string ;
             sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path schema1:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ] ;
+            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
     sh:targetClass hzb_metadata_schema:Sample .
 

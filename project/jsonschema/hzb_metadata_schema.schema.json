@@ -1,5 +1,28 @@
 {
     "$defs": {
+        "Device": {
+            "additionalProperties": false,
+            "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Device",
+            "type": "object"
+        },
         "NamedThing": {
             "additionalProperties": false,
             "description": "A generic grouping for any identifiable entity",

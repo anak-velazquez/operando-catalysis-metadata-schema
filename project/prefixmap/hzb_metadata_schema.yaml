@@ -1,11 +1,13 @@
 {
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
+   "STY": "http://example.org/UNKNOWN/STY/",
+   "UMLSSG": "http://example.org/UNKNOWN/UMLSSG/",
    "biolink": "https://w3id.org/biolink/",
    "example": "https://example.org/",
    "hzb_metadata_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema/",
    "linkml": "https://w3id.org/linkml/",
    "schema": "http://schema.org/",
    "NamedThing": {
-      "@id": "schema:Thing"
+      "@id": "schema:Entity"
    }
 }

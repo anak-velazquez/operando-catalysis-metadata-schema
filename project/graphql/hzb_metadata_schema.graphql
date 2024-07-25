@@ -1,4 +1,11 @@
 # metamodel_version: 1.7.0
+type Device
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
 type NamedThing
   {
     id: Uriorcurie!
