@@ -8,6 +8,18 @@ license: MIT
 see_also:
   - https://anak-velazquez.github.io/hzb-metadata-schema
 
+# Version should be kept in sync with primary Git repository release tag
+
+#version: 4.2.2
+
+
+## ------------
+##
+## PREFIXES
+## ------------
+# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of the Model specification
+# are resolved using a specific precedence order. The following 'prefixes:' delimited list has first precedence in resolution.?
+#
 prefixes:
   hzb_metadata_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema/
   linkml: https://w3id.org/linkml/
@@ -15,45 +27,31 @@ prefixes:
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
+
 default_prefix: hzb_metadata_schema
 default_range: string
 
+## ------------
+## TYPES
+## ------------
 imports:
   - linkml:types
 
-classes:
+types:
 
-  NamedThing:
-    description: >-
-      A generic grouping for any identifiable entity
-    slots:
-      - id
-      - name
-      - description
-    class_uri: schema:Thing
+#as in Biolink
+  chemical formula value:
+    uri: xsd:string
+    base: str
+    description: A chemical formula
+    notes:
+      - Should be implemented as a stronger type
 
-  Sample:
-    is_a: NamedThing
-    description: >-
-      Represents a Sample
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
+## ------------
+## SLOTS
+## ------------
 
-  SampleCollection:
-    tree_root: true
-    description: >-
-      A holder for Sample objects
-    attributes:
-      entries:
-        range: Sample
-        multivalued: true
-        inlined: true
+#here relationship between nodes can be defined in the future.
 
 slots:
   id:
@@ -94,4 +92,117 @@ enums:
         description: the vital status is not known
         todos:
           - map this to an ontology
+
+## ------------
+## CLASSES
+## ------------
+classes:
+
+  chemical or drug or treatment:
+    mixin: true
+    id_prefixes:
+      - PUBCHEM.COMPOUND
+      - CHEMBL.COMPOUND
+      - CHEBI
+      - MAXO
+
+  device:
+    is_a: namedThing
+    description: >-
+      A thing made or adapted for a particular purpose, especially
+      a piece of mechanical or electronic equipment
+    narrow_mappings:
+      # Devices
+      - UMLSSG:DEVI
+      # Medical Device
+      - STY:T074
+      # Research Device
+      - STY:T075
+      # Drug Delivery Device
+      - STY:T203
+      # Biomedical or Dental Material
+      - STY:T122
+
+
+  catalysisSample:
+    is_a: sample
+    description: >-
+     core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
+ 
+    attributes:
+      sample_environment:
+       #range: sample_environment
+      # GasComposition:
+      #   description: Describe gas composition
+      #   range: string
+      # GasSystem:
+      #   description: Describe various flow meter and calibration permissible_values
+      #   range: GasSystemData
+
+
+  sample:
+    is_a: namedThing
+    description: >-
+      Represents a Sample
+    slots:
+      - primary_email
+      - birth_date
+      - age_in_years
+      - vital_status
+    slot_usage:
+      primary_email:
+        pattern: "^\\S+@[\\S+\\.]+\\S+"
+
+  sampleCollection:
+    tree_root: true
+    description: >-
+      A holder for Sample objects
+    attributes:
+      entries:
+        range: sample
+        multivalued: true
+        inlined: true    
+
+   ## ------
+   ## THINGS
+   ## ------
+
+  entity:
+    description: >-
+      Root Biolink Model class for all things and informational relationships, real or imagined.
+    abstract: true
+    #slots:
+      #- id
+      #- iri
+      #- category
+      #- type    # rdf:type
+      #- name
+      #- description
+      #- has attribute
+      #- deprecated
+       # evidence code(s)?
+
+  namedThing:
+    is_a: entity
+    description: "a databased entity or concept/class"
+    slots:
+      #- provided by
+      #- xref
+      #- full name
+      #- synonym
+    slot_usage:
+      category:
+        required: true
+    exact_mappings:
+      - BFO:0000001
+      - WIKIDATA:Q35120
+       # UMLS Semantic Group "Objects"
+      - UMLSSG:OBJC
+       # Entity
+      - STY:T071
+      - dcid:Thing
+
+
+
 #comment
+#...

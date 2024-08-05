@@ -6,6 +6,8 @@ PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX schema1: <http://schema.org/>
 
 
+<ChemicalFormulaValue> xsd:string
+
 linkml:String xsd:string
 
 linkml:Integer xsd:integer
@@ -44,28 +46,62 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<NamedThing>  (
-    CLOSED {
-       (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
-             schema1:description @linkml:String ?
-          ) ;
-          rdf:type [ schema1:Thing ]
-       )
-    } OR @<Sample>
-)
-
-<Sample> CLOSED {
-    (  $<Sample_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema1:Thing ] ? ;
-          schema1:email @linkml:String ? ;
-          schema1:birthDate @linkml:Date ? ;
-          <age_in_years> @linkml:Integer ? ;
-          <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
-             <https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus#UNKNOWN> ] ?
+<CatalysisSample> CLOSED {
+    (  $<CatalysisSample_tes> (  &<Sample_tes> ;
+          rdf:type [ <Sample> ] ? ;
+          <sample_environment> @linkml:String ?
        ) ;
-       rdf:type [ <Sample> ]
+       rdf:type [ <CatalysisSample> ] ?
     )
 }
+
+<ChemicalOrDrugOrTreatment> {
+    (  $<ChemicalOrDrugOrTreatment_tes> rdf:type . * ;
+       rdf:type [ <ChemicalOrDrugOrTreatment> ] ?
+    )
+}
+
+<Device> CLOSED {
+    (  $<Device_tes> (  &<NamedThing_tes> ;
+          rdf:type [ <NamedThing> ] ?
+       ) ;
+       rdf:type [ <Device> ] ?
+    )
+}
+
+<Entity>  (
+    {
+       (  $<Entity_tes> rdf:type . * ;
+          rdf:type [ <Entity> ] ?
+       )
+    } OR @<NamedThing>
+)
+
+<NamedThing>  (
+    CLOSED {
+       (  $<NamedThing_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ? ;
+             <category> @linkml:String
+          ) ;
+          rdf:type [ <NamedThing> ] ?
+       )
+    } OR @<Device> OR @<Sample>
+)
+
+<Sample>  (
+    CLOSED {
+       (  $<Sample_tes> (  &<NamedThing_tes> ;
+             rdf:type [ <NamedThing> ] ? ;
+             schema1:email @linkml:String ? ;
+             schema1:birthDate @linkml:Date ? ;
+             <age_in_years> @linkml:Integer ? ;
+             <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
+                <https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus#UNKNOWN> ] ?
+          ) ;
+          rdf:type [ <Sample> ] ?
+       )
+    } OR @<CatalysisSample>
+)
 
 <SampleCollection> CLOSED {
     (  $<SampleCollection_tes> <entries> @<Sample> * ;

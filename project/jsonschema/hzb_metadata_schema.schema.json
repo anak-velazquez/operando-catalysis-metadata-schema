@@ -1,25 +1,43 @@
 {
     "$defs": {
-        "NamedThing": {
+        "CatalysisSample": {
             "additionalProperties": false,
-            "description": "A generic grouping for any identifiable entity",
+            "description": "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat",
             "properties": {
-                "description": {
-                    "description": "A human-readable description for a thing",
+                "age_in_years": {
+                    "description": "Number of years since birth",
+                    "type": "integer"
+                },
+                "birth_date": {
+                    "description": "Date on which a person is born",
+                    "format": "date",
                     "type": "string"
                 },
-                "id": {
-                    "description": "A unique identifier for a thing",
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
                     "type": "string"
                 },
-                "name": {
-                    "description": "A human-readable name for a thing",
+                "sample_environment": {
                     "type": "string"
+                },
+                "vital_status": {
+                    "$ref": "#/$defs/PersonStatus",
+                    "description": "living or dead status"
                 }
             },
-            "required": [
-                "id"
-            ],
+            "title": "CatalysisSample",
+            "type": "object"
+        },
+        "Device": {
+            "additionalProperties": false,
+            "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+            "title": "Device",
+            "type": "object"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "a databased entity or concept/class",
             "title": "NamedThing",
             "type": "object"
         },
@@ -46,18 +64,6 @@
                     "format": "date",
                     "type": "string"
                 },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": "string"
-                },
                 "primary_email": {
                     "description": "The main email address of a person",
                     "pattern": "^\\S+@[\\S+\\.]+\\S+",
@@ -68,9 +74,6 @@
                     "description": "living or dead status"
                 }
             },
-            "required": [
-                "id"
-            ],
             "title": "Sample",
             "type": "object"
         },
@@ -79,59 +82,13 @@
             "description": "A holder for Sample objects",
             "properties": {
                 "entries": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Sample__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                    "items": {
+                        "$ref": "#/$defs/Sample"
                     },
-                    "type": "object"
+                    "type": "array"
                 }
             },
             "title": "SampleCollection",
-            "type": "object"
-        },
-        "Sample__identifier_optional": {
-            "additionalProperties": false,
-            "description": "Represents a Sample",
-            "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": "string"
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": "string"
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
-                }
-            },
-            "required": [],
-            "title": "Sample",
             "type": "object"
         }
     },
@@ -142,17 +99,10 @@
     "metamodel_version": "1.7.0",
     "properties": {
         "entries": {
-            "additionalProperties": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/Sample__identifier_optional"
-                    },
-                    {
-                        "type": "null"
-                    }
-                ]
+            "items": {
+                "$ref": "#/$defs/Sample"
             },
-            "type": "object"
+            "type": "array"
         }
     },
     "title": "hzb-metadata-schema",

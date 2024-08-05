@@ -1,11 +1,17 @@
 {
+   "BFO": "http://example.org/UNKNOWN/BFO/",
+   "CHEBI": "http://example.org/UNKNOWN/CHEBI/",
+   "CHEMBL.COMPOUND": "http://example.org/UNKNOWN/CHEMBL.COMPOUND/",
+   "MAXO": "http://example.org/UNKNOWN/MAXO/",
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
+   "PUBCHEM.COMPOUND": "http://example.org/UNKNOWN/PUBCHEM.COMPOUND/",
+   "STY": "http://example.org/UNKNOWN/STY/",
+   "UMLSSG": "http://example.org/UNKNOWN/UMLSSG/",
+   "WIKIDATA": "http://example.org/UNKNOWN/WIKIDATA/",
    "biolink": "https://w3id.org/biolink/",
+   "dcid": "http://example.org/UNKNOWN/dcid/",
    "example": "https://example.org/",
    "hzb_metadata_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema/",
    "linkml": "https://w3id.org/linkml/",
-   "schema": "http://schema.org/",
-   "NamedThing": {
-      "@id": "schema:Thing"
-   }
+   "schema": "http://schema.org/"
 }

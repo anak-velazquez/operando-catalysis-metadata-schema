@@ -40,6 +40,18 @@
   "default_range": "string",
   "types": [
     {
+      "name": "chemical_formula_value",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/ChemicalFormulaValue",
+      "description": "A chemical formula",
+      "notes": [
+        "Should be implemented as a stronger type"
+      ],
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
       "name": "string",
       "definition_uri": "https://w3id.org/linkml/String",
       "description": "A character string",
@@ -385,10 +397,6 @@
       ],
       "slot_uri": "http://schema.org/identifier",
       "identifier": true,
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
       "range": "uriorcurie",
       "required": true,
       "@type": "SlotDefinition"
@@ -402,10 +410,6 @@
         "http://schema.org/name"
       ],
       "slot_uri": "http://schema.org/name",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -418,10 +422,6 @@
         "http://schema.org/description"
       ],
       "slot_uri": "http://schema.org/description",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -484,6 +484,18 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "catalysisSample__sample_environment",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/sample_environment",
+      "alias": "sample_environment",
+      "owner": "CatalysisSample",
+      "domain_of": [
+        "CatalysisSample"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "sampleCollection__entries",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/entries",
@@ -498,7 +510,15 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "Sample_primary_email",
+      "name": "category",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sample_primary_email",
       "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/primary_email",
       "description": "The main email address of a person",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
@@ -518,24 +538,83 @@
       "range": "string",
       "pattern": "^\\S+@[\\S+\\.]+\\S+",
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "namedThing_category",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "category",
+      "domain": "NamedThing",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
+      "alias": "category",
+      "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "category",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
     {
-      "name": "NamedThing",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
-      "description": "A generic grouping for any identifiable entity",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "mappings": [
-        "schema:Thing"
+      "name": "ChemicalOrDrugOrTreatment",
+      "id_prefixes": [
+        "PUBCHEM.COMPOUND",
+        "CHEMBL.COMPOUND",
+        "CHEBI",
+        "MAXO"
       ],
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/ChemicalOrDrugOrTreatment",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "mixin": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/ChemicalOrDrugOrTreatment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Device",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
+      "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "narrow_mappings": [
+        "UMLSSG:DEVI",
+        "STY:T074",
+        "STY:T075",
+        "STY:T203",
+        "STY:T122"
+      ],
+      "is_a": "NamedThing",
       "slots": [
-        "id",
-        "name",
-        "description"
+        "namedThing_category"
       ],
       "slot_usage": {},
-      "class_uri": "http://schema.org/Thing",
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CatalysisSample",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/CatalysisSample",
+      "description": "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "Sample",
+      "slots": [
+        "namedThing_category",
+        "sample_primary_email",
+        "birth_date",
+        "age_in_years",
+        "vital_status",
+        "catalysisSample__sample_environment"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "sample_environment",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/CatalysisSample",
       "@type": "ClassDefinition"
     },
     {
@@ -545,10 +624,8 @@
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "is_a": "NamedThing",
       "slots": [
-        "id",
-        "name",
-        "description",
-        "Sample_primary_email",
+        "namedThing_category",
+        "sample_primary_email",
         "birth_date",
         "age_in_years",
         "vital_status"
@@ -578,13 +655,43 @@
       "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/SampleCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "Entity",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Entity",
+      "description": "Root Biolink Model class for all things and informational relationships, real or imagined.",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Entity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NamedThing",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
+      "description": "a databased entity or concept/class",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "exact_mappings": [
+        "BFO:0000001",
+        "WIKIDATA:Q35120",
+        "UMLSSG:OBJC",
+        "STY:T071",
+        "dcid:Thing"
+      ],
+      "is_a": "Entity",
+      "slots": [
+        "namedThing_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "hzb_metadata_schema.yaml",
-  "source_file_date": "2024-07-23T13:56:55",
-  "source_file_size": 2243,
-  "generation_date": "2024-07-23T13:57:41",
+  "source_file_date": "2024-08-05T15:01:08",
+  "source_file_size": 4633,
+  "generation_date": "2024-08-05T15:01:15",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/hzb_metadata_schema.context.jsonld",

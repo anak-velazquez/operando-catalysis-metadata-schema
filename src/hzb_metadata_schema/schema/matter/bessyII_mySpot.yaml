@@ -1,0 +1,165 @@
+---
+id: https://w3id.org/anak-velazquez/hzb-metadata-schema
+name: hzb-metadata-schema
+title: hzb-metadata-schema
+description: |-
+  (Meta)data schema HZB beamlines
+license: MIT
+see_also:
+  - https://anak-velazquez.github.io/hzb-metadata-schema
+
+prefixes:
+  hzb_metadata_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  example: https://example.org/
+default_prefix: hzb_metadata_schema
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+
+  Entry:
+    description: Experiment at mySpot beamline of BESSY II
+    slots:
+      - title: Extended title for entry
+        - required: true
+      - experiment_identifier: xxxx # uid defined by the facility, possibly linked to proposals
+      - experiment_description: xxxx # brief summary of the experiment
+      - collection_identifier: xxxx # user or Nxentry
+      - collection_description: xxxx 
+      - entry_indentifier: xxxx # uid for the measurement, defined by the facility
+      - entry_identifier_uuid: xxxx # 
+          - version: xxxx
+      - defination:
+          - required: true
+          - version: v2024.02
+          - url: https://github.com/nexusformat/definitions/blob/main/applications/NXxas.nxdl.xml
+      - start_time: xxxx # Starting time of measurement
+        - required: true
+      - end_time: xxxx # Ending time of measurement
+      - duration: xxxx # Duration of measurement
+      - collection_time: xxxx 
+      - run_cycle: xxxx # Facility specific
+      - program_name: xxxx # Name of program used to generate this file
+          - version: vxx.xx
+          - configuration: xxxx # possibly bluesky plan
+      - revision: xxxx
+      - pre_sample_flightpath: xxxx
+      - experiment_documentation:
+      - notes: xxxx # Notes describing entry
+      - thumbnail: xxxx # A small image that is representative of the entry (640x480) 
+      
+    # class_uri: schema:Thing
+
+  User:
+    description: Contact information for a user
+    slots:
+      - nx_class: NXuser
+      - name: xxxx # Name of user responsible for this entry
+      - role: xxxx # Suggested role: local_contact, PI, proposer
+      - affiliation: xxxx 
+      - address: xxxx
+      - telephone_number: xxxx
+      - fax_number: xxxx
+      - email: xxxx
+      - facility_user_id: xxxx # Their identification code on the facility address/contact database
+      - orcid: xxxx
+
+  Instrument:
+    is_a: xxxx
+    description: Collection of instruments at mySpot beamline
+    name: mySpot
+      slots:
+        source:
+          required: true
+          description: The neutron or x-ray storage ring/facility
+          type: Synchrotron X-ray Source 
+            required: true
+          name: BESSY II
+            required: true
+          probe: x-ray
+            required: true
+          mode: Multi
+        monochromator:
+          required: true 
+          description: A wavelength defining device
+          energy: xxxx # monoE
+            required: true
+            units: eV
+          crystal:  # There are two crystals
+            description: monochromator crystal 1
+            usage: xxxx # Bragg/Laue
+            type: xxxx # type of material
+            reflection: xxxx # hkl
+            d_spacing: xxxx
+            cut_angle: xxxx
+            wavelength: xxxx # Optimum diffracted wavelength
+        mirror: # There are two mirror
+          description: beamline mirror 1
+          type: xxxx # single/multi
+          incident_angle:
+          bend_angle_x:
+          bend_angle_y:
+          interior_atmosphere: xxxx # vacuum | helium | argon
+          external_material: xxxx
+          m_value: xxxx
+        slit: # There are two slits
+          description: A simple slit
+          x_gap: xxxx
+          y_gap: xxxx
+        filter: # There are three filters
+          description: For band pass beam filters
+          status: xxxx # in | out
+          thickness: xxxx
+          density: xxxx
+          unit_cell_a: xxxx
+          unit_cell_b: xxxx
+          unit_cell_c: xxxx
+          unit_cell_alpha: xxxx
+          unit_cell_beta: xxxx
+          unit_cell_gamma: xxxx
+          unit_cell_volume: xxxx
+        pinhole:
+          description: A simple pinhole
+          diameter: xxxx
+        fresnel_zoneplate_y:
+          description: A fresnel zone plate
+          focus_parameter: xxxx
+          fabrication: xxxx
+          zone_height: xxxx
+          zone_material: xxxx
+          zone_support_material: xxxx
+        incoming_beam:
+          required: true
+          data:
+            required: true
+        absorbed_beam:
+          required: true
+            data: 
+              required: true
+
+  Collection:      
+
+  Monitor:
+    is_a:
+    description:
+      attributes:
+
+  Data:
+    is_a:
+    description:
+      attributes:
+
+enums:
+  NXmonochromator:
+    description: "maybe same as NeXus documentation"
+  NXmirror:
+    description: ""
+
+
+#comment

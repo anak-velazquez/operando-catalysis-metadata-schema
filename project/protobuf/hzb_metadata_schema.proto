@@ -1,19 +1,30 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// A generic grouping for any identifiable entity
+// core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
+message CatalysisSample
+ {
+  string category = 0
+  string primaryEmail = 0
+  date birthDate = 0
+  integer ageInYears = 0
+  personStatus vitalStatus = 0
+  string sampleEnvironment = 0
+ }
+// A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+message Device
+ {
+  string category = 0
+ }
+// a databased entity or concept/class
 message NamedThing
  {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
+  string category = 0
  }
 // Represents a Sample
 message Sample
  {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
+  string category = 0
   string primaryEmail = 0
   date birthDate = 0
   integer ageInYears = 0
