@@ -97,7 +97,7 @@ enums:
 ## CLASSES
 ## ------------
 classes:
-
+  #Chemical
   chemical or drug or treatment:
     mixin: true
     id_prefixes:
@@ -105,7 +105,8 @@ classes:
       - CHEMBL.COMPOUND
       - CHEBI
       - MAXO
-
+  
+  #Device
   device:
     is_a: namedThing
     description: >-
@@ -123,7 +124,7 @@ classes:
       # Biomedical or Dental Material
       - STY:T122
 
-
+  #Catalysis Sample Core
   catalysisSample:
     is_a: sample
     description: >-
@@ -139,7 +140,7 @@ classes:
       #   description: Describe various flow meter and calibration permissible_values
       #   range: GasSystemData
 
-
+  #Sample
   sample:
     is_a: namedThing
     description: >-
@@ -152,7 +153,8 @@ classes:
     slot_usage:
       primary_email:
         pattern: "^\\S+@[\\S+\\.]+\\S+"
-
+  
+  #samples 
   sampleCollection:
     tree_root: true
     description: >-
@@ -163,6 +165,46 @@ classes:
         multivalued: true
         inlined: true    
 
+  #Experiment
+  experiment:
+    is_a: namedThing
+    description: >-
+      something following a protocol?
+ 
+
+  ##### Operando, ROCKIT #############
+
+  #Experiment
+  Rockit_experiment:
+    is_a: beamlineExperiment
+    description: >-
+      describing the standard setup for ROCK-IT beamline experiment.
+      Sonal + Ana
+ 
+ 
+ ##### MATTER #############
+ 
+  #Beamline
+  beamline:
+    is_a: namedThing
+    description: >-
+      Sonal
+
+  #Beamline Experiment
+  beamlineExperiment:
+    is_a: experiment
+    description: >-
+      Sonal
+
+  #myspot Beamline
+  MySpot_beamline:
+    is_a: beamline
+    description: >-
+      Sonal
+
+
+
+
    ## ------
    ## THINGS
    ## ------
@@ -171,13 +213,13 @@ classes:
     description: >-
       Root Biolink Model class for all things and informational relationships, real or imagined.
     abstract: true
-    #slots:
-      #- id
+    slots:
+      - id
       #- iri
       #- category
       #- type    # rdf:type
-      #- name
-      #- description
+      - name
+      - description
       #- has attribute
       #- deprecated
        # evidence code(s)?
