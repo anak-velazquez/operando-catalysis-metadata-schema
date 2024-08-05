@@ -5,61 +5,70 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-schema1:Entity a sh:NodeShape ;
+hzb_metadata_schema:CatalysisSample a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A generic grouping for any identifiable entity" ;
+    sh:description "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+            sh:path hzb_metadata_schema:sample_environment ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of years since birth" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path hzb_metadata_schema:age_in_years ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date on which a person is born" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path schema1:description ],
+            sh:path schema1:birthDate ],
+        [ sh:description "living or dead status" ;
+            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path hzb_metadata_schema:vital_status ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path schema1:name ] ;
-    sh:targetClass schema1:Entity .
+            sh:path schema1:email ;
+            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
+    sh:targetClass hzb_metadata_schema:CatalysisSample .
+
+hzb_metadata_schema:ChemicalOrDrugOrTreatment a sh:NodeShape ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass hzb_metadata_schema:ChemicalOrDrugOrTreatment .
 
 hzb_metadata_schema:Device a sh:NodeShape ;
     sh:closed true ;
     sh:description "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:name ] ;
     sh:targetClass hzb_metadata_schema:Device .
+
+hzb_metadata_schema:Entity a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Root Biolink Model class for all things and informational relationships, real or imagined." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass hzb_metadata_schema:Entity .
+
+hzb_metadata_schema:NamedThing a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "a databased entity or concept/class" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass hzb_metadata_schema:NamedThing .
 
 hzb_metadata_schema:SampleCollection a sh:NodeShape ;
     sh:closed true ;
     sh:description "A holder for Sample objects" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class hzb_metadata_schema:Sample ;
-            sh:nodeKind sh:IRI ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 0 ;
             sh:path hzb_metadata_schema:entries ] ;
     sh:targetClass hzb_metadata_schema:SampleCollection .
@@ -68,48 +77,29 @@ hzb_metadata_schema:Sample a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents a Sample" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path hzb_metadata_schema:vital_status ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Number of years since birth" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path hzb_metadata_schema:age_in_years ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
         [ sh:datatype xsd:date ;
             sh:description "Date on which a person is born" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:birthDate ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path schema1:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
+            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
+        [ sh:description "living or dead status" ;
+            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path hzb_metadata_schema:vital_status ] ;
     sh:targetClass hzb_metadata_schema:Sample .
 

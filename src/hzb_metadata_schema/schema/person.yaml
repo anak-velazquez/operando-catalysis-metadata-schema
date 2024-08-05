@@ -20,13 +20,17 @@ imports:
 
 classes:
   Person:
-    class_uri: schema:Person             
+    class_uri: schema:Person # check here:https://schema.org/Person            
     slots:   ## specified as a list
      - id
-     - full_name
+     - givenName
+     - familyName
+     #- full_name
+     - affiliation #organization
+     - email
      - aliases
      - phone
-     - age
+     - hasOccupation #@type:Role https://schema.org/Occupation
     id_prefixes:
       - ORCID
   Container:

@@ -1,23 +1,35 @@
 # metamodel_version: 1.7.0
+type CatalysisSample
+  {
+    category: String!
+    primaryEmail: String
+    birthDate: Date
+    ageInYears: Integer
+    vitalStatus: PersonStatus
+    sampleEnvironment: String
+  }
+
+interface ChemicalOrDrugOrTreatment
+  {
+  }
+
 type Device
   {
-    id: Uriorcurie!
-    name: String
-    description: String
+    category: String!
+  }
+
+interface Entity
+  {
   }
 
 type NamedThing
   {
-    id: Uriorcurie!
-    name: String
-    description: String
+    category: String!
   }
 
 type Sample
   {
-    id: Uriorcurie!
-    name: String
-    description: String
+    category: String!
     primaryEmail: String
     birthDate: Date
     ageInYears: Integer

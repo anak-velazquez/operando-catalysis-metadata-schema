@@ -1,5 +1,5 @@
 # Auto generated from hzb_metadata_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-07-25T14:36:35
+# Generation date: 2024-08-05T15:01:15
 # Schema: hzb-metadata-schema
 #
 # id: https://w3id.org/anak-velazquez/hzb-metadata-schema
@@ -32,59 +32,98 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+BFO = CurieNamespace('BFO', 'http://example.org/UNKNOWN/BFO/')
+CHEBI = CurieNamespace('CHEBI', 'http://example.org/UNKNOWN/CHEBI/')
+CHEMBL_COMPOUND = CurieNamespace('CHEMBL_COMPOUND', 'http://example.org/UNKNOWN/CHEMBL.COMPOUND/')
+MAXO = CurieNamespace('MAXO', 'http://example.org/UNKNOWN/MAXO/')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
+PUBCHEM_COMPOUND = CurieNamespace('PUBCHEM_COMPOUND', 'http://example.org/UNKNOWN/PUBCHEM.COMPOUND/')
 STY = CurieNamespace('STY', 'http://example.org/UNKNOWN/STY/')
 UMLSSG = CurieNamespace('UMLSSG', 'http://example.org/UNKNOWN/UMLSSG/')
+WIKIDATA = CurieNamespace('WIKIDATA', 'http://example.org/UNKNOWN/WIKIDATA/')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
+DCID = CurieNamespace('dcid', 'http://example.org/UNKNOWN/dcid/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 HZB_METADATA_SCHEMA = CurieNamespace('hzb_metadata_schema', 'https://w3id.org/anak-velazquez/hzb-metadata-schema/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = HZB_METADATA_SCHEMA
 
 
 # Types
+class ChemicalFormulaValue(str):
+    """ A chemical formula """
+    type_class_uri = XSD["string"]
+    type_class_curie = "xsd:string"
+    type_name = "chemical formula value"
+    type_model_uri = HZB_METADATA_SCHEMA.ChemicalFormulaValue
+
 
 # Class references
-class NamedThingId(URIorCURIE):
-    pass
 
 
-class DeviceId(NamedThingId):
-    pass
 
+class ChemicalOrDrugOrTreatment(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
 
-class SampleId(NamedThingId):
-    pass
+    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["ChemicalOrDrugOrTreatment"]
+    class_class_curie: ClassVar[str] = "hzb_metadata_schema:ChemicalOrDrugOrTreatment"
+    class_name: ClassVar[str] = "chemical or drug or treatment"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.ChemicalOrDrugOrTreatment
 
 
 @dataclass
-class NamedThing(YAMLRoot):
+class SampleCollection(YAMLRoot):
     """
-    A generic grouping for any identifiable entity
+    A holder for Sample objects
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SCHEMA["Entity"]
-    class_class_curie: ClassVar[str] = "schema:Entity"
-    class_name: ClassVar[str] = "NamedThing"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.NamedThing
+    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["SampleCollection"]
+    class_class_curie: ClassVar[str] = "hzb_metadata_schema:SampleCollection"
+    class_name: ClassVar[str] = "sampleCollection"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.SampleCollection
 
-    id: Union[str, NamedThingId] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    entries: Optional[Union[Union[dict, "Sample"], List[Union[dict, "Sample"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, NamedThingId):
-            self.id = NamedThingId(self.id)
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Sample, key_name="category", keyed=False)
 
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
+        super().__post_init__(**kwargs)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+
+class Entity(YAMLRoot):
+    """
+    Root Biolink Model class for all things and informational relationships, real or imagined.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Entity"]
+    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Entity"
+    class_name: ClassVar[str] = "entity"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Entity
+
+
+@dataclass
+class NamedThing(Entity):
+    """
+    a databased entity or concept/class
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["NamedThing"]
+    class_class_curie: ClassVar[str] = "hzb_metadata_schema:NamedThing"
+    class_name: ClassVar[str] = "namedThing"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.NamedThing
+
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.category):
+            self.MissingRequiredField("category")
+        if not isinstance(self.category, str):
+            self.category = str(self.category)
 
         super().__post_init__(**kwargs)
 
@@ -101,16 +140,7 @@ class Device(NamedThing):
     class_name: ClassVar[str] = "device"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Device
 
-    id: Union[str, DeviceId] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DeviceId):
-            self.id = DeviceId(self.id)
-
-        super().__post_init__(**kwargs)
-
+    category: str = None
 
 @dataclass
 class Sample(NamedThing):
@@ -121,21 +151,16 @@ class Sample(NamedThing):
 
     class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Sample"]
     class_class_curie: ClassVar[str] = "hzb_metadata_schema:Sample"
-    class_name: ClassVar[str] = "Sample"
+    class_name: ClassVar[str] = "sample"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Sample
 
-    id: Union[str, SampleId] = None
+    category: str = None
     primary_email: Optional[str] = None
     birth_date: Optional[Union[str, XSDDate]] = None
     age_in_years: Optional[int] = None
     vital_status: Optional[Union[str, "PersonStatus"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, SampleId):
-            self.id = SampleId(self.id)
-
         if self.primary_email is not None and not isinstance(self.primary_email, str):
             self.primary_email = str(self.primary_email)
 
@@ -152,21 +177,23 @@ class Sample(NamedThing):
 
 
 @dataclass
-class SampleCollection(YAMLRoot):
+class CatalysisSample(Sample):
     """
-    A holder for Sample objects
+    core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["SampleCollection"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:SampleCollection"
-    class_name: ClassVar[str] = "SampleCollection"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.SampleCollection
+    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["CatalysisSample"]
+    class_class_curie: ClassVar[str] = "hzb_metadata_schema:CatalysisSample"
+    class_name: ClassVar[str] = "catalysisSample"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.CatalysisSample
 
-    entries: Optional[Union[Dict[Union[str, SampleId], Union[dict, Sample]], List[Union[dict, Sample]]]] = empty_dict()
+    category: str = None
+    sample_environment: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Sample, key_name="id", keyed=True)
+        if self.sample_environment is not None and not isinstance(self.sample_environment, str):
+            self.sample_environment = str(self.sample_environment)
 
         super().__post_init__(**kwargs)
 
@@ -215,9 +242,18 @@ slots.age_in_years = Slot(uri=HZB_METADATA_SCHEMA.age_in_years, name="age_in_yea
 slots.vital_status = Slot(uri=HZB_METADATA_SCHEMA.vital_status, name="vital_status", curie=HZB_METADATA_SCHEMA.curie('vital_status'),
                    model_uri=HZB_METADATA_SCHEMA.vital_status, domain=None, range=Optional[Union[str, "PersonStatus"]])
 
-slots.sampleCollection__entries = Slot(uri=HZB_METADATA_SCHEMA.entries, name="sampleCollection__entries", curie=HZB_METADATA_SCHEMA.curie('entries'),
-                   model_uri=HZB_METADATA_SCHEMA.sampleCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, SampleId], Union[dict, Sample]], List[Union[dict, Sample]]]])
+slots.catalysisSample__sample_environment = Slot(uri=HZB_METADATA_SCHEMA.sample_environment, name="catalysisSample__sample_environment", curie=HZB_METADATA_SCHEMA.curie('sample_environment'),
+                   model_uri=HZB_METADATA_SCHEMA.catalysisSample__sample_environment, domain=None, range=Optional[str])
 
-slots.Sample_primary_email = Slot(uri=SCHEMA.email, name="Sample_primary_email", curie=SCHEMA.curie('email'),
-                   model_uri=HZB_METADATA_SCHEMA.Sample_primary_email, domain=Sample, range=Optional[str],
+slots.sampleCollection__entries = Slot(uri=HZB_METADATA_SCHEMA.entries, name="sampleCollection__entries", curie=HZB_METADATA_SCHEMA.curie('entries'),
+                   model_uri=HZB_METADATA_SCHEMA.sampleCollection__entries, domain=None, range=Optional[Union[Union[dict, Sample], List[Union[dict, Sample]]]])
+
+slots.category = Slot(uri=HZB_METADATA_SCHEMA.category, name="category", curie=HZB_METADATA_SCHEMA.curie('category'),
+                   model_uri=HZB_METADATA_SCHEMA.category, domain=None, range=str)
+
+slots.sample_primary_email = Slot(uri=SCHEMA.email, name="sample_primary_email", curie=SCHEMA.curie('email'),
+                   model_uri=HZB_METADATA_SCHEMA.sample_primary_email, domain=Sample, range=Optional[str],
                    pattern=re.compile(r'^\S+@[\S+\.]+\S+'))
+
+slots.namedThing_category = Slot(uri=HZB_METADATA_SCHEMA.category, name="namedThing_category", curie=HZB_METADATA_SCHEMA.curie('category'),
+                   model_uri=HZB_METADATA_SCHEMA.namedThing_category, domain=NamedThing, range=str)
