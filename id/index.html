@@ -256,6 +256,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
@@ -321,9 +328,76 @@
 <p>URI: <a href="http://schema.org/identifier">schema:identifier</a></p>
 <!-- no inheritance hierarchy -->
 
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Experiment/">Experiment</a></td>
+<td>something following a protocol?</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Entity/">Entity</a></td>
+<td>Root Biolink Model class for all things and informational relationships, real...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+<td>core parameters of a catalysis sample #metadata terms (parameters) are mapped...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Device/">Device</a></td>
+<td>A thing made or adapted for a particular purpose, especially a piece of mecha...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../NamedThing/">NamedThing</a></td>
+<td>a databased entity or concept/class</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../BeamlineExperiment/">BeamlineExperiment</a></td>
+<td>Sonal</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../RockitExperiment/">RockitExperiment</a></td>
+<td>describing the standard setup for ROCK-IT beamline experiment</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../MySpotBeamline/">MySpotBeamline</a></td>
+<td>Sonal</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Beamline/">Beamline</a></td>
+<td>Sonal</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Sample/">Sample</a></td>
+<td>Represents a Sample</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>
+<p>Range: <a href="../Uriorcurie/">Uriorcurie</a></p>
+</li>
+<li>
+<p>Required: True</p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -359,7 +433,10 @@ rank: 1000
 slot_uri: schema:identifier
 identifier: true
 alias: id
+domain_of:
+- entity
 range: uriorcurie
+required: true
 
 </code></pre>
 

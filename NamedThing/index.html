@@ -213,7 +213,17 @@
         click Device href "../Device"
       NamedThing &lt;|-- Sample
         click Sample href "../Sample"
+      NamedThing &lt;|-- Experiment
+        click Experiment href "../Experiment"
+      NamedThing &lt;|-- Beamline
+        click Beamline href "../Beamline"
 
+
+      NamedThing : description
+
+      NamedThing : id
+
+      NamedThing : name
 
 
 </div>
@@ -223,6 +233,8 @@
 <li><strong>NamedThing</strong><ul>
 <li><a href="../Device/">Device</a></li>
 <li><a href="../Sample/">Sample</a></li>
+<li><a href="../Experiment/">Experiment</a></li>
+<li><a href="../Beamline/">Beamline</a></li>
 </ul>
 </li>
 </ul>
@@ -240,10 +252,22 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A unique identifier for a thing</td>
+<td><a href="../Entity/">Entity</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable name for a thing</td>
+<td><a href="../Entity/">Entity</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable description for a thing</td>
+<td><a href="../Entity/">Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -312,6 +336,42 @@ slot_usage:
   category:
     name: category
     required: true
+attributes:
+  id:
+    name: id
+    description: A unique identifier for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:identifier
+    identifier: true
+    alias: id
+    owner: namedThing
+    domain_of:
+    - entity
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    description: A human-readable name for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:name
+    alias: name
+    owner: namedThing
+    domain_of:
+    - entity
+    range: string
+  description:
+    name: description
+    description: A human-readable description for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:description
+    alias: description
+    owner: namedThing
+    domain_of:
+    - entity
+    range: string
 
 </code></pre>
 </details>

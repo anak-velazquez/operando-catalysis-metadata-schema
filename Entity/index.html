@@ -211,6 +211,12 @@
       Entity &lt;|-- NamedThing
         click NamedThing href "../NamedThing"
 
+      Entity : description
+
+      Entity : id
+
+      Entity : name
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -232,10 +238,22 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A unique identifier for a thing</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable name for a thing</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable description for a thing</td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
@@ -272,6 +290,10 @@ description: Root Biolink Model class for all things and informational relations
   real or imagined.
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 abstract: true
+slots:
+- id
+- name
+- description
 
 </code></pre>
 </details>
@@ -282,6 +304,42 @@ description: Root Biolink Model class for all things and informational relations
   real or imagined.
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 abstract: true
+attributes:
+  id:
+    name: id
+    description: A unique identifier for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:identifier
+    identifier: true
+    alias: id
+    owner: entity
+    domain_of:
+    - entity
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    description: A human-readable name for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:name
+    alias: name
+    owner: entity
+    domain_of:
+    - entity
+    range: string
+  description:
+    name: description
+    description: A human-readable description for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:description
+    alias: description
+    owner: entity
+    domain_of:
+    - entity
+    range: string
 
 </code></pre>
 </details>

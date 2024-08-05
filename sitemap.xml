@@ -6,6 +6,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Beamline/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/BeamlineExperiment/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Boolean/</loc>
          <lastmod>2024-08-05</lastmod>
          <changefreq>daily</changefreq>
@@ -66,6 +76,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Experiment/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Float/</loc>
          <lastmod>2024-08-05</lastmod>
          <changefreq>daily</changefreq>
@@ -82,6 +97,11 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Jsonpointer/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/MySpotBeamline/</loc>
          <lastmod>2024-08-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -107,6 +127,11 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/PersonStatus/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/RockitExperiment/</loc>
          <lastmod>2024-08-05</lastmod>
          <changefreq>daily</changefreq>
     </url>

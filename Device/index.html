@@ -208,6 +208,12 @@
       NamedThing &lt;|-- Device
         click NamedThing href "../NamedThing"
 
+      Device : description
+
+      Device : id
+
+      Device : name
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -232,10 +238,22 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A unique identifier for a thing</td>
+<td><a href="../Entity/">Entity</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable name for a thing</td>
+<td><a href="../Entity/">Entity</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable description for a thing</td>
+<td><a href="../Entity/">Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -298,6 +316,42 @@ narrow_mappings:
 - STY:T203
 - STY:T122
 is_a: namedThing
+attributes:
+  id:
+    name: id
+    description: A unique identifier for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:identifier
+    identifier: true
+    alias: id
+    owner: device
+    domain_of:
+    - entity
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    description: A human-readable name for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:name
+    alias: name
+    owner: device
+    domain_of:
+    - entity
+    range: string
+  description:
+    name: description
+    description: A human-readable description for a thing
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    slot_uri: schema:description
+    alias: description
+    owner: device
+    domain_of:
+    - entity
+    range: string
 
 </code></pre>
 </details>
