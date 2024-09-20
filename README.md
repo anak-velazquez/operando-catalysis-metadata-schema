@@ -1,10 +1,10 @@
-# hzb-metadata-schema
+# operando catalysis (meta)data schema
 
-(Meta)data schema HZB labs. A datamodel for describing entities and their semantic associations (vocabularies/ontologies) for scientific (particularly catalytic) data at HZB.
+(Meta)data schema for operando catalysis: A datamodel for describing entities and their semantic associations (vocabularies/ontologies) for scientific (particularly catalytic) data at HZB, particularly for operando and in situ characterization of catalytic materials.
 
 At the moment, this schema is organized into 2 separate modules:
-* energy definitions
-* matter definitions 
+* energy definitions (lab-based)
+* matter definitions (synchrotron-based)
 
 # Basic content for our yml schema definitions:
 * names, identifiers, and metadata
