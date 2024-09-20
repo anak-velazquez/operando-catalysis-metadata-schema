@@ -28,7 +28,40 @@ See also uris-and-mappings: https://linkml.io/linkml/schemas/models.html
 * Chemical Entities Mixtures and Reactions Ontological Framework
 * NeXus definitions?? -
 
-# Conventions
+## Website
+
+[https://anak-velazquez.github.io/hzb-metadata-schema](https://anak-velazquez.github.io/hzb-metadata-schema)
+
+## Repository Structure
+
+* [examples/](examples/) - example data
+* [project/](project/) - project files (do not edit these)
+* [src/](src/) - source files (edit these in develop branch)
+  * [hzb_metadata_schema](src/hzb_metadata_schema)
+    * [schema](src/hzb_metadata_schema/schema) -- LinkML schema
+      (edit this)
+    * [datamodel](src/hzb_metadata_schema/datamodel) -- generated
+      Python datamodel
+* [tests/](tests/) - Python tests
+
+## Developer Documentation
+
+<details>
+Use the `make` command to generate project artefacts:
+
+* `make all`: make everything
+* `make deploy`: deploys site
+</details>
+
+## Credits
+
+This project was made with
+[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter).
+
+
+
+
+# Conventions and notes
 ATM following the same conventions a Biolink. In Biolink Model YAML any class, slot, or type is defined in `sentence case`  form. When this model is compiled to various forms (like JSON-Schema, OWL, Markdown) the representation is based on the following convention:
 
 - classes are named in `CamelCase`  form
@@ -66,32 +99,3 @@ The `slot_uri` slot can be used to define a canonical URI that is the true repre
 
 Please check more details here: https://github.com/biolink/biolink-model/blob/master/src/docs/understanding-the-model.md 
 
-## Website
-
-[https://anak-velazquez.github.io/hzb-metadata-schema](https://anak-velazquez.github.io/hzb-metadata-schema)
-
-## Repository Structure
-
-* [examples/](examples/) - example data
-* [project/](project/) - project files (do not edit these)
-* [src/](src/) - source files (edit these in develop branch)
-  * [hzb_metadata_schema](src/hzb_metadata_schema)
-    * [schema](src/hzb_metadata_schema/schema) -- LinkML schema
-      (edit this)
-    * [datamodel](src/hzb_metadata_schema/datamodel) -- generated
-      Python datamodel
-* [tests/](tests/) - Python tests
-
-## Developer Documentation
-
-<details>
-Use the `make` command to generate project artefacts:
-
-* `make all`: make everything
-* `make deploy`: deploys site
-</details>
-
-## Credits
-
-This project was made with
-[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter).
