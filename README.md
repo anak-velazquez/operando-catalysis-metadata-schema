@@ -30,7 +30,7 @@ See also uris-and-mappings: https://linkml.io/linkml/schemas/models.html
 
 ## Website
 
-[https://anak-velazquez.github.io/hzb-metadata-schema](https://anak-velazquez.github.io/hzb-metadata-schema)
+[https://anak-velazquez.github.io/hzb-metadata-schema](https://anak-velazquez.github.io/operando-catalysis-metadata-schema)
 
 ## Repository Structure
 
