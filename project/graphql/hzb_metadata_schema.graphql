@@ -1,6 +1,34 @@
 # metamodel_version: 1.7.0
+type Beamline
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+    type: String
+  }
+
+type BeamlineExperiment
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type BESSY
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
 type CatalysisSample
   {
+    id: Uriorcurie!
+    iri: String
+    name: String
     category: String!
     primaryEmail: String
     birthDate: Date
@@ -15,20 +43,76 @@ interface ChemicalOrDrugOrTreatment
 
 type Device
   {
+    id: Uriorcurie!
+    iri: String
+    name: String
     category: String!
   }
 
 interface Entity
   {
+    id: Uriorcurie!
+    iri: String
+    name: String
+  }
+
+type Experiment
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type MyspotBeamline
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+    type: String
   }
 
 type NamedThing
   {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Organization
+  {
+    name: String
+    type: String
+  }
+
+type Person
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+    primaryEmail: String
+    birthDate: Date
+    ageInYears: Integer
+    gender: GenderEnum
+    hasEmploymentHistory: [String]
+  }
+
+type RockitExperiment
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
     category: String!
   }
 
 type Sample
   {
+    id: Uriorcurie!
+    iri: String
+    name: String
     category: String!
     primaryEmail: String
     birthDate: Date
@@ -39,5 +123,18 @@ type Sample
 type SampleCollection
   {
     entries: [Sample]
+  }
+
+type Scientist
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+    primaryEmail: String
+    birthDate: Date
+    ageInYears: Integer
+    gender: GenderEnum
+    hasEmploymentHistory: [String]
   }
 

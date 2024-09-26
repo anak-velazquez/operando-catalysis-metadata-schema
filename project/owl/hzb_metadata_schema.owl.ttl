@@ -1,3 +1,5 @@
+@prefix BFO: <http://purl.obolibrary.org/obo/BFO_> .
+@prefix GSSO: <http://purl.bioontology.org/ontology/GSSO/> .
 @prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix hzb_metadata_schema: <https://w3id.org/anak-velazquez/hzb-metadata-schema/> .
@@ -5,12 +7,20 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+hzb_metadata_schema:BESSY a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "BESSY" ;
+    rdfs:subClassOf hzb_metadata_schema:NamedThing ;
+    skos:definition "Sonal" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
 hzb_metadata_schema:CatalysisSample a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "catalysisSample" ;
+    rdfs:label "CatalysisSample" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty hzb_metadata_schema:sample_environment ],
@@ -41,9 +51,16 @@ hzb_metadata_schema:Device a owl:Class,
         <STY:T203>,
         <UMLSSG:DEVI> .
 
+hzb_metadata_schema:RockitExperiment a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Rockit_experiment" ;
+    rdfs:subClassOf hzb_metadata_schema:BeamlineExperiment ;
+    skos:definition "describing the standard setup for ROCK-IT beamline experiment. Sonal + Ana" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
 hzb_metadata_schema:SampleCollection a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "sampleCollection" ;
+    rdfs:label "SampleCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom hzb_metadata_schema:Sample ;
             owl:onProperty hzb_metadata_schema:entries ],
@@ -53,29 +70,122 @@ hzb_metadata_schema:SampleCollection a owl:Class,
     skos:definition "A holder for Sample objects" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
+hzb_metadata_schema:Scientist a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Scientist" ;
+    rdfs:subClassOf hzb_metadata_schema:Person ;
+    skos:definition "A scientist (alive, dead, undead, or fictional)." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:current_address a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "current_address" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
 hzb_metadata_schema:description a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "description" ;
     skos:definition "A human-readable description for a thing" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
-hzb_metadata_schema:id a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "id" ;
-    rdfs:range linkml:Uriorcurie ;
-    skos:definition "A unique identifier for a thing" ;
-    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
-
-hzb_metadata_schema:name a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "name" ;
-    skos:definition "A human-readable name for a thing" ;
+hzb_metadata_schema:BeamlineExperiment a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "BeamlineExperiment" ;
+    rdfs:subClassOf hzb_metadata_schema:Experiment ;
+    skos:definition "Sonal" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
 hzb_metadata_schema:Entity a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "entity" ;
-    skos:definition "Root Biolink Model class for all things and informational relationships, real or imagined." ;
+    rdfs:label "Entity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty hzb_metadata_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:iri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:iri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:iri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:id ] ;
+    skos:definition "An entity is anything that exists or has existed or will exist.  Model class for all things and informational relationships, real or imagined." ;
+    skos:exactMatch BFO:0000001 ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:Experiment a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Experiment" ;
+    rdfs:subClassOf hzb_metadata_schema:NamedThing ;
+    skos:definition "something following a protocol?" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:Person a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:has_employment_history ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty hzb_metadata_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty hzb_metadata_schema:birth_date ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:gender ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom hzb_metadata_schema:GenderEnum ;
+            owl:onProperty hzb_metadata_schema:gender ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:birth_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:birth_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:has_employment_history ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:gender ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:age_in_years ],
+        hzb_metadata_schema:NamedThing ;
+    skos:altLabel "human being",
+        "individual" ;
+    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:exactMatch schema1:Person ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
 hzb_metadata_schema:chemical_formula_value a owl:Class,
@@ -88,6 +198,11 @@ hzb_metadata_schema:chemical_formula_value a owl:Class,
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
+GSSO:000369 a owl:Class,
+        hzb_metadata_schema:GenderEnum ;
+    rdfs:label "Woman" ;
+    rdfs:subClassOf hzb_metadata_schema:GenderEnum .
+
 PATO:0001421 a owl:Class,
         hzb_metadata_schema:PersonStatus ;
     rdfs:label "ALIVE" ;
@@ -98,25 +213,44 @@ PATO:0001422 a owl:Class,
     rdfs:label "DEAD" ;
     rdfs:subClassOf hzb_metadata_schema:PersonStatus .
 
-hzb_metadata_schema:NamedThing a owl:Class,
+<https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Diverse> a owl:Class,
+        hzb_metadata_schema:GenderEnum ;
+    rdfs:label "Diverse" ;
+    rdfs:subClassOf hzb_metadata_schema:GenderEnum .
+
+<https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Masculine> a owl:Class,
+        hzb_metadata_schema:GenderEnum ;
+    rdfs:label "Masculine" ;
+    rdfs:subClassOf hzb_metadata_schema:GenderEnum .
+
+hzb_metadata_schema:MyspotBeamline a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "namedThing" ;
+    rdfs:label "Myspot_Beamline" ;
+    rdfs:subClassOf hzb_metadata_schema:Beamline ;
+    skos:definition "Sonal" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:Organization a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Organization" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:name ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty hzb_metadata_schema:category ],
+            owl:onProperty hzb_metadata_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:type ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty hzb_metadata_schema:category ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty hzb_metadata_schema:category ],
-        hzb_metadata_schema:Entity ;
-    skos:definition "a databased entity or concept/class" ;
-    skos:exactMatch <BFO:0000001>,
-        <STY:T071>,
-        <UMLSSG:OBJC>,
-        <WIKIDATA:Q35120>,
-        <dcid:Thing> ;
+            owl:onProperty hzb_metadata_schema:name ] ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
 <https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus#UNKNOWN> a owl:Class,
@@ -126,33 +260,15 @@ hzb_metadata_schema:NamedThing a owl:Class,
 
 hzb_metadata_schema:Sample a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "sample" ;
+    rdfs:label "Sample" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty hzb_metadata_schema:primary_email ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty hzb_metadata_schema:age_in_years ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty hzb_metadata_schema:primary_email ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom hzb_metadata_schema:PersonStatus ;
-            owl:onProperty hzb_metadata_schema:vital_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty hzb_metadata_schema:birth_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty hzb_metadata_schema:age_in_years ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty hzb_metadata_schema:age_in_years ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty hzb_metadata_schema:birth_date ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty hzb_metadata_schema:vital_status ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Date ;
@@ -163,8 +279,26 @@ hzb_metadata_schema:Sample a owl:Class,
                     owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
             owl:onProperty hzb_metadata_schema:primary_email ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty hzb_metadata_schema:age_in_years ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom hzb_metadata_schema:PersonStatus ;
             owl:onProperty hzb_metadata_schema:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:primary_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:vital_status ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:birth_date ],
         hzb_metadata_schema:NamedThing ;
     skos:definition "Represents a Sample" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
@@ -172,6 +306,84 @@ hzb_metadata_schema:Sample a owl:Class,
 hzb_metadata_schema:entries a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "entries" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:has_employment_history a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_employment_history" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:Beamline a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Beamline" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hzb_metadata_schema:type ],
+        hzb_metadata_schema:NamedThing ;
+    skos:definition "Sonal" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:category a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "category" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:gender a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "gender" ;
+    rdfs:range hzb_metadata_schema:GenderEnum ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "A unique identifier for a thing" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:iri a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "iri" ;
+    skos:definition "Internationalized Resource Identifier" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:sample_environment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "sample_environment" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:vital_status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vital_status" ;
+    rdfs:range hzb_metadata_schema:PersonStatus ;
+    skos:definition "living or dead status" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
+hzb_metadata_schema:NamedThing a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NamedThing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty hzb_metadata_schema:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty hzb_metadata_schema:category ],
+        hzb_metadata_schema:Entity ;
+    skos:definition "a databased entity or concept/class" ;
+    skos:exactMatch <STY:T071>,
+        <UMLSSG:OBJC>,
+        <WIKIDATA:Q35120>,
+        <dcid:Thing>,
+        BFO:0000001 ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
 hzb_metadata_schema:age_in_years a owl:ObjectProperty,
@@ -188,23 +400,24 @@ hzb_metadata_schema:birth_date a owl:ObjectProperty,
     skos:definition "Date on which a person is born" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
+hzb_metadata_schema:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    skos:definition "A human-readable name for a thing" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+
 hzb_metadata_schema:primary_email a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "primary_email" ;
     skos:definition "The main email address of a person" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
-hzb_metadata_schema:sample_environment a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "sample_environment" ;
-    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
-
-hzb_metadata_schema:vital_status a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "vital_status" ;
-    rdfs:range hzb_metadata_schema:PersonStatus ;
-    skos:definition "living or dead status" ;
-    skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
+hzb_metadata_schema:GenderEnum a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( GSSO:000369 <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Masculine> <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Diverse> ) ;
+    linkml:permissible_values GSSO:000369,
+        <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Diverse>,
+        <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Masculine> .
 
 hzb_metadata_schema:PersonStatus a owl:Class,
         linkml:EnumDefinition ;
@@ -213,10 +426,28 @@ hzb_metadata_schema:PersonStatus a owl:Class,
         PATO:0001422,
         <https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus#UNKNOWN> .
 
+hzb_metadata_schema:type a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
 <https://w3id.org/anak-velazquez/hzb-metadata-schema> a owl:Ontology ;
     rdfs:label "hzb-metadata-schema" ;
     dcterms:license "MIT" ;
     dcterms:title "hzb-metadata-schema" ;
     rdfs:seeAlso <https://anak-velazquez.github.io/hzb-metadata-schema> ;
     skos:definition "(Meta)data schema HZB labs" .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf hzb_metadata_schema:Organization ;
+    owl:onProperty hzb_metadata_schema:type ;
+    owl:someValuesFrom hzb_metadata_schema:Organization .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf hzb_metadata_schema:MyspotBeamline ;
+    owl:onProperty hzb_metadata_schema:type ;
+    owl:someValuesFrom hzb_metadata_schema:MyspotBeamline .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf hzb_metadata_schema:Beamline ;
+    owl:onProperty hzb_metadata_schema:type ;
+    owl:someValuesFrom hzb_metadata_schema:Beamline .
 

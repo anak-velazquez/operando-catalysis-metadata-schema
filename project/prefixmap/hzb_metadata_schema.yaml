@@ -1,7 +1,8 @@
 {
-   "BFO": "http://example.org/UNKNOWN/BFO/",
+   "BFO": "http://purl.obolibrary.org/obo/BFO_",
    "CHEBI": "http://example.org/UNKNOWN/CHEBI/",
    "CHEMBL.COMPOUND": "http://example.org/UNKNOWN/CHEMBL.COMPOUND/",
+   "GSSO": "http://purl.bioontology.org/ontology/GSSO/",
    "MAXO": "http://example.org/UNKNOWN/MAXO/",
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
    "PUBCHEM.COMPOUND": "http://example.org/UNKNOWN/PUBCHEM.COMPOUND/",
@@ -10,8 +11,12 @@
    "WIKIDATA": "http://example.org/UNKNOWN/WIKIDATA/",
    "biolink": "https://w3id.org/biolink/",
    "dcid": "http://example.org/UNKNOWN/dcid/",
-   "example": "https://example.org/",
    "hzb_metadata_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema/",
    "linkml": "https://w3id.org/linkml/",
-   "schema": "http://schema.org/"
+   "prov": "http://www.w3.org/ns/prov#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "schema": "http://schema.org/",
+   "Person": {
+      "@id": "schema:Person"
+   }
 }

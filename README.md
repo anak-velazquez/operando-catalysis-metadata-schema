@@ -6,7 +6,38 @@ At the moment, this schema is organized into 2 separate modules:
 * energy definitions
 * matter definitions 
 
-# Basic content for our yml schema definitions:
+Mappings to: 
+* voc4cat
+* Chemical Entities Mixtures and Reactions Ontological Framework
+* NeXus definitions?? -
+
+## Website
+
+[https://anak-velazquez.github.io/hzb-metadata-schema](https://anak-velazquez.github.io/hzb-metadata-schema)
+
+## Repository Structure
+
+* [examples/](examples/) - example data
+* [project/](project/) - project files (do not edit these)
+* [src/](src/) - source files (edit these in develop branch)
+  * [hzb_metadata_schema](src/hzb_metadata_schema)
+    * [schema](src/hzb_metadata_schema/schema) -- LinkML schema
+      (edit this)
+    * [datamodel](src/hzb_metadata_schema/datamodel) -- generated
+      Python datamodel
+* [tests/](tests/) - Python tests
+
+## Developer Documentation
+
+<details>
+Use the `make` command to generate project artefacts:
+
+* `make all`: make everything
+* `make deploy`: deploys site
+</details>
+
+
+### Basic content for our yml schema definitions:
 * names, identifiers, and metadata
   * id – the unique identifier for the schema, as a IRI
   * name – the schema name. Use only alphanumeric characters, underscores, and dashes
@@ -23,12 +54,7 @@ At the moment, this schema is organized into 2 separate modules:
 
 See also uris-and-mappings: https://linkml.io/linkml/schemas/models.html 
   
-# Mappings to: 
-* voc4cat
-* Chemical Entities Mixtures and Reactions Ontological Framework
-* NeXus definitions?? -
-
-# Conventions
+### Conventions
 ATM following the same conventions a Biolink. In Biolink Model YAML any class, slot, or type is defined in `sentence case`  form. When this model is compiled to various forms (like JSON-Schema, OWL, Markdown) the representation is based on the following convention:
 
 - classes are named in `CamelCase`  form
@@ -66,30 +92,6 @@ The `slot_uri` slot can be used to define a canonical URI that is the true repre
 
 Please check more details here: https://github.com/biolink/biolink-model/blob/master/src/docs/understanding-the-model.md 
 
-## Website
-
-[https://anak-velazquez.github.io/hzb-metadata-schema](https://anak-velazquez.github.io/hzb-metadata-schema)
-
-## Repository Structure
-
-* [examples/](examples/) - example data
-* [project/](project/) - project files (do not edit these)
-* [src/](src/) - source files (edit these in develop branch)
-  * [hzb_metadata_schema](src/hzb_metadata_schema)
-    * [schema](src/hzb_metadata_schema/schema) -- LinkML schema
-      (edit this)
-    * [datamodel](src/hzb_metadata_schema/datamodel) -- generated
-      Python datamodel
-* [tests/](tests/) - Python tests
-
-## Developer Documentation
-
-<details>
-Use the `make` command to generate project artefacts:
-
-* `make all`: make everything
-* `make deploy`: deploys site
-</details>
 
 ## Credits
 

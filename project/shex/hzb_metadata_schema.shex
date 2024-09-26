@@ -4,6 +4,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX schema1: <http://schema.org/>
+PREFIX GSSO: <http://purl.bioontology.org/ontology/GSSO/>
 
 
 <ChemicalFormulaValue> xsd:string
@@ -46,12 +47,41 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<Beamline>  (
+    CLOSED {
+       (  $<Beamline_tes> (  &<NamedThing_tes> ;
+             rdf:type [ <NamedThing> ] ? ;
+             <type> @linkml:String ?
+          ) ;
+          rdf:type [ <Beamline> ]
+       )
+    } OR @<MyspotBeamline>
+)
+
+<BeamlineExperiment>  (
+    CLOSED {
+       (  $<BeamlineExperiment_tes> (  &<Experiment_tes> ;
+             rdf:type [ <Experiment> ] ?
+          ) ;
+          rdf:type [ <BeamlineExperiment> ]
+       )
+    } OR @<RockitExperiment>
+)
+
+<BESSY> CLOSED {
+    (  $<BESSY_tes> (  &<NamedThing_tes> ;
+          rdf:type [ <NamedThing> ] ?
+       ) ;
+       rdf:type [ <BESSY> ]
+    )
+}
+
 <CatalysisSample> CLOSED {
     (  $<CatalysisSample_tes> (  &<Sample_tes> ;
           rdf:type [ <Sample> ] ? ;
           <sample_environment> @linkml:String ?
        ) ;
-       rdf:type [ <CatalysisSample> ] ?
+       rdf:type [ <CatalysisSample> ]
     )
 }
 
@@ -65,17 +95,37 @@ linkml:Sparqlpath xsd:string
     (  $<Device_tes> (  &<NamedThing_tes> ;
           rdf:type [ <NamedThing> ] ?
        ) ;
-       rdf:type [ <Device> ] ?
+       rdf:type [ <Device> ]
     )
 }
 
 <Entity>  (
     {
-       (  $<Entity_tes> rdf:type . * ;
-          rdf:type [ <Entity> ] ?
+       (  $<Entity_tes> (  <iri> @linkml:String ? ;
+             schema1:name @linkml:String ?
+          ) ;
+          rdf:type [ <Entity> ]
        )
     } OR @<NamedThing>
 )
+
+<Experiment>  (
+    CLOSED {
+       (  $<Experiment_tes> (  &<NamedThing_tes> ;
+             rdf:type [ <NamedThing> ] ?
+          ) ;
+          rdf:type [ <Experiment> ]
+       )
+    } OR @<BeamlineExperiment>
+)
+
+<MyspotBeamline> CLOSED {
+    (  $<MyspotBeamline_tes> (  &<Beamline_tes> ;
+          rdf:type [ <Beamline> ] ?
+       ) ;
+       rdf:type [ <MyspotBeamline> ]
+    )
+}
 
 <NamedThing>  (
     CLOSED {
@@ -83,10 +133,42 @@ linkml:Sparqlpath xsd:string
              rdf:type [ <Entity> ] ? ;
              <category> @linkml:String
           ) ;
-          rdf:type [ <NamedThing> ] ?
+          rdf:type [ <NamedThing> ]
        )
-    } OR @<Device> OR @<Sample>
+    } OR @<BESSY> OR @<Beamline> OR @<Experiment> OR @<Person> OR @<Sample> OR @<Device>
 )
+
+<Organization> CLOSED {
+    (  $<Organization_tes> (  <name> @linkml:String ? ;
+          <type> @linkml:String ?
+       ) ;
+       rdf:type [ <Organization> ] ?
+    )
+}
+
+<Person>  (
+    CLOSED {
+       (  $<Person_tes> (  &<NamedThing_tes> ;
+             rdf:type [ <NamedThing> ] ? ;
+             schema1:email @linkml:String ? ;
+             schema1:birthDate @linkml:Date ? ;
+             <age_in_years> @linkml:Integer ? ;
+             schema1:gender [ GSSO:000369 <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Masculine>
+                <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Diverse> ] ? ;
+             <has_employment_history> @linkml:String *
+          ) ;
+          rdf:type [ schema1:Person ]
+       )
+    } OR @<Scientist>
+)
+
+<RockitExperiment> CLOSED {
+    (  $<RockitExperiment_tes> (  &<BeamlineExperiment_tes> ;
+          rdf:type [ <BeamlineExperiment> ] ?
+       ) ;
+       rdf:type [ <RockitExperiment> ]
+    )
+}
 
 <Sample>  (
     CLOSED {
@@ -98,7 +180,7 @@ linkml:Sparqlpath xsd:string
              <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
                 <https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus#UNKNOWN> ] ?
           ) ;
-          rdf:type [ <Sample> ] ?
+          rdf:type [ <Sample> ]
        )
     } OR @<CatalysisSample>
 )
@@ -106,6 +188,14 @@ linkml:Sparqlpath xsd:string
 <SampleCollection> CLOSED {
     (  $<SampleCollection_tes> <entries> @<Sample> * ;
        rdf:type [ <SampleCollection> ] ?
+    )
+}
+
+<Scientist> CLOSED {
+    (  $<Scientist_tes> (  &<Person_tes> ;
+          rdf:type [ schema1:Person ] ?
+       ) ;
+       rdf:type [ <Scientist> ]
     )
 }
 

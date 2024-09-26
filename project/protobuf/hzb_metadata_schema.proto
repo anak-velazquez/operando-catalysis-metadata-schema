@@ -1,9 +1,37 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
+// Sonal
+message Beamline
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+  string type = 0
+ }
+// Sonal
+message BeamlineExperiment
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// Sonal
+message BESSY
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
 // core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
 message CatalysisSample
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
   string primaryEmail = 0
   date birthDate = 0
@@ -14,16 +42,68 @@ message CatalysisSample
 // A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
 message Device
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
+ }
+// something following a protocol?
+message Experiment
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// Sonal
+message MyspotBeamline
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+  string type = 0
  }
 // a databased entity or concept/class
 message NamedThing
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+message Organization
+ {
+  string name = 0
+  string type = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Person
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+  string primaryEmail = 0
+  date birthDate = 0
+  integer ageInYears = 0
+  genderEnum gender = 0
+ repeated  string hasEmploymentHistory = 0
+ }
+// describing the standard setup for ROCK-IT beamline experiment. Sonal + Ana
+message RockitExperiment
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
  }
 // Represents a Sample
 message Sample
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
   string primaryEmail = 0
   date birthDate = 0
@@ -34,4 +114,17 @@ message Sample
 message SampleCollection
  {
  repeated  sample entries = 0
+ }
+// A scientist (alive, dead, undead, or fictional).
+message Scientist
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+  string primaryEmail = 0
+  date birthDate = 0
+  integer ageInYears = 0
+  genderEnum gender = 0
+ repeated  string hasEmploymentHistory = 0
  }

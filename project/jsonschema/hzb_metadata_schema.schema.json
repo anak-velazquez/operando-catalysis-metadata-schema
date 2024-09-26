@@ -1,5 +1,80 @@
 {
     "$defs": {
+        "BESSY": {
+            "additionalProperties": false,
+            "description": "Sonal",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "BESSY",
+            "type": "object"
+        },
+        "Beamline": {
+            "additionalProperties": false,
+            "description": "Sonal",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "Beamline"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Beamline",
+            "type": "object"
+        },
+        "BeamlineExperiment": {
+            "additionalProperties": false,
+            "description": "Sonal",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "BeamlineExperiment",
+            "type": "object"
+        },
         "CatalysisSample": {
             "additionalProperties": false,
             "description": "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat",
@@ -11,6 +86,18 @@
                 "birth_date": {
                     "description": "Date on which a person is born",
                     "format": "date",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
                     "type": "string"
                 },
                 "primary_email": {
@@ -26,19 +113,180 @@
                     "description": "living or dead status"
                 }
             },
+            "required": [
+                "id"
+            ],
             "title": "CatalysisSample",
             "type": "object"
         },
         "Device": {
             "additionalProperties": false,
             "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
             "title": "Device",
+            "type": "object"
+        },
+        "Experiment": {
+            "additionalProperties": false,
+            "description": "something following a protocol?",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Experiment",
+            "type": "object"
+        },
+        "GenderEnum": {
+            "description": "",
+            "enum": [
+                "Woman",
+                "Masculine",
+                "Diverse"
+            ],
+            "title": "GenderEnum",
+            "type": "string"
+        },
+        "MyspotBeamline": {
+            "additionalProperties": false,
+            "description": "Sonal",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "Myspot_Beamline"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MyspotBeamline",
             "type": "object"
         },
         "NamedThing": {
             "additionalProperties": false,
             "description": "a databased entity or concept/class",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
             "title": "NamedThing",
+            "type": "object"
+        },
+        "Organization": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "Organization"
+                    ],
+                    "type": "string"
+                }
+            },
+            "title": "Organization",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "age_in_years": {
+                    "description": "Number of years since birth",
+                    "type": "integer"
+                },
+                "birth_date": {
+                    "description": "Date on which a person is born",
+                    "format": "date",
+                    "type": "string"
+                },
+                "gender": {
+                    "$ref": "#/$defs/GenderEnum"
+                },
+                "has_employment_history": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Person",
             "type": "object"
         },
         "PersonStatus": {
@@ -50,6 +298,29 @@
             ],
             "title": "PersonStatus",
             "type": "string"
+        },
+        "RockitExperiment": {
+            "additionalProperties": false,
+            "description": "describing the standard setup for ROCK-IT beamline experiment. Sonal + Ana",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "RockitExperiment",
+            "type": "object"
         },
         "Sample": {
             "additionalProperties": false,
@@ -64,6 +335,18 @@
                     "format": "date",
                     "type": "string"
                 },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
                 "primary_email": {
                     "description": "The main email address of a person",
                     "pattern": "^\\S+@[\\S+\\.]+\\S+",
@@ -74,6 +357,9 @@
                     "description": "living or dead status"
                 }
             },
+            "required": [
+                "id"
+            ],
             "title": "Sample",
             "type": "object"
         },
@@ -82,13 +368,104 @@
             "description": "A holder for Sample objects",
             "properties": {
                 "entries": {
-                    "items": {
-                        "$ref": "#/$defs/Sample"
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Sample__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
-                    "type": "array"
+                    "type": "object"
                 }
             },
             "title": "SampleCollection",
+            "type": "object"
+        },
+        "Sample__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Represents a Sample",
+            "properties": {
+                "age_in_years": {
+                    "description": "Number of years since birth",
+                    "type": "integer"
+                },
+                "birth_date": {
+                    "description": "Date on which a person is born",
+                    "format": "date",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                    "type": "string"
+                },
+                "vital_status": {
+                    "$ref": "#/$defs/PersonStatus",
+                    "description": "living or dead status"
+                }
+            },
+            "required": [],
+            "title": "Sample",
+            "type": "object"
+        },
+        "Scientist": {
+            "additionalProperties": false,
+            "description": "A scientist (alive, dead, undead, or fictional).",
+            "properties": {
+                "age_in_years": {
+                    "description": "Number of years since birth",
+                    "type": "integer"
+                },
+                "birth_date": {
+                    "description": "Date on which a person is born",
+                    "format": "date",
+                    "type": "string"
+                },
+                "gender": {
+                    "$ref": "#/$defs/GenderEnum"
+                },
+                "has_employment_history": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Scientist",
             "type": "object"
         }
     },
@@ -99,10 +476,17 @@
     "metamodel_version": "1.7.0",
     "properties": {
         "entries": {
-            "items": {
-                "$ref": "#/$defs/Sample"
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/Sample__identifier_optional"
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
             },
-            "type": "array"
+            "type": "object"
         }
     },
     "title": "hzb-metadata-schema",

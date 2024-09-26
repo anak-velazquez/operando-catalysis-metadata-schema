@@ -32,8 +32,20 @@
       "prefix_reference": "http://purl.obolibrary.org/obo/PATO_"
     },
     {
-      "prefix_prefix": "example",
-      "prefix_reference": "https://example.org/"
+      "prefix_prefix": "rdfs",
+      "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    {
+      "prefix_prefix": "prov",
+      "prefix_reference": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "prefix_prefix": "GSSO",
+      "prefix_reference": "http://purl.bioontology.org/ontology/GSSO/"
+    },
+    {
+      "prefix_prefix": "BFO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/BFO_"
     }
   ],
   "default_prefix": "hzb_metadata_schema",
@@ -384,6 +396,32 @@
           ]
         }
       ]
+    },
+    {
+      "name": "gender_enum",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "permissible_values": [
+        {
+          "text": "Woman",
+          "description": "identified as woman",
+          "meaning": "GSSO:000369"
+        },
+        {
+          "text": "Masculine",
+          "description": "masculine",
+          "todos": [
+            "map this to an ontology"
+          ]
+        },
+        {
+          "text": "Diverse",
+          "description": "other",
+          "todos": [
+            "map this to an ontology"
+          ]
+        }
+      ]
     }
   ],
   "slots": [
@@ -397,8 +435,33 @@
       ],
       "slot_uri": "http://schema.org/identifier",
       "identifier": true,
+      "owner": "Entity",
+      "domain_of": [
+        "Entity"
+      ],
       "range": "uriorcurie",
       "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "iri",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/iri",
+      "description": "Internationalized Resource Identifier",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/iri",
+      "owner": "Entity",
+      "domain_of": [
+        "Entity"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "category",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -410,6 +473,10 @@
         "http://schema.org/name"
       ],
       "slot_uri": "http://schema.org/name",
+      "owner": "Entity",
+      "domain_of": [
+        "Entity"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -436,6 +503,7 @@
       "slot_uri": "http://schema.org/email",
       "owner": "Sample",
       "domain_of": [
+        "Person",
         "Sample"
       ],
       "range": "string",
@@ -452,6 +520,7 @@
       "slot_uri": "http://schema.org/birthDate",
       "owner": "Sample",
       "domain_of": [
+        "Person",
         "Sample"
       ],
       "range": "date",
@@ -465,6 +534,7 @@
       "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/age_in_years",
       "owner": "Sample",
       "domain_of": [
+        "Person",
         "Sample"
       ],
       "range": "integer",
@@ -481,6 +551,43 @@
         "Sample"
       ],
       "range": "PersonStatus",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gender",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/gender",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "mappings": [
+        "http://schema.org/gender"
+      ],
+      "slot_uri": "http://schema.org/gender",
+      "owner": "Person",
+      "domain_of": [
+        "Person"
+      ],
+      "range": "gender_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_employment_history",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/has_employment_history",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/has_employment_history",
+      "owner": "Person",
+      "domain_of": [
+        "Person"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "current_address",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/current_address",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/current_address",
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -510,15 +617,45 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "category",
+      "name": "beamline__type",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/type",
+      "designates_type": true,
+      "alias": "type",
+      "owner": "Beamline",
+      "domain_of": [
+        "Beamline"
+      ],
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "sample_primary_email",
+      "name": "organization__name",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/name",
+      "alias": "name",
+      "owner": "Organization",
+      "domain_of": [
+        "Organization"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "organization__type",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/type",
+      "designates_type": true,
+      "alias": "type",
+      "owner": "Organization",
+      "domain_of": [
+        "Organization"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Sample_primary_email",
       "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/primary_email",
       "description": "The main email address of a person",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
@@ -540,7 +677,8 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "namedThing_category",
+      "name": "NamedThing_category",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "is_a": "category",
       "domain": "NamedThing",
@@ -574,6 +712,55 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "Person",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Person",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "aliases": [
+        "human being",
+        "individual"
+      ],
+      "mappings": [
+        "schema:Person"
+      ],
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category",
+        "primary_email",
+        "birth_date",
+        "age_in_years",
+        "gender",
+        "has_employment_history"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://schema.org/Person",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Scientist",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Scientist",
+      "description": "A scientist (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "Person",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category",
+        "primary_email",
+        "birth_date",
+        "age_in_years",
+        "gender",
+        "has_employment_history"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Scientist",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "Device",
       "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
       "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
@@ -587,7 +774,10 @@
       ],
       "is_a": "NamedThing",
       "slots": [
-        "namedThing_category"
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
@@ -600,8 +790,11 @@
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "is_a": "Sample",
       "slots": [
-        "namedThing_category",
-        "sample_primary_email",
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category",
+        "Sample_primary_email",
         "birth_date",
         "age_in_years",
         "vital_status",
@@ -624,8 +817,11 @@
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "is_a": "NamedThing",
       "slots": [
-        "namedThing_category",
-        "sample_primary_email",
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category",
+        "Sample_primary_email",
         "birth_date",
         "age_in_years",
         "vital_status"
@@ -657,11 +853,149 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "Experiment",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Experiment",
+      "description": "something following a protocol?",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Experiment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RockitExperiment",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/RockitExperiment",
+      "description": "describing the standard setup for ROCK-IT beamline experiment. Sonal + Ana",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "BeamlineExperiment",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/RockitExperiment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BESSY",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/BESSY",
+      "description": "Sonal",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/BESSY",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MyspotBeamline",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/MyspotBeamline",
+      "description": "Sonal",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "Beamline",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category",
+        "beamline__type"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/MyspotBeamline",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Beamline",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Beamline",
+      "description": "Sonal",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category",
+        "beamline__type"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "type",
+          "designates_type": true,
+          "range": "string",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Beamline",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BeamlineExperiment",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/BeamlineExperiment",
+      "description": "Sonal",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/BeamlineExperiment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Organization",
+      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Organization",
+      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "slots": [
+        "organization__name",
+        "organization__type"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "name",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "type",
+          "designates_type": true,
+          "range": "string",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Organization",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "Entity",
       "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Entity",
-      "description": "Root Biolink Model class for all things and informational relationships, real or imagined.",
+      "description": "An entity is anything that exists or has existed or will exist.  Model class for all things and informational relationships, real or imagined.",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "exact_mappings": [
+        "BFO:0000001"
+      ],
       "abstract": true,
+      "slots": [
+        "id",
+        "iri",
+        "name"
+      ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Entity",
       "@type": "ClassDefinition"
@@ -680,7 +1014,10 @@
       ],
       "is_a": "Entity",
       "slots": [
-        "namedThing_category"
+        "id",
+        "iri",
+        "name",
+        "NamedThing_category"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
@@ -689,9 +1026,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "hzb_metadata_schema.yaml",
-  "source_file_date": "2024-08-05T15:01:08",
-  "source_file_size": 4633,
-  "generation_date": "2024-08-05T15:01:15",
+  "source_file_date": "2024-08-05T18:33:25",
+  "source_file_size": 7388,
+  "generation_date": "2024-08-05T18:33:37",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/hzb_metadata_schema.context.jsonld",
