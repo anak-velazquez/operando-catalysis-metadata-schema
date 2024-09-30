@@ -200,7 +200,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-entity">Class: Entity</h1>
-<p><em>Root Biolink Model class for all things and informational relationships, real or imagined.</em></p>
+<p><em>An entity is anything that exists or has existed or will exist.  Model class for all things and informational relationships, real or imagined.</em></p>
 <ul>
 <li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
 </ul>
@@ -208,12 +208,12 @@
 <div class="mermaid"> classDiagram
     class Entity
     click Entity href "../Entity"
-      Entity &lt;|-- NamedThing
-        click NamedThing href "../NamedThing"
-
-      Entity : description
+      Entity &lt;|-- NamedEntity
+        click NamedEntity href "../NamedEntity"
 
       Entity : id
+
+      Entity : iri
 
       Entity : name
 
@@ -222,7 +222,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>Entity</strong><ul>
-<li><a href="../NamedThing/">NamedThing</a></li>
+<li><a href="../NamedEntity/">NamedEntity</a></li>
 </ul>
 </li>
 </ul>
@@ -244,15 +244,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../name/">name</a></td>
+<td><a href="../iri/">iri</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
+<td>Internationalized Resource Identifier</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../description/">description</a></td>
+<td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
+<td>A human-readable name for a thing</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -279,30 +279,38 @@
 <td>native</td>
 <td>hzb_metadata_schema:Entity</td>
 </tr>
+<tr>
+<td>exact</td>
+<td>BFO:0000001</td>
+</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: entity
-description: Root Biolink Model class for all things and informational relationships,
-  real or imagined.
+<pre><code class="language-yaml">name: Entity
+description: An entity is anything that exists or has existed or will exist.  Model
+  class for all things and informational relationships, real or imagined.
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+exact_mappings:
+- BFO:0000001
 abstract: true
 slots:
 - id
+- iri
 - name
-- description
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: entity
-description: Root Biolink Model class for all things and informational relationships,
-  real or imagined.
+<pre><code class="language-yaml">name: Entity
+description: An entity is anything that exists or has existed or will exist.  Model
+  class for all things and informational relationships, real or imagined.
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+exact_mappings:
+- BFO:0000001
 abstract: true
 attributes:
   id:
@@ -313,11 +321,21 @@ attributes:
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: entity
+    owner: Entity
     domain_of:
-    - entity
+    - Entity
     range: uriorcurie
     required: true
+  iri:
+    name: iri
+    description: Internationalized Resource Identifier
+    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    rank: 1000
+    alias: iri
+    owner: Entity
+    domain_of:
+    - Entity
+    range: string
   name:
     name: name
     description: A human-readable name for a thing
@@ -325,20 +343,10 @@ attributes:
     rank: 1000
     slot_uri: schema:name
     alias: name
-    owner: entity
+    owner: Entity
     domain_of:
-    - entity
-    range: string
-  description:
-    name: description
-    description: A human-readable description for a thing
-    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
-    rank: 1000
-    slot_uri: schema:description
-    alias: description
-    owner: entity
-    domain_of:
-    - entity
+    - Entity
+    - NamedEntity
     range: string
 
 </code></pre>

@@ -259,17 +259,19 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: sampleCollection
+<pre><code class="language-yaml">name: SampleCollection
 description: A holder for Sample objects
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 attributes:
   entries:
     name: entries
-    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    from_schema: https://w3id.org/anak-velazquez/core/
     rank: 1000
     domain_of:
-    - sampleCollection
-    range: sample
+    - SampleCollection
+    - CatalysisSampleCollection
+    - ReactionProductCollection
+    range: Sample
     multivalued: true
     inlined: true
 tree_root: true
@@ -278,19 +280,21 @@ tree_root: true
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: sampleCollection
+<pre><code class="language-yaml">name: SampleCollection
 description: A holder for Sample objects
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 attributes:
   entries:
     name: entries
-    from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
+    from_schema: https://w3id.org/anak-velazquez/core/
     rank: 1000
     alias: entries
-    owner: sampleCollection
+    owner: SampleCollection
     domain_of:
-    - sampleCollection
-    range: sample
+    - SampleCollection
+    - CatalysisSampleCollection
+    - ReactionProductCollection
+    range: Sample
     multivalued: true
     inlined: true
 tree_root: true
