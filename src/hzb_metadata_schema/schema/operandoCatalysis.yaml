@@ -22,11 +22,27 @@ default_range: string
 classes:
  
 #####SampleEnvironment
-#lorem ipsum
+#
   SampleEnvironment:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Controlled environment in which the sample is studied (operando research).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####EnvironmentDynamics
+#
+  EnvironmentDynamics:
+    is_a: NamedEntity
+    description: >-
+      Dynamic or time-resolved environmental conditions during an 
+      experiment (e.g.for in-situ measurements).
     class_uri: 
     mixins:
       #- HasAliases
@@ -37,11 +53,27 @@ classes:
 
 
 #####SamplePositioning
-#lorem ipsum
+#
   SamplePositioning:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      The arrangement or location of samples within an experimental setup, 
+      critical for ensuring accurate data collection and analysis. 
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####File
+#
+  File:
+    is_a: NamedEntity
+    description: >-
+      Stores data related to the experiment (e.g. images, videos, or other files).
     class_uri: 
     mixins:
       #- HasAliases
