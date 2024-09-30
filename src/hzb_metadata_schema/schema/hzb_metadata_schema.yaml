@@ -1,7 +1,7 @@
 ---
 id: https://w3id.org/anak-velazquez/hzb-metadata-schema
-name: hzb-operando-catalysis-metadata-schema
-title: hzb-operando-catalysis-metadata-schema
+name: hzb-metadata-schema
+title: hzb-metadata-schema
 description: |-
   (Meta)data schema HZB labs
 license: MIT
