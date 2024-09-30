@@ -1,5 +1,5 @@
 # Auto generated from hzb_metadata_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-05T18:33:38
+# Generation date: 2024-09-27T16:18:29
 # Schema: hzb-metadata-schema
 #
 # id: https://w3id.org/anak-velazquez/hzb-metadata-schema
@@ -33,12 +33,8 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
-CHEBI = CurieNamespace('CHEBI', 'http://example.org/UNKNOWN/CHEBI/')
-CHEMBL_COMPOUND = CurieNamespace('CHEMBL_COMPOUND', 'http://example.org/UNKNOWN/CHEMBL.COMPOUND/')
 GSSO = CurieNamespace('GSSO', 'http://purl.bioontology.org/ontology/GSSO/')
-MAXO = CurieNamespace('MAXO', 'http://example.org/UNKNOWN/MAXO/')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
-PUBCHEM_COMPOUND = CurieNamespace('PUBCHEM_COMPOUND', 'http://example.org/UNKNOWN/PUBCHEM.COMPOUND/')
 STY = CurieNamespace('STY', 'http://example.org/UNKNOWN/STY/')
 UMLSSG = CurieNamespace('UMLSSG', 'http://example.org/UNKNOWN/UMLSSG/')
 WIKIDATA = CurieNamespace('WIKIDATA', 'http://example.org/UNKNOWN/WIKIDATA/')
@@ -67,11 +63,27 @@ class EntityId(URIorCURIE):
     pass
 
 
-class NamedThingId(EntityId):
+class NamedEntityId(EntityId):
     pass
 
 
-class PersonId(NamedThingId):
+class DataCiteId(NamedEntityId):
+    pass
+
+
+class PersonId(NamedEntityId):
+    pass
+
+
+class ProjectId(NamedEntityId):
+    pass
+
+
+class DeviceId(NamedEntityId):
+    pass
+
+
+class SampleId(NamedEntityId):
     pass
 
 
@@ -79,31 +91,63 @@ class ScientistId(PersonId):
     pass
 
 
-class DeviceId(NamedThingId):
-    pass
-
-
-class SampleId(NamedThingId):
-    pass
-
-
 class CatalysisSampleId(SampleId):
     pass
 
 
-class ExperimentId(NamedThingId):
+class CatalystId(CatalysisSampleId):
     pass
 
 
-class BESSYId(NamedThingId):
+class ThinFilmCatalystId(CatalystId):
     pass
 
 
-class BeamlineId(NamedThingId):
+class PowderCatalystId(CatalystId):
     pass
 
 
-class MyspotBeamlineId(BeamlineId):
+class RecipeId(NamedEntityId):
+    pass
+
+
+class MixtureId(NamedEntityId):
+    pass
+
+
+class WorkflowId(NamedEntityId):
+    pass
+
+
+class ProcessId(NamedEntityId):
+    pass
+
+
+class ExperimentId(NamedEntityId):
+    pass
+
+
+class MeasurementId(NamedEntityId):
+    pass
+
+
+class ParameterId(NamedEntityId):
+    pass
+
+
+class ReactionId(NamedEntityId):
+    pass
+
+
+class ReactionProductId(NamedEntityId):
+    pass
+
+
+class ReactorId(NamedEntityId):
+    pass
+
+
+class BeamlineId(NamedEntityId):
     pass
 
 
@@ -111,7 +155,27 @@ class BeamlineExperimentId(ExperimentId):
     pass
 
 
-class RockitExperimentId(BeamlineExperimentId):
+class BeamlineScientistId(PersonId):
+    pass
+
+
+class MySpotId(BeamlineId):
+    pass
+
+
+class EMILPinkId(BeamlineId):
+    pass
+
+
+class EMILOAESEId(BeamlineId):
+    pass
+
+
+class SampleEnvironmentId(NamedEntityId):
+    pass
+
+
+class SamplePositioningId(NamedEntityId):
     pass
 
 
@@ -125,48 +189,6 @@ class ChemicalOrDrugOrTreatment(YAMLRoot):
 
 
 @dataclass
-class SampleCollection(YAMLRoot):
-    """
-    A holder for Sample objects
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["SampleCollection"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:SampleCollection"
-    class_name: ClassVar[str] = "SampleCollection"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.SampleCollection
-
-    entries: Optional[Union[Dict[Union[str, SampleId], Union[dict, "Sample"]], List[Union[dict, "Sample"]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Sample, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class Organization(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Organization"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Organization"
-    class_name: ClassVar[str] = "Organization"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Organization
-
-    name: Optional[str] = None
-    type: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        self.type = str(self.class_name)
-
-        super().__post_init__(**kwargs)
-        self.unknown_type = str(self.class_name)
-
-
-@dataclass
 class Entity(YAMLRoot):
     """
     An entity is anything that exists or has existed or will exist. Model class for all things and informational
@@ -174,8 +196,8 @@ class Entity(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Entity"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Entity"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/Entity")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Entity"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Entity
 
@@ -199,36 +221,64 @@ class Entity(YAMLRoot):
 
 
 @dataclass
-class NamedThing(Entity):
+class NamedEntity(Entity):
     """
     a databased entity or concept/class
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["NamedThing"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:NamedThing"
-    class_name: ClassVar[str] = "NamedThing"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.NamedThing
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/NamedEntity")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "NamedEntity"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.NamedEntity
 
-    id: Union[str, NamedThingId] = None
+    id: Union[str, NamedEntityId] = None
     category: str = None
+    name: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, NamedThingId):
-            self.id = NamedThingId(self.id)
+        if not isinstance(self.id, NamedEntityId):
+            self.id = NamedEntityId(self.id)
 
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
         if not isinstance(self.category, str):
             self.category = str(self.category)
 
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
         super().__post_init__(**kwargs)
 
 
 @dataclass
-class Person(NamedThing):
+class DataCite(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/DataCite")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "DataCite"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.DataCite
+
+    id: Union[str, DataCiteId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataCiteId):
+            self.id = DataCiteId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Person(NamedEntity):
     """
     A person (alive, dead, undead, or fictional).
     """
@@ -273,14 +323,106 @@ class Person(NamedThing):
 
 
 @dataclass
-class Scientist(Person):
+class Project(NamedEntity):
     """
-    A scientist (alive, dead, undead, or fictional).
+    lorem
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Scientist"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Scientist"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/Project")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Project"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Project
+
+    id: Union[str, ProjectId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ProjectId):
+            self.id = ProjectId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Device(NamedEntity):
+    """
+    A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/Device")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Device"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Device
+
+    id: Union[str, DeviceId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DeviceId):
+            self.id = DeviceId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Sample(NamedEntity):
+    """
+    Information about a generic laboratory sample, discipline agnostic.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/Sample")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Sample"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Sample
+
+    id: Union[str, SampleId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SampleId):
+            self.id = SampleId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class SampleCollection(YAMLRoot):
+    """
+    A holder for Sample objects
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/core/SampleCollection")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "SampleCollection"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.SampleCollection
+
+    entries: Optional[Union[Dict[Union[str, SampleId], Union[dict, Sample]], List[Union[dict, Sample]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Sample, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Scientist(Person):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Scientist")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Scientist"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Scientist
 
@@ -297,84 +439,19 @@ class Scientist(Person):
 
 
 @dataclass
-class Device(NamedThing):
-    """
-    A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Device"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Device"
-    class_name: ClassVar[str] = "device"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Device
-
-    id: Union[str, DeviceId] = None
-    category: str = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DeviceId):
-            self.id = DeviceId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class Sample(NamedThing):
-    """
-    Represents a Sample
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Sample"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Sample"
-    class_name: ClassVar[str] = "Sample"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Sample
-
-    id: Union[str, SampleId] = None
-    category: str = None
-    primary_email: Optional[str] = None
-    birth_date: Optional[Union[str, XSDDate]] = None
-    age_in_years: Optional[int] = None
-    vital_status: Optional[Union[str, "PersonStatus"]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, SampleId):
-            self.id = SampleId(self.id)
-
-        if self.primary_email is not None and not isinstance(self.primary_email, str):
-            self.primary_email = str(self.primary_email)
-
-        if self.birth_date is not None and not isinstance(self.birth_date, XSDDate):
-            self.birth_date = XSDDate(self.birth_date)
-
-        if self.age_in_years is not None and not isinstance(self.age_in_years, int):
-            self.age_in_years = int(self.age_in_years)
-
-        if self.vital_status is not None and not isinstance(self.vital_status, PersonStatus):
-            self.vital_status = PersonStatus(self.vital_status)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
 class CatalysisSample(Sample):
     """
-    core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
+    A person (alive, dead, undead, or fictional).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["CatalysisSample"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:CatalysisSample"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/CatalysisSample")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "CatalysisSample"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.CatalysisSample
 
     id: Union[str, CatalysisSampleId] = None
     category: str = None
-    sample_environment: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -382,21 +459,186 @@ class CatalysisSample(Sample):
         if not isinstance(self.id, CatalysisSampleId):
             self.id = CatalysisSampleId(self.id)
 
-        if self.sample_environment is not None and not isinstance(self.sample_environment, str):
-            self.sample_environment = str(self.sample_environment)
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Catalyst(CatalysisSample):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Catalyst")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Catalyst"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Catalyst
+
+    id: Union[str, CatalystId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CatalystId):
+            self.id = CatalystId(self.id)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass
-class Experiment(NamedThing):
+class ThinFilmCatalyst(Catalyst):
     """
-    something following a protocol?
+    A person (alive, dead, undead, or fictional).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Experiment"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Experiment"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/ThinFilmCatalyst")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "ThinFilmCatalyst"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.ThinFilmCatalyst
+
+    id: Union[str, ThinFilmCatalystId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ThinFilmCatalystId):
+            self.id = ThinFilmCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PowderCatalyst(Catalyst):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/PowderCatalyst")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "PowderCatalyst"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.PowderCatalyst
+
+    id: Union[str, PowderCatalystId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PowderCatalystId):
+            self.id = PowderCatalystId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Recipe(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Recipe")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Recipe"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Recipe
+
+    id: Union[str, RecipeId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, RecipeId):
+            self.id = RecipeId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Mixture(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Mixture")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Mixture"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Mixture
+
+    id: Union[str, MixtureId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MixtureId):
+            self.id = MixtureId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Workflow(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Workflow")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Workflow"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Workflow
+
+    id: Union[str, WorkflowId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, WorkflowId):
+            self.id = WorkflowId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Process(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Process")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Process"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Process
+
+    id: Union[str, ProcessId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ProcessId):
+            self.id = ProcessId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Experiment(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Experiment")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Experiment"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Experiment
 
@@ -413,44 +655,179 @@ class Experiment(NamedThing):
 
 
 @dataclass
-class BESSY(NamedThing):
+class Measurement(NamedEntity):
     """
-    Sonal
+    A person (alive, dead, undead, or fictional).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["BESSY"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:BESSY"
-    class_name: ClassVar[str] = "BESSY"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.BESSY
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Measurement")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Measurement"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Measurement
 
-    id: Union[str, BESSYId] = None
+    id: Union[str, MeasurementId] = None
     category: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, BESSYId):
-            self.id = BESSYId(self.id)
+        if not isinstance(self.id, MeasurementId):
+            self.id = MeasurementId(self.id)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass
-class Beamline(NamedThing):
+class Parameter(NamedEntity):
     """
-    Sonal
+    A person (alive, dead, undead, or fictional).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["Beamline"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:Beamline"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Parameter")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Parameter"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Parameter
+
+    id: Union[str, ParameterId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ParameterId):
+            self.id = ParameterId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Reaction(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Reaction")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Reaction"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Reaction
+
+    id: Union[str, ReactionId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ReactionId):
+            self.id = ReactionId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class ReactionProduct(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/ReactionProduct")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "ReactionProduct"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.ReactionProduct
+
+    id: Union[str, ReactionProductId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ReactionProductId):
+            self.id = ReactionProductId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Reactor(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/Reactor")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "Reactor"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Reactor
+
+    id: Union[str, ReactorId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ReactorId):
+            self.id = ReactorId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class CatalysisSampleCollection(YAMLRoot):
+    """
+    A holder for CatalysisSample objects
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/CatalysisSampleCollection")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "CatalysisSampleCollection"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.CatalysisSampleCollection
+
+    entries: Optional[Union[Dict[Union[str, CatalysisSampleId], Union[dict, CatalysisSample]], List[Union[dict, CatalysisSample]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=CatalysisSample, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class ReactionProductCollection(YAMLRoot):
+    """
+    A holder for ReactionProduct objects
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/catlabs/ReactionProductCollection")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "ReactionProductCollection"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.ReactionProductCollection
+
+    entries: Optional[Union[Dict[Union[str, ReactionProductId], Union[dict, ReactionProduct]], List[Union[dict, ReactionProduct]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=ReactionProduct, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Beamline(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/BESSY/Beamline")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Beamline"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.Beamline
 
     id: Union[str, BeamlineId] = None
     category: str = None
-    type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -458,63 +835,18 @@ class Beamline(NamedThing):
         if not isinstance(self.id, BeamlineId):
             self.id = BeamlineId(self.id)
 
-        self.type = str(self.class_name)
-
         super().__post_init__(**kwargs)
-        self.unknown_type = str(self.class_name)
-
-
-    def __new__(cls, *args, **kwargs):
-
-        type_designator = "type"
-        if not type_designator in kwargs:
-            return super().__new__(cls,*args,**kwargs)
-        else:
-            type_designator_value = kwargs[type_designator]
-            target_cls = cls._class_for("class_name", type_designator_value)
-
-
-            if target_cls is None:
-                raise ValueError(f"Wrong type designator value: class {cls.__name__} "
-                                 f"has no subclass with ['class_name']='{kwargs[type_designator]}'")
-            return super().__new__(target_cls,*args,**kwargs)
-
-
-
-@dataclass
-class MyspotBeamline(Beamline):
-    """
-    Sonal
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["MyspotBeamline"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:MyspotBeamline"
-    class_name: ClassVar[str] = "Myspot_Beamline"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.MyspotBeamline
-
-    id: Union[str, MyspotBeamlineId] = None
-    category: str = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, MyspotBeamlineId):
-            self.id = MyspotBeamlineId(self.id)
-
-        super().__post_init__(**kwargs)
-        self.unknown_type = str(self.class_name)
 
 
 @dataclass
 class BeamlineExperiment(Experiment):
     """
-    Sonal
+    A person (alive, dead, undead, or fictional).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["BeamlineExperiment"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:BeamlineExperiment"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "BeamlineExperiment"
     class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.BeamlineExperiment
 
@@ -531,25 +863,145 @@ class BeamlineExperiment(Experiment):
 
 
 @dataclass
-class RockitExperiment(BeamlineExperiment):
+class BeamlineScientist(Person):
     """
-    describing the standard setup for ROCK-IT beamline experiment. Sonal + Ana
+    A person (alive, dead, undead, or fictional).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA["RockitExperiment"]
-    class_class_curie: ClassVar[str] = "hzb_metadata_schema:RockitExperiment"
-    class_name: ClassVar[str] = "Rockit_experiment"
-    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.RockitExperiment
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/BESSY/BeamlineScientist")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "BeamlineScientist"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.BeamlineScientist
 
-    id: Union[str, RockitExperimentId] = None
+    id: Union[str, BeamlineScientistId] = None
     category: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, RockitExperimentId):
-            self.id = RockitExperimentId(self.id)
+        if not isinstance(self.id, BeamlineScientistId):
+            self.id = BeamlineScientistId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class MySpot(Beamline):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/BESSY/MySpot")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "mySpot"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.MySpot
+
+    id: Union[str, MySpotId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MySpotId):
+            self.id = MySpotId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class EMILPink(Beamline):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/BESSY/EMILPink")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "EMIL_Pink"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.EMILPink
+
+    id: Union[str, EMILPinkId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, EMILPinkId):
+            self.id = EMILPinkId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class EMILOAESE(Beamline):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/BESSY/EMILOAESE")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "EMIL_OAESE"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.EMILOAESE
+
+    id: Union[str, EMILOAESEId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, EMILOAESEId):
+            self.id = EMILOAESEId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class SampleEnvironment(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/operandoCatalysis/SampleEnvironment")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "SampleEnvironment"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.SampleEnvironment
+
+    id: Union[str, SampleEnvironmentId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SampleEnvironmentId):
+            self.id = SampleEnvironmentId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class SamplePositioning(NamedEntity):
+    """
+    A person (alive, dead, undead, or fictional).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "SamplePositioning"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.SamplePositioning
+
+    id: Union[str, SamplePositioningId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SamplePositioningId):
+            self.id = SamplePositioningId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -597,10 +1049,10 @@ class slots:
 slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
                    model_uri=HZB_METADATA_SCHEMA.id, domain=None, range=URIRef)
 
-slots.iri = Slot(uri=HZB_METADATA_SCHEMA.iri, name="iri", curie=HZB_METADATA_SCHEMA.curie('iri'),
+slots.iri = Slot(uri="str(uriorcurie)", name="iri", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.iri, domain=None, range=Optional[str])
 
-slots.category = Slot(uri=HZB_METADATA_SCHEMA.category, name="category", curie=HZB_METADATA_SCHEMA.curie('category'),
+slots.category = Slot(uri="str(uriorcurie)", name="category", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.category, domain=None, range=Optional[str])
 
 slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
@@ -615,39 +1067,29 @@ slots.primary_email = Slot(uri=SCHEMA.email, name="primary_email", curie=SCHEMA.
 slots.birth_date = Slot(uri=SCHEMA.birthDate, name="birth_date", curie=SCHEMA.curie('birthDate'),
                    model_uri=HZB_METADATA_SCHEMA.birth_date, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.age_in_years = Slot(uri=HZB_METADATA_SCHEMA.age_in_years, name="age_in_years", curie=HZB_METADATA_SCHEMA.curie('age_in_years'),
+slots.age_in_years = Slot(uri="str(uriorcurie)", name="age_in_years", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.age_in_years, domain=None, range=Optional[int])
 
-slots.vital_status = Slot(uri=HZB_METADATA_SCHEMA.vital_status, name="vital_status", curie=HZB_METADATA_SCHEMA.curie('vital_status'),
+slots.vital_status = Slot(uri="str(uriorcurie)", name="vital_status", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.vital_status, domain=None, range=Optional[Union[str, "PersonStatus"]])
 
 slots.gender = Slot(uri=SCHEMA.gender, name="gender", curie=SCHEMA.curie('gender'),
                    model_uri=HZB_METADATA_SCHEMA.gender, domain=None, range=Optional[Union[str, "GenderEnum"]])
 
-slots.has_employment_history = Slot(uri=HZB_METADATA_SCHEMA.has_employment_history, name="has_employment_history", curie=HZB_METADATA_SCHEMA.curie('has_employment_history'),
+slots.has_employment_history = Slot(uri="str(uriorcurie)", name="has_employment_history", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.has_employment_history, domain=None, range=Optional[Union[str, List[str]]])
 
-slots.current_address = Slot(uri=HZB_METADATA_SCHEMA.current_address, name="current_address", curie=HZB_METADATA_SCHEMA.curie('current_address'),
+slots.current_address = Slot(uri="str(uriorcurie)", name="current_address", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.current_address, domain=None, range=Optional[str])
 
-slots.catalysisSample__sample_environment = Slot(uri=HZB_METADATA_SCHEMA.sample_environment, name="catalysisSample__sample_environment", curie=HZB_METADATA_SCHEMA.curie('sample_environment'),
-                   model_uri=HZB_METADATA_SCHEMA.catalysisSample__sample_environment, domain=None, range=Optional[str])
-
-slots.sampleCollection__entries = Slot(uri=HZB_METADATA_SCHEMA.entries, name="sampleCollection__entries", curie=HZB_METADATA_SCHEMA.curie('entries'),
+slots.sampleCollection__entries = Slot(uri="str(uriorcurie)", name="sampleCollection__entries", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.sampleCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, SampleId], Union[dict, Sample]], List[Union[dict, Sample]]]])
 
-slots.beamline__type = Slot(uri=HZB_METADATA_SCHEMA.type, name="beamline__type", curie=HZB_METADATA_SCHEMA.curie('type'),
-                   model_uri=HZB_METADATA_SCHEMA.beamline__type, domain=None, range=Optional[str])
+slots.catalysisSampleCollection__entries = Slot(uri="str(uriorcurie)", name="catalysisSampleCollection__entries", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.catalysisSampleCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, CatalysisSampleId], Union[dict, CatalysisSample]], List[Union[dict, CatalysisSample]]]])
 
-slots.organization__name = Slot(uri=HZB_METADATA_SCHEMA.name, name="organization__name", curie=HZB_METADATA_SCHEMA.curie('name'),
-                   model_uri=HZB_METADATA_SCHEMA.organization__name, domain=None, range=Optional[str])
+slots.reactionProductCollection__entries = Slot(uri="str(uriorcurie)", name="reactionProductCollection__entries", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.reactionProductCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, ReactionProductId], Union[dict, ReactionProduct]], List[Union[dict, ReactionProduct]]]])
 
-slots.organization__type = Slot(uri=HZB_METADATA_SCHEMA.type, name="organization__type", curie=HZB_METADATA_SCHEMA.curie('type'),
-                   model_uri=HZB_METADATA_SCHEMA.organization__type, domain=None, range=Optional[str])
-
-slots.Sample_primary_email = Slot(uri=SCHEMA.email, name="Sample_primary_email", curie=SCHEMA.curie('email'),
-                   model_uri=HZB_METADATA_SCHEMA.Sample_primary_email, domain=Sample, range=Optional[str],
-                   pattern=re.compile(r'^\S+@[\S+\.]+\S+'))
-
-slots.NamedThing_category = Slot(uri=HZB_METADATA_SCHEMA.category, name="NamedThing_category", curie=HZB_METADATA_SCHEMA.curie('category'),
-                   model_uri=HZB_METADATA_SCHEMA.NamedThing_category, domain=NamedThing, range=str)
+slots.NamedEntity_category = Slot(uri="str(uriorcurie)", name="NamedEntity_category", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.NamedEntity_category, domain=NamedEntity, range=str)

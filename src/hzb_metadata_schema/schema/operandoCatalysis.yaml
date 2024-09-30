@@ -1,0 +1,51 @@
+---
+id: https://w3id.org/anak-velazquez/operandoCatalysis/ #this is a persitant ID- not working atm
+name: operandoCatalysis
+
+description: |-
+    Here are the classes needed for catalysis labs.
+
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_ #broken links
+  ORCID: https://orcid.org/
+
+imports: 
+- linkml:types
+- core
+
+default_range: string
+
+classes:
+ 
+#####SampleEnvironment
+#lorem ipsum
+  SampleEnvironment:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####SamplePositioning
+#lorem ipsum
+  SamplePositioning:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being

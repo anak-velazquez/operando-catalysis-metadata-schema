@@ -47,43 +47,61 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<Beamline>  (
+<https://w3id.org/anak-velazquez/BESSY/Beamline>  (
     CLOSED {
-       (  $<Beamline_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ? ;
-             <type> @linkml:String ?
+       (  $<https://w3id.org/anak-velazquez/BESSY/Beamline_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+             rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
           ) ;
-          rdf:type [ <Beamline> ]
+          rdf:type [ <https://w3id.org/anak-velazquez/BESSY/Beamline> ]
        )
-    } OR @<MyspotBeamline>
+    } OR @<https://w3id.org/anak-velazquez/BESSY/EMILOAESE> OR @<https://w3id.org/anak-velazquez/BESSY/EMILPink> OR
+    @<https://w3id.org/anak-velazquez/BESSY/MySpot>
 )
 
-<BeamlineExperiment>  (
-    CLOSED {
-       (  $<BeamlineExperiment_tes> (  &<Experiment_tes> ;
-             rdf:type [ <Experiment> ] ?
-          ) ;
-          rdf:type [ <BeamlineExperiment> ]
-       )
-    } OR @<RockitExperiment>
-)
-
-<BESSY> CLOSED {
-    (  $<BESSY_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ?
+<https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment_tes> (  &<https://w3id.org/anak-velazquez/catlabs/Experiment_tes>
+          ;
+          rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Experiment> ] ?
        ) ;
-       rdf:type [ <BESSY> ]
+       rdf:type [ <https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment> ]
     )
 }
 
-<CatalysisSample> CLOSED {
-    (  $<CatalysisSample_tes> (  &<Sample_tes> ;
-          rdf:type [ <Sample> ] ? ;
-          <sample_environment> @linkml:String ?
+<https://w3id.org/anak-velazquez/BESSY/BeamlineScientist> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/BESSY/BeamlineScientist_tes> (  &<https://w3id.org/anak-velazquez/core/Person_tes> ;
+          rdf:type [ schema1:Person ] ?
        ) ;
-       rdf:type [ <CatalysisSample> ]
+       rdf:type [ <https://w3id.org/anak-velazquez/BESSY/BeamlineScientist> ]
     )
 }
+
+<https://w3id.org/anak-velazquez/catlabs/CatalysisSample>  (
+    CLOSED {
+       (  $<https://w3id.org/anak-velazquez/catlabs/CatalysisSample_tes> (  &<https://w3id.org/anak-velazquez/core/Sample_tes> ;
+             rdf:type [ <https://w3id.org/anak-velazquez/core/Sample> ] ?
+          ) ;
+          rdf:type [ <https://w3id.org/anak-velazquez/catlabs/CatalysisSample> ]
+       )
+    } OR @<https://w3id.org/anak-velazquez/catlabs/Catalyst>
+)
+
+<https://w3id.org/anak-velazquez/catlabs/CatalysisSampleCollection> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/CatalysisSampleCollection_tes> <https://w3id.org/anak-velazquez/catlabs/entries>
+       @<https://w3id.org/anak-velazquez/catlabs/CatalysisSample> * ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/CatalysisSampleCollection> ] ?
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/Catalyst>  (
+    CLOSED {
+       (  $<https://w3id.org/anak-velazquez/catlabs/Catalyst_tes> (  &<https://w3id.org/anak-velazquez/catlabs/CatalysisSample_tes>
+             ;
+             rdf:type [ <https://w3id.org/anak-velazquez/catlabs/CatalysisSample> ] ?
+          ) ;
+          rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Catalyst> ]
+       )
+    } OR @<https://w3id.org/anak-velazquez/catlabs/PowderCatalyst> OR @<https://w3id.org/anak-velazquez/catlabs/ThinFilmCatalyst>
+)
 
 <ChemicalOrDrugOrTreatment> {
     (  $<ChemicalOrDrugOrTreatment_tes> rdf:type . * ;
@@ -91,111 +109,244 @@ linkml:Sparqlpath xsd:string
     )
 }
 
-<Device> CLOSED {
-    (  $<Device_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ?
+<https://w3id.org/anak-velazquez/core/DataCite> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/core/DataCite_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
        ) ;
-       rdf:type [ <Device> ]
+       rdf:type [ <https://w3id.org/anak-velazquez/core/DataCite> ]
     )
 }
 
-<Entity>  (
+<https://w3id.org/anak-velazquez/core/Device> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/core/Device_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/core/Device> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/BESSY/EMILOAESE> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/BESSY/EMILOAESE_tes> (  &<https://w3id.org/anak-velazquez/BESSY/Beamline_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/BESSY/Beamline> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/BESSY/EMILOAESE> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/BESSY/EMILPink> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/BESSY/EMILPink_tes> (  &<https://w3id.org/anak-velazquez/BESSY/Beamline_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/BESSY/Beamline> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/BESSY/EMILPink> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/core/Entity>  (
     {
-       (  $<Entity_tes> (  <iri> @linkml:String ? ;
+       (  $<https://w3id.org/anak-velazquez/core/Entity_tes> (  <https://w3id.org/anak-velazquez/core/iri> @linkml:String ? ;
              schema1:name @linkml:String ?
           ) ;
-          rdf:type [ <Entity> ]
+          rdf:type [ <https://w3id.org/anak-velazquez/core/Entity> ]
        )
-    } OR @<NamedThing>
+    } OR @<https://w3id.org/anak-velazquez/core/NamedEntity>
 )
 
-<Experiment>  (
+<https://w3id.org/anak-velazquez/catlabs/Experiment>  (
     CLOSED {
-       (  $<Experiment_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ?
+       (  $<https://w3id.org/anak-velazquez/catlabs/Experiment_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+             rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
           ) ;
-          rdf:type [ <Experiment> ]
+          rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Experiment> ]
        )
-    } OR @<BeamlineExperiment>
+    } OR @<https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment>
 )
 
-<MyspotBeamline> CLOSED {
-    (  $<MyspotBeamline_tes> (  &<Beamline_tes> ;
-          rdf:type [ <Beamline> ] ?
+<https://w3id.org/anak-velazquez/catlabs/Measurement> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Measurement_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
        ) ;
-       rdf:type [ <MyspotBeamline> ]
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Measurement> ]
     )
 }
 
-<NamedThing>  (
-    CLOSED {
-       (  $<NamedThing_tes> (  &<Entity_tes> ;
-             rdf:type [ <Entity> ] ? ;
-             <category> @linkml:String
-          ) ;
-          rdf:type [ <NamedThing> ]
-       )
-    } OR @<BESSY> OR @<Beamline> OR @<Experiment> OR @<Person> OR @<Sample> OR @<Device>
-)
-
-<Organization> CLOSED {
-    (  $<Organization_tes> (  <name> @linkml:String ? ;
-          <type> @linkml:String ?
+<https://w3id.org/anak-velazquez/catlabs/Mixture> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Mixture_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
        ) ;
-       rdf:type [ <Organization> ] ?
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Mixture> ]
     )
 }
 
-<Person>  (
+<https://w3id.org/anak-velazquez/BESSY/MySpot> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/BESSY/MySpot_tes> (  &<https://w3id.org/anak-velazquez/BESSY/Beamline_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/BESSY/Beamline> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/BESSY/MySpot> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/core/NamedEntity>  (
     CLOSED {
-       (  $<Person_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ? ;
+       (  $<https://w3id.org/anak-velazquez/core/NamedEntity_tes> (  &<https://w3id.org/anak-velazquez/core/Entity_tes> ;
+             rdf:type [ <https://w3id.org/anak-velazquez/core/Entity> ] ? ;
+             <https://w3id.org/anak-velazquez/core/category> @linkml:String
+          ) ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ]
+       )
+    } OR @<https://w3id.org/anak-velazquez/BESSY/Beamline> OR @<https://w3id.org/anak-velazquez/core/DataCite> OR
+    @<https://w3id.org/anak-velazquez/core/Device> OR @<https://w3id.org/anak-velazquez/catlabs/Experiment> OR
+    @<https://w3id.org/anak-velazquez/catlabs/Measurement> OR @<https://w3id.org/anak-velazquez/catlabs/Mixture> OR
+    @<https://w3id.org/anak-velazquez/catlabs/Parameter> OR @<https://w3id.org/anak-velazquez/core/Person> OR
+    @<https://w3id.org/anak-velazquez/catlabs/Process> OR @<https://w3id.org/anak-velazquez/core/Project> OR
+    @<https://w3id.org/anak-velazquez/catlabs/Reaction> OR @<https://w3id.org/anak-velazquez/catlabs/ReactionProduct> OR
+    @<https://w3id.org/anak-velazquez/catlabs/Reactor> OR @<https://w3id.org/anak-velazquez/catlabs/Recipe> OR
+    @<https://w3id.org/anak-velazquez/core/Sample> OR @<https://w3id.org/anak-velazquez/operandoCatalysis/SampleEnvironment> OR
+    @<https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning> OR @<https://w3id.org/anak-velazquez/catlabs/Workflow>
+)
+
+<https://w3id.org/anak-velazquez/catlabs/Parameter> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Parameter_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Parameter> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/core/Person>  (
+    CLOSED {
+       (  $<https://w3id.org/anak-velazquez/core/Person_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+             rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ? ;
              schema1:email @linkml:String ? ;
              schema1:birthDate @linkml:Date ? ;
-             <age_in_years> @linkml:Integer ? ;
-             schema1:gender [ GSSO:000369 <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Masculine>
-                <https://w3id.org/anak-velazquez/hzb-metadata-schema/GenderEnum#Diverse> ] ? ;
-             <has_employment_history> @linkml:String *
+             <https://w3id.org/anak-velazquez/core/age_in_years> @linkml:Integer ? ;
+             schema1:gender [ GSSO:000369 <https://w3id.org/anak-velazquez/core/GenderEnum#Masculine>
+                <https://w3id.org/anak-velazquez/core/GenderEnum#Diverse> ] ? ;
+             <https://w3id.org/anak-velazquez/core/has_employment_history> @linkml:String *
           ) ;
           rdf:type [ schema1:Person ]
        )
-    } OR @<Scientist>
+    } OR @<https://w3id.org/anak-velazquez/BESSY/BeamlineScientist> OR @<https://w3id.org/anak-velazquez/catlabs/Scientist>
 )
 
-<RockitExperiment> CLOSED {
-    (  $<RockitExperiment_tes> (  &<BeamlineExperiment_tes> ;
-          rdf:type [ <BeamlineExperiment> ] ?
+<https://w3id.org/anak-velazquez/catlabs/PowderCatalyst> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/PowderCatalyst_tes> (  &<https://w3id.org/anak-velazquez/catlabs/Catalyst_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Catalyst> ] ?
        ) ;
-       rdf:type [ <RockitExperiment> ]
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/PowderCatalyst> ]
     )
 }
 
-<Sample>  (
+<https://w3id.org/anak-velazquez/catlabs/Process> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Process_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Process> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/core/Project> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/core/Project_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/core/Project> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/Reaction> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Reaction_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Reaction> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/ReactionProduct> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/ReactionProduct_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/ReactionProduct> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/ReactionProductCollection> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/ReactionProductCollection_tes> <https://w3id.org/anak-velazquez/catlabs/entries>
+       @<https://w3id.org/anak-velazquez/catlabs/ReactionProduct> * ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/ReactionProductCollection> ] ?
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/Reactor> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Reactor_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Reactor> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/Recipe> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Recipe_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Recipe> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/core/Sample>  (
     CLOSED {
-       (  $<Sample_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ? ;
-             schema1:email @linkml:String ? ;
-             schema1:birthDate @linkml:Date ? ;
-             <age_in_years> @linkml:Integer ? ;
-             <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
-                <https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus#UNKNOWN> ] ?
+       (  $<https://w3id.org/anak-velazquez/core/Sample_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+             rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
           ) ;
-          rdf:type [ <Sample> ]
+          rdf:type [ <https://w3id.org/anak-velazquez/core/Sample> ]
        )
-    } OR @<CatalysisSample>
+    } OR @<https://w3id.org/anak-velazquez/catlabs/CatalysisSample>
 )
 
-<SampleCollection> CLOSED {
-    (  $<SampleCollection_tes> <entries> @<Sample> * ;
-       rdf:type [ <SampleCollection> ] ?
+<https://w3id.org/anak-velazquez/core/SampleCollection> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/core/SampleCollection_tes> <https://w3id.org/anak-velazquez/core/entries>
+       @<https://w3id.org/anak-velazquez/core/Sample> * ;
+       rdf:type [ <https://w3id.org/anak-velazquez/core/SampleCollection> ] ?
     )
 }
 
-<Scientist> CLOSED {
-    (  $<Scientist_tes> (  &<Person_tes> ;
+<https://w3id.org/anak-velazquez/operandoCatalysis/SampleEnvironment> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/operandoCatalysis/SampleEnvironment_tes> ( 
+          &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/operandoCatalysis/SampleEnvironment> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning_tes> ( 
+          &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/Scientist> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Scientist_tes> (  &<https://w3id.org/anak-velazquez/core/Person_tes> ;
           rdf:type [ schema1:Person ] ?
        ) ;
-       rdf:type [ <Scientist> ]
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Scientist> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/ThinFilmCatalyst> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/ThinFilmCatalyst_tes> (  &<https://w3id.org/anak-velazquez/catlabs/Catalyst_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Catalyst> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/ThinFilmCatalyst> ]
+    )
+}
+
+<https://w3id.org/anak-velazquez/catlabs/Workflow> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/catlabs/Workflow_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/catlabs/Workflow> ]
     )
 }
 

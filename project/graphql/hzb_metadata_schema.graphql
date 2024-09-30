@@ -5,7 +5,6 @@ type Beamline
     iri: String
     name: String
     category: String!
-    type: String
   }
 
 type BeamlineExperiment
@@ -16,15 +15,7 @@ type BeamlineExperiment
     category: String!
   }
 
-type BESSY
-  {
-    id: Uriorcurie!
-    iri: String
-    name: String
-    category: String!
-  }
-
-type CatalysisSample
+type BeamlineScientist
   {
     id: Uriorcurie!
     iri: String
@@ -33,15 +24,60 @@ type CatalysisSample
     primaryEmail: String
     birthDate: Date
     ageInYears: Integer
-    vitalStatus: PersonStatus
-    sampleEnvironment: String
+    gender: GenderEnum
+    hasEmploymentHistory: [String]
+  }
+
+type CatalysisSample
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type CatalysisSampleCollection
+  {
+    entries: [CatalysisSample]
+  }
+
+type Catalyst
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
   }
 
 interface ChemicalOrDrugOrTreatment
   {
   }
 
+type DataCite
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
 type Device
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type EMILOAESE
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type EMILPink
   {
     id: Uriorcurie!
     iri: String
@@ -64,16 +100,7 @@ type Experiment
     category: String!
   }
 
-type MyspotBeamline
-  {
-    id: Uriorcurie!
-    iri: String
-    name: String
-    category: String!
-    type: String
-  }
-
-type NamedThing
+type Measurement
   {
     id: Uriorcurie!
     iri: String
@@ -81,10 +108,36 @@ type NamedThing
     category: String!
   }
 
-type Organization
+type Mixture
   {
+    id: Uriorcurie!
+    iri: String
     name: String
-    type: String
+    category: String!
+  }
+
+type MySpot
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type NamedEntity
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Parameter
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
   }
 
 type Person
@@ -100,7 +153,60 @@ type Person
     hasEmploymentHistory: [String]
   }
 
-type RockitExperiment
+type PowderCatalyst
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Process
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Project
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Reaction
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type ReactionProduct
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type ReactionProductCollection
+  {
+    entries: [ReactionProduct]
+  }
+
+type Reactor
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Recipe
   {
     id: Uriorcurie!
     iri: String
@@ -114,15 +220,27 @@ type Sample
     iri: String
     name: String
     category: String!
-    primaryEmail: String
-    birthDate: Date
-    ageInYears: Integer
-    vitalStatus: PersonStatus
   }
 
 type SampleCollection
   {
     entries: [Sample]
+  }
+
+type SampleEnvironment
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type SamplePositioning
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
   }
 
 type Scientist
@@ -136,5 +254,21 @@ type Scientist
     ageInYears: Integer
     gender: GenderEnum
     hasEmploymentHistory: [String]
+  }
+
+type ThinFilmCatalyst
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type Workflow
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
   }
 

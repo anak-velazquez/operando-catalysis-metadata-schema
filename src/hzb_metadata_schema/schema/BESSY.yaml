@@ -1,0 +1,110 @@
+---
+id: https://w3id.org/anak-velazquez/BESSY/ #this is a persitant ID- not working atm
+name: BESSY
+
+description: |-
+    Here are the classes needed for catalysis labs.
+
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_ #broken links
+  ORCID: https://orcid.org/
+
+imports: 
+- linkml:types
+- core
+
+default_range: string
+
+classes:
+ 
+#####Beamline
+#lorem ipsum
+  Beamline:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####BeamlineExperiment
+#lorem ipsum
+  BeamlineExperiment:
+    is_a: Experiment
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+#####BeamlineScientist
+#lorem ipsum
+  BeamlineScientist:
+    is_a: Person
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+######Experimental hall##############    
+
+#####mySpot
+#lorem ipsum
+  mySpot:
+    is_a: Beamline
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+#####EMIL_Pink
+#lorem ipsum
+  EMIL_Pink:
+    is_a: Beamline
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####EMIL_OAESE
+#lorem ipsum
+  EMIL_OAESE:
+    is_a: Beamline
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
