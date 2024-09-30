@@ -61,18 +61,85 @@ classes:
 ############################################################
 
 #####DataCite
-#lorem ipsum
   DataCite:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Represents metadata for datasets according to DataCite standard.
+      Core properties of DataCite standard (basics for citation/publications.) DataCite already considers DublinCore elements. 
+    attributes:
+        identifier: 
+          description: The Identifier is a unique string that identifies a resource (i.e., DOI).
+          required: true
+          identifier: true
+          range: string
+        identifierType: 
+          description: type of identifier.
+          identifier: true
+          range: string            
+        creators: 
+          description: Creator(s) of the resource.
+          multivalued: true
+          required: true
+          range: Person 
+        title: 
+          description: Title of the resource/dataset.
+          required: true
+          range: string 
+        Publisher: 
+          description: Creator of the resource.
+          range: string 
+        ResourceType: 
+          description: Creator of the resource.
+          range: string
+        Subject: 
+          description: Creator of the resource.
+          range: string            
+        Contributor: 
+          description: Creator of the resource.
+          range: string
+        Date: 
+          description: Creator of the resource.
+          range: string    
+        Language: 
+          description: Creator of the resource.
+          range: string 
+        AlternateIdentifier: 
+          description: An identifier other than the primary Identifier applied to the resource being registered. This may be any alphanumeric string which is unique within its domain of issue. May be used for local identifiers, a serial number of an instrument or an inventory number. The AlternateIdentifier should be an additional identifier for the same instance of the resource (i.e., same location, same file).
+          range: string 
+        RelatedIdentifier: 
+          description: Identifiers of related resources. These must be globally unique identifiers.
+          range: string 
+        Size: 
+          description: Size (e.g., bytes, pages, inches, etc.) or duration (extent), e.g., hours, minutes, days, etc., of a resource.
+          range: string 
+        Format: 
+          description: Technical format of the resource.
+          range: string 
+        Version: 
+          description: Creator of the resource.
+          range: string 
+        Rights: 
+          description: Creator of the resource.
+          range: string 
+        Description: 
+          description: Creator of the resource.
+          range: string 
+        GeoLocation: 
+          description: Creator of the resource.
+          range: string 
+        FundingReference: 
+          description: Creator of the resource.
+          range: string
+        RelatedItem: 
+          description: Creator of the resource.
+          range: string
     class_uri: 
     mixins:
       #- HasAliases
     slots:
     #  - id
     aliases:
-    #  - human being
+    #  - 
 
 
 #####Person
@@ -80,7 +147,7 @@ classes:
   Person:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A basic/standard definition of a person, which later can be further defined as scientist, beam scientist, user, etc.
     class_uri: schema:Person
     mixins:
       #- HasAliases
@@ -106,11 +173,12 @@ classes:
 
 
 #####Project
-#lorem ipsum
+#A research activity or initiative with defined objectives, funding, and timelines, involving one or more researchers, designed to generate data, publications, and other outputs. The project may involve multiple experiments, datasets, and contributors, and can be linked to specific funding sources and institutions.
   Project:
     is_a: NamedEntity
     description: >-
-      lorem
+      A research activity or initiative with defined objectives, funding, and timelines, involving one or more researchers, designed to generate data, publications, and other outputs. The project may involve multiple experiments, datasets, and contributors, and can be linked to specific funding sources and institutions.
+
     class_uri: 
     mixins:
       #- HasAliases
@@ -121,12 +189,11 @@ classes:
 
 
 #####Device
-#lorem ipsum
   Device:
     is_a: NamedEntity
     description: >-
       A thing made or adapted for a particular purpose, especially
-      a piece of mechanical or electronic equipment
+      a piece of mechanical or electronic equipment.
     class_uri: 
     mixins:
       #- HasAliases
@@ -151,7 +218,7 @@ classes:
   Sample:
     is_a: NamedEntity
     description: >-
-      Information about a generic laboratory sample, discipline agnostic.
+      Core properties of a sample, discipline agnostic.
     class_uri: 
     mixins:
       #- HasAliases

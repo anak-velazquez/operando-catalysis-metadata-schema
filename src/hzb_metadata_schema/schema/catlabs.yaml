@@ -22,11 +22,12 @@ default_range: string
 classes:
 
 #####Scientist
-#lorem ipsum
+#
   Scientist:
     is_a: Person
     description: >-
-      A person (alive, dead, undead, or fictional).
+      An individual involved in research activities, and their details that are important 
+      to be referenced on experiments, projects, publivations, etc.
     class_uri: 
     mixins:
       #- HasAliases
@@ -35,13 +36,13 @@ classes:
     aliases:
     #  - human being
 
-    
+
 #####CatalysisSample
-#lorem ipsum
+#
   CatalysisSample:
     is_a: Sample
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Core properties of a catalysis sample.
     class_uri: 
     mixins:
       #- HasAliases
@@ -52,11 +53,12 @@ classes:
 
 
 #####Catalyst
-#lorem ipsum
+#
   Catalyst:
     is_a: CatalysisSample
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A substance or material that increases the rate of a chemical reaction. 
+      Class including core properties of the synthesis characterization, and other experiments. 
     class_uri: 
     mixins:
       #- HasAliases
@@ -67,11 +69,11 @@ classes:
 
 
 #####ThinFilmCatalyst
-#lorem ipsum
+#
   ThinFilmCatalyst:
     is_a: Catalyst
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Catalyst type. Core properties of a thin film.
     class_uri: 
     mixins:
       #- HasAliases
@@ -82,11 +84,11 @@ classes:
 
 
 #####PowderCatalyst
-#lorem ipsum
+#
   PowderCatalyst:
     is_a: Catalyst
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Catalyst type. Core properties of a powder catalyst.
     class_uri: 
     mixins:
       #- HasAliases
@@ -97,11 +99,12 @@ classes:
 
 
 #####Recipe
-#lorem ipsum
+#
   Recipe:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A detailed set of instructions outlining the materials, quantities, and procedures 
+      required to perform a specific chemical reaction or experimental process.
     class_uri: 
     mixins:
       #- HasAliases
@@ -112,11 +115,12 @@ classes:
 
 
 #####Mixture
-#lorem ipsum
+#
   Mixture:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A combination of two or more substances that are mixed together, 
+      which may retain their individual properties or interact chemically. 
     class_uri: 
     mixins:
       #- HasAliases
@@ -127,11 +131,12 @@ classes:
 
 
 #####Workflow
-#lorem ipsum
+#
   Workflow:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A structured sequence of tasks, activities, or processes designed to accomplish a 
+      specific research objective or experimental goal.
     class_uri: 
     mixins:
       #- HasAliases
@@ -142,11 +147,12 @@ classes:
 
 
 #####Process
-#lorem ipsum
+#
   Process:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A defined series of actions, steps, or operations undertaken to achieve a 
+      specific scientific or experimental outcome (e.g. atomic layer deposition).
     class_uri: 
     mixins:
     #- HasAliases
@@ -157,11 +163,12 @@ classes:
 
 
 #####Experiment
-#lorem ipsum
+#
   Experiment:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A systematic investigation designed to test hypotheses, gather data, or explore 
+      scientific principles through controlled conditions.
     class_uri: 
     mixins:
       #- HasAliases
@@ -172,11 +179,11 @@ classes:
 
 
 #####Measurement
-#lorem ipsum
+#
   Measurement:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Storing and describing measurements to perform on a sample.
     class_uri: 
     mixins:
       #- HasAliases
@@ -187,11 +194,11 @@ classes:
 
 
 #####Parameter
-#lorem ipsum
+#
   Parameter:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Associates parameters on demand to a certain experiment or measurement.
     class_uri: 
     mixins:
       #- HasAliases
@@ -202,11 +209,11 @@ classes:
 
 
 #####Reaction
-#lorem ipsum
+#
   Reaction:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A chemical process in which one or more substances (reactants) undergo transformation to produce new substances (products). 
     class_uri: 
     mixins:
       #- HasAliases
@@ -217,11 +224,12 @@ classes:
 
 
 #####ReactionProduct
-#lorem ipsum
+#
   ReactionProduct:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      A substance formed as a result of a chemical reaction, representing the end products 
+      generated from the transformation of reactants.
     class_uri: 
     mixins:
       #- HasAliases
@@ -236,7 +244,8 @@ classes:
   Reactor:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Equipment designed to facilitate and control chemical reactions under specified 
+      conditions, such as temperature, pressure, and flow rates. 
     class_uri: 
     mixins:
       #- HasAliases

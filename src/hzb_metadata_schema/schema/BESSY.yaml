@@ -22,11 +22,12 @@ default_range: string
 classes:
  
 #####Beamline
-#lorem ipsum
+#
   Beamline:
     is_a: NamedEntity
     description: >-
-      A person (alive, dead, undead, or fictional).
+      System within a facility designed to direct a beam of radiation toward a sample for 
+      the purpose of analysis or experimentation.
     class_uri: 
     mixins:
       #- HasAliases
@@ -41,7 +42,7 @@ classes:
   BeamlineExperiment:
     is_a: Experiment
     description: >-
-      A person (alive, dead, undead, or fictional).
+      An experimental investigation conducted using a beamline.
     class_uri: 
     mixins:
       #- HasAliases
@@ -55,7 +56,8 @@ classes:
   BeamlineScientist:
     is_a: Person
     description: >-
-      A person (alive, dead, undead, or fictional).
+      An expert responsible for the operation and scientific application of beamlines 
+      in a research facility.
     class_uri: 
     mixins:
       #- HasAliases
@@ -71,7 +73,7 @@ classes:
   mySpot:
     is_a: Beamline
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Myspot beamline description.
     class_uri: 
     mixins:
       #- HasAliases
@@ -85,7 +87,7 @@ classes:
   EMIL_Pink:
     is_a: Beamline
     description: >-
-      A person (alive, dead, undead, or fictional).
+      Pink beamline description.
     class_uri: 
     mixins:
       #- HasAliases
@@ -100,7 +102,7 @@ classes:
   EMIL_OAESE:
     is_a: Beamline
     description: >-
-      A person (alive, dead, undead, or fictional).
+      OAESE beamline description.
     class_uri: 
     mixins:
       #- HasAliases
