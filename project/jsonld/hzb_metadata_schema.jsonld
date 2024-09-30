@@ -7,7 +7,11 @@
   ],
   "id": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
   "imports": [
-    "linkml:types"
+    "linkml:types",
+    "core",
+    "catlabs",
+    "BESSY",
+    "operandoCatalysis"
   ],
   "license": "MIT",
   "prefixes": [
@@ -32,8 +36,20 @@
       "prefix_reference": "http://purl.obolibrary.org/obo/PATO_"
     },
     {
-      "prefix_prefix": "example",
-      "prefix_reference": "https://example.org/"
+      "prefix_prefix": "rdfs",
+      "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    {
+      "prefix_prefix": "prov",
+      "prefix_reference": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "prefix_prefix": "GSSO",
+      "prefix_reference": "http://purl.bioontology.org/ontology/GSSO/"
+    },
+    {
+      "prefix_prefix": "BFO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/BFO_"
     }
   ],
   "default_prefix": "hzb_metadata_schema",
@@ -363,8 +379,8 @@
   "enums": [
     {
       "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/PersonStatus",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//PersonStatus",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "permissible_values": [
         {
           "text": "ALIVE",
@@ -384,40 +400,96 @@
           ]
         }
       ]
+    },
+    {
+      "name": "gender_enum",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//GenderEnum",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "permissible_values": [
+        {
+          "text": "Woman",
+          "description": "identified as woman",
+          "meaning": "GSSO:000369"
+        },
+        {
+          "text": "Masculine",
+          "description": "masculine",
+          "todos": [
+            "map this to an ontology"
+          ]
+        },
+        {
+          "text": "Diverse",
+          "description": "other",
+          "todos": [
+            "map this to an ontology"
+          ]
+        }
+      ]
     }
   ],
   "slots": [
     {
       "name": "id",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/id",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//id",
       "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "mappings": [
         "http://schema.org/identifier"
       ],
       "slot_uri": "http://schema.org/identifier",
       "identifier": true,
+      "owner": "Entity",
+      "domain_of": [
+        "Entity"
+      ],
       "range": "uriorcurie",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
+      "name": "iri",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//iri",
+      "description": "Internationalized Resource Identifier",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/iri",
+      "owner": "Entity",
+      "domain_of": [
+        "Entity"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "category",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//category",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/category",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "name",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/name",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//name",
       "description": "A human-readable name for a thing",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "mappings": [
         "http://schema.org/name"
       ],
       "slot_uri": "http://schema.org/name",
+      "owner": "NamedEntity",
+      "domain_of": [
+        "Entity",
+        "NamedEntity"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "description",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/description",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//description",
       "description": "A human-readable description for a thing",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "mappings": [
         "http://schema.org/description"
       ],
@@ -427,78 +499,99 @@
     },
     {
       "name": "primary_email",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/primary_email",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//primary_email",
       "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "mappings": [
         "http://schema.org/email"
       ],
       "slot_uri": "http://schema.org/email",
-      "owner": "Sample",
+      "owner": "Person",
       "domain_of": [
-        "Sample"
+        "Person"
       ],
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "birth_date",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/birth_date",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//birth_date",
       "description": "Date on which a person is born",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "mappings": [
         "http://schema.org/birthDate"
       ],
       "slot_uri": "http://schema.org/birthDate",
-      "owner": "Sample",
+      "owner": "Person",
       "domain_of": [
-        "Sample"
+        "Person"
       ],
       "range": "date",
       "@type": "SlotDefinition"
     },
     {
       "name": "age_in_years",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/age_in_years",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//age_in_years",
       "description": "Number of years since birth",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/age_in_years",
-      "owner": "Sample",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/age_in_years",
+      "owner": "Person",
       "domain_of": [
-        "Sample"
+        "Person"
       ],
       "range": "integer",
       "@type": "SlotDefinition"
     },
     {
       "name": "vital_status",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/vital_status",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//vital_status",
       "description": "living or dead status",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/vital_status",
-      "owner": "Sample",
-      "domain_of": [
-        "Sample"
-      ],
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/vital_status",
       "range": "PersonStatus",
       "@type": "SlotDefinition"
     },
     {
-      "name": "catalysisSample__sample_environment",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/sample_environment",
-      "alias": "sample_environment",
-      "owner": "CatalysisSample",
-      "domain_of": [
-        "CatalysisSample"
+      "name": "gender",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//gender",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "mappings": [
+        "http://schema.org/gender"
       ],
+      "slot_uri": "http://schema.org/gender",
+      "owner": "Person",
+      "domain_of": [
+        "Person"
+      ],
+      "range": "gender_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_employment_history",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//has_employment_history",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/has_employment_history",
+      "owner": "Person",
+      "domain_of": [
+        "Person"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "current_address",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//current_address",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/current_address",
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "sampleCollection__entries",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/entries",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/entries",
       "alias": "entries",
       "owner": "SampleCollection",
       "domain_of": [
@@ -510,45 +603,44 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "category",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "sample_primary_email",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "is_a": "primary_email",
-      "domain": "Sample",
-      "slot_uri": "http://schema.org/email",
-      "alias": "primary_email",
-      "owner": "Sample",
+      "name": "catalysisSampleCollection__entries",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "slot_uri": "https://w3id.org/anak-velazquez/catlabs/entries",
+      "alias": "entries",
+      "owner": "CatalysisSampleCollection",
       "domain_of": [
-        "Sample"
+        "CatalysisSampleCollection"
       ],
-      "is_usage_slot": true,
-      "usage_slot_name": "primary_email",
-      "range": "string",
-      "pattern": "^\\S+@[\\S+\\.]+\\S+",
+      "range": "CatalysisSample",
+      "multivalued": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "namedThing_category",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "name": "reactionProductCollection__entries",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "slot_uri": "https://w3id.org/anak-velazquez/catlabs/entries",
+      "alias": "entries",
+      "owner": "ReactionProductCollection",
+      "domain_of": [
+        "ReactionProductCollection"
+      ],
+      "range": "ReactionProduct",
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NamedEntity_category",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//category",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "is_a": "category",
-      "domain": "NamedThing",
-      "slot_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/category",
+      "domain": "NamedEntity",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/category",
       "alias": "category",
-      "owner": "NamedThing",
+      "owner": "NamedEntity",
       "domain_of": [
-        "NamedThing"
+        "NamedEntity"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "category",
@@ -560,12 +652,6 @@
   "classes": [
     {
       "name": "ChemicalOrDrugOrTreatment",
-      "id_prefixes": [
-        "PUBCHEM.COMPOUND",
-        "CHEMBL.COMPOUND",
-        "CHEBI",
-        "MAXO"
-      ],
       "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/ChemicalOrDrugOrTreatment",
       "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
       "mixin": true,
@@ -574,10 +660,111 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "Entity",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//Entity",
+      "description": "An entity is anything that exists or has existed or will exist.  Model class for all things and informational relationships, real or imagined.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "exact_mappings": [
+        "BFO:0000001"
+      ],
+      "abstract": true,
+      "slots": [
+        "id",
+        "iri",
+        "name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/core/Entity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NamedEntity",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//NamedEntity",
+      "description": "a databased entity or concept/class",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "exact_mappings": [
+        "BFO:0000001",
+        "WIKIDATA:Q35120",
+        "UMLSSG:OBJC",
+        "STY:T071",
+        "dcid:Thing"
+      ],
+      "is_a": "Entity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/core/NamedEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DataCite",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//DataCite",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/core/DataCite",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Person",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//Person",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "aliases": [
+        "human being",
+        "individual"
+      ],
+      "mappings": [
+        "schema:Person"
+      ],
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category",
+        "primary_email",
+        "birth_date",
+        "age_in_years",
+        "gender",
+        "has_employment_history"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://schema.org/Person",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Project",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//Project",
+      "description": "lorem",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/core/Project",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "Device",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//Device",
       "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "narrow_mappings": [
         "UMLSSG:DEVI",
         "STY:T074",
@@ -585,60 +772,38 @@
         "STY:T203",
         "STY:T122"
       ],
-      "is_a": "NamedThing",
+      "is_a": "NamedEntity",
       "slots": [
-        "namedThing_category"
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Device",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "CatalysisSample",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/CatalysisSample",
-      "description": "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "is_a": "Sample",
-      "slots": [
-        "namedThing_category",
-        "sample_primary_email",
-        "birth_date",
-        "age_in_years",
-        "vital_status",
-        "catalysisSample__sample_environment"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "sample_environment",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/CatalysisSample",
+      "class_uri": "https://w3id.org/anak-velazquez/core/Device",
       "@type": "ClassDefinition"
     },
     {
       "name": "Sample",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Sample",
-      "description": "Represents a Sample",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "is_a": "NamedThing",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//Sample",
+      "description": "Information about a generic laboratory sample, discipline agnostic.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "is_a": "NamedEntity",
       "slots": [
-        "namedThing_category",
-        "sample_primary_email",
-        "birth_date",
-        "age_in_years",
-        "vital_status"
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Sample",
+      "class_uri": "https://w3id.org/anak-velazquez/core/Sample",
       "@type": "ClassDefinition"
     },
     {
       "name": "SampleCollection",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/SampleCollection",
+      "definition_uri": "https://w3id.org/anak-velazquez/core//SampleCollection",
       "description": "A holder for Sample objects",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
       "slots": [
         "sampleCollection__entries"
       ],
@@ -652,50 +817,446 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/SampleCollection",
+      "class_uri": "https://w3id.org/anak-velazquez/core/SampleCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
     },
     {
-      "name": "Entity",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Entity",
-      "description": "Root Biolink Model class for all things and informational relationships, real or imagined.",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "abstract": true,
+      "name": "Scientist",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Scientist",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "Person",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category",
+        "primary_email",
+        "birth_date",
+        "age_in_years",
+        "gender",
+        "has_employment_history"
+      ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/Entity",
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Scientist",
       "@type": "ClassDefinition"
     },
     {
-      "name": "NamedThing",
-      "definition_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
-      "description": "a databased entity or concept/class",
-      "from_schema": "https://w3id.org/anak-velazquez/hzb-metadata-schema",
-      "exact_mappings": [
-        "BFO:0000001",
-        "WIKIDATA:Q35120",
-        "UMLSSG:OBJC",
-        "STY:T071",
-        "dcid:Thing"
-      ],
-      "is_a": "Entity",
+      "name": "CatalysisSample",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//CatalysisSample",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "Sample",
       "slots": [
-        "namedThing_category"
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/anak-velazquez/hzb-metadata-schema/NamedThing",
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/CatalysisSample",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Catalyst",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Catalyst",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "CatalysisSample",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Catalyst",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ThinFilmCatalyst",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//ThinFilmCatalyst",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "Catalyst",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/ThinFilmCatalyst",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PowderCatalyst",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//PowderCatalyst",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "Catalyst",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/PowderCatalyst",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Recipe",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Recipe",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Recipe",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Mixture",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Mixture",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Mixture",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Workflow",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Workflow",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Workflow",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Process",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Process",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Process",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Experiment",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Experiment",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Experiment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Measurement",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Measurement",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Measurement",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Parameter",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Parameter",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Parameter",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Reaction",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Reaction",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Reaction",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ReactionProduct",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//ReactionProduct",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/ReactionProduct",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Reactor",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Reactor",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/Reactor",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CatalysisSampleCollection",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//CatalysisSampleCollection",
+      "description": "A holder for CatalysisSample objects",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "slots": [
+        "catalysisSampleCollection__entries"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "entries",
+          "range": "CatalysisSample",
+          "multivalued": true,
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/CatalysisSampleCollection",
+      "tree_root": true,
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ReactionProductCollection",
+      "definition_uri": "https://w3id.org/anak-velazquez/catlabs//ReactionProductCollection",
+      "description": "A holder for ReactionProduct objects",
+      "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
+      "slots": [
+        "reactionProductCollection__entries"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "entries",
+          "range": "ReactionProduct",
+          "multivalued": true,
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/anak-velazquez/catlabs/ReactionProductCollection",
+      "tree_root": true,
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Beamline",
+      "definition_uri": "https://w3id.org/anak-velazquez/BESSY//Beamline",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/BESSY/Beamline",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BeamlineExperiment",
+      "definition_uri": "https://w3id.org/anak-velazquez/BESSY//BeamlineExperiment",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
+      "is_a": "Experiment",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BeamlineScientist",
+      "definition_uri": "https://w3id.org/anak-velazquez/BESSY//BeamlineScientist",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
+      "is_a": "Person",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category",
+        "primary_email",
+        "birth_date",
+        "age_in_years",
+        "gender",
+        "has_employment_history"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/BESSY/BeamlineScientist",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MySpot",
+      "definition_uri": "https://w3id.org/anak-velazquez/BESSY//MySpot",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
+      "is_a": "Beamline",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/BESSY/MySpot",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "EMILPink",
+      "definition_uri": "https://w3id.org/anak-velazquez/BESSY//EMILPink",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
+      "is_a": "Beamline",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/BESSY/EMILPink",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "EMILOAESE",
+      "definition_uri": "https://w3id.org/anak-velazquez/BESSY//EMILOAESE",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
+      "is_a": "Beamline",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/BESSY/EMILOAESE",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SampleEnvironment",
+      "definition_uri": "https://w3id.org/anak-velazquez/operandoCatalysis//SampleEnvironment",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/operandoCatalysis/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/operandoCatalysis/SampleEnvironment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SamplePositioning",
+      "definition_uri": "https://w3id.org/anak-velazquez/operandoCatalysis//SamplePositioning",
+      "description": "A person (alive, dead, undead, or fictional).",
+      "from_schema": "https://w3id.org/anak-velazquez/operandoCatalysis/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "hzb_metadata_schema.yaml",
-  "source_file_date": "2024-08-05T15:01:08",
-  "source_file_size": 4633,
-  "generation_date": "2024-08-05T15:01:15",
+  "source_file_date": "2024-09-27T16:14:27",
+  "source_file_size": 1774,
+  "generation_date": "2024-09-27T16:18:28",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/hzb_metadata_schema.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
+    "core.context.jsonld",
+    "catlabs.context.jsonld",
+    "BESSY.context.jsonld",
+    "operandoCatalysis.context.jsonld",
     {
       "@base": "https://w3id.org/anak-velazquez/hzb-metadata-schema/"
     }

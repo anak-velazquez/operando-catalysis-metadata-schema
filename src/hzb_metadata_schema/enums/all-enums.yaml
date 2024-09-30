@@ -1,0 +1,40 @@
+---
+id: https://w3id.org/anak-velazquez/hzb-metadata-schema
+name: all-enums
+title: all-enums for schema
+description: |-
+  Enums for the (Meta)data schema HZB labs
+license: MIT
+
+## ------------
+## ENUMERATIONS
+## ------------
+enums:
+  #person status
+  PersonStatus:
+    permissible_values:
+      ALIVE:
+        description: the person is living
+        meaning: PATO:0001421
+      DEAD:
+        description: the person is deceased
+        meaning: PATO:0001422
+      UNKNOWN:
+        description: the vital status is not known
+        todos:
+          - map this to an ontology
+  
+  gender_enum:
+    permissible_values:
+        Woman:
+          description: identified as woman
+          meaning: GSSO:000369
+        Masculine:
+          description: masculine
+          todos:
+          - map this to an ontology
+        Diverse:
+          description: other
+          todos:
+            - map this to an ontology
+

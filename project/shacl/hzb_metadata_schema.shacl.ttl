@@ -1,105 +1,869 @@
-@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix GSSO: <http://purl.bioontology.org/ontology/GSSO/> .
 @prefix hzb_metadata_schema: <https://w3id.org/anak-velazquez/hzb-metadata-schema/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hzb_metadata_schema:CatalysisSample a sh:NodeShape ;
+schema1:Person a sh:NodeShape ;
     sh:closed true ;
-    sh:description "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat" ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
+            sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path hzb_metadata_schema:sample_environment ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of years since birth" ;
+            sh:path schema1:email ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:in ( GSSO:000369 "Masculine" "Diverse" ) ;
+            sh:maxCount 1 ;
             sh:order 3 ;
-            sh:path hzb_metadata_schema:age_in_years ],
+            sh:path schema1:gender ],
         [ sh:datatype xsd:date ;
             sh:description "Date on which a person is born" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
+            sh:order 1 ;
             sh:path schema1:birthDate ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path hzb_metadata_schema:vital_status ],
+            sh:path <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of years since birth" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:age_in_years> ] ;
+    sh:targetClass schema1:Person .
+
+<https://w3id.org/anak-velazquez/BESSY/:Beamline> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/BESSY/:Beamline> .
+
+<https://w3id.org/anak-velazquez/BESSY/:BeamlineExperiment> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/BESSY/:BeamlineExperiment> .
+
+<https://w3id.org/anak-velazquez/BESSY/:BeamlineScientist> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of years since birth" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:age_in_years> ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date on which a person is born" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:birthDate ],
+        [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
+        [ sh:in ( GSSO:000369 "Masculine" "Diverse" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path schema1:gender ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
         [ sh:datatype xsd:string ;
             sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:email ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/BESSY/:BeamlineScientist> .
+
+<https://w3id.org/anak-velazquez/BESSY/:EMILOAESE> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path schema1:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
-    sh:targetClass hzb_metadata_schema:CatalysisSample .
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/BESSY/:EMILOAESE> .
+
+<https://w3id.org/anak-velazquez/BESSY/:EMILPink> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/BESSY/:EMILPink> .
+
+<https://w3id.org/anak-velazquez/BESSY/:MySpot> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/BESSY/:MySpot> .
+
+<https://w3id.org/anak-velazquez/catlabs/:CatalysisSampleCollection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A holder for CatalysisSample objects" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <https://w3id.org/anak-velazquez/catlabs/:CatalysisSample> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://w3id.org/anak-velazquez/catlabs/:entries> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:CatalysisSampleCollection> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Catalyst> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Catalyst> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Experiment> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Experiment> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Measurement> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Measurement> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Mixture> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Mixture> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Parameter> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Parameter> .
+
+<https://w3id.org/anak-velazquez/catlabs/:PowderCatalyst> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:PowderCatalyst> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Process> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Process> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Reaction> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Reaction> .
+
+<https://w3id.org/anak-velazquez/catlabs/:ReactionProductCollection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A holder for ReactionProduct objects" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <https://w3id.org/anak-velazquez/catlabs/:ReactionProduct> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://w3id.org/anak-velazquez/catlabs/:entries> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:ReactionProductCollection> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Reactor> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Reactor> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Recipe> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Recipe> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Scientist> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of years since birth" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:age_in_years> ],
+        [ sh:in ( GSSO:000369 "Masculine" "Diverse" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path schema1:gender ],
+        [ sh:datatype xsd:string ;
+            sh:description "The main email address of a person" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:email ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date on which a person is born" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:birthDate ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Scientist> .
+
+<https://w3id.org/anak-velazquez/catlabs/:ThinFilmCatalyst> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:ThinFilmCatalyst> .
+
+<https://w3id.org/anak-velazquez/catlabs/:Workflow> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:Workflow> .
+
+<https://w3id.org/anak-velazquez/core/:DataCite> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:DataCite> .
+
+<https://w3id.org/anak-velazquez/core/:Device> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:Device> .
+
+<https://w3id.org/anak-velazquez/core/:Entity> a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "An entity is anything that exists or has existed or will exist.  Model class for all things and informational relationships, real or imagined." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:Entity> .
+
+<https://w3id.org/anak-velazquez/core/:NamedEntity> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "a databased entity or concept/class" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:NamedEntity> .
+
+<https://w3id.org/anak-velazquez/core/:Project> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "lorem" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:Project> .
+
+<https://w3id.org/anak-velazquez/core/:SampleCollection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A holder for Sample objects" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <https://w3id.org/anak-velazquez/core/:Sample> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:entries> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:SampleCollection> .
 
 hzb_metadata_schema:ChemicalOrDrugOrTreatment a sh:NodeShape ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass hzb_metadata_schema:ChemicalOrDrugOrTreatment .
 
-hzb_metadata_schema:Device a sh:NodeShape ;
+<https://w3id.org/anak-velazquez/operandoCatalysis/:SampleEnvironment> a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment" ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass hzb_metadata_schema:Device .
-
-hzb_metadata_schema:Entity a sh:NodeShape ;
-    sh:closed false ;
-    sh:description "Root Biolink Model class for all things and informational relationships, real or imagined." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass hzb_metadata_schema:Entity .
-
-hzb_metadata_schema:NamedThing a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "a databased entity or concept/class" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass hzb_metadata_schema:NamedThing .
-
-hzb_metadata_schema:SampleCollection a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A holder for Sample objects" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class hzb_metadata_schema:Sample ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 0 ;
-            sh:path hzb_metadata_schema:entries ] ;
-    sh:targetClass hzb_metadata_schema:SampleCollection .
-
-hzb_metadata_schema:Sample a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Represents a Sample" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "Number of years since birth" ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path hzb_metadata_schema:age_in_years ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date on which a person is born" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:birthDate ],
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
         [ sh:datatype xsd:string ;
-            sh:description "The main email address of a person" ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path schema1:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path hzb_metadata_schema:vital_status ] ;
-    sh:targetClass hzb_metadata_schema:Sample .
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/operandoCatalysis/:SampleEnvironment> .
+
+<https://w3id.org/anak-velazquez/operandoCatalysis/:SamplePositioning> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/operandoCatalysis/:SamplePositioning> .
+
+<https://w3id.org/anak-velazquez/catlabs/:CatalysisSample> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:CatalysisSample> .
+
+<https://w3id.org/anak-velazquez/catlabs/:ReactionProduct> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A person (alive, dead, undead, or fictional)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/catlabs/:ReactionProduct> .
+
+<https://w3id.org/anak-velazquez/core/:Sample> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Information about a generic laboratory sample, discipline agnostic." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Internationalized Resource Identifier" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://w3id.org/anak-velazquez/core/:iri> ] ;
+    sh:targetClass <https://w3id.org/anak-velazquez/core/:Sample> .
 

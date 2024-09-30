@@ -1,0 +1,255 @@
+---
+id: https://w3id.org/anak-velazquez/core/ #this is a persitant ID- not working atm
+name: core
+
+description: |-
+    Here are the classes needed for admin and citing purposes. DataCite.
+
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_ #broken links
+  ORCID: https://orcid.org/
+
+imports: 
+- linkml:types
+
+default_range: string
+
+classes:
+
+   ######### Root classes!!!######
+  Entity:
+    description: >-
+     An entity is anything that exists or has existed or will exist. 
+     Model class for all things and informational relationships, real or imagined.
+    abstract: true
+    slots:
+      - id
+      - iri
+      #- category
+      #- type    # rdf:type
+      - name
+      #- description
+      #- has attribute
+      #- deprecated
+       # evidence code(s)?
+    exact_mappings:
+     - BFO:0000001
+
+  NamedEntity:
+    is_a: Entity
+    description: "a databased entity or concept/class"
+    slots:
+      #- provided by
+      #- xref
+      - name
+      #- synonym
+    slot_usage:
+      category:
+        required: true
+    exact_mappings:
+      - BFO:0000001
+      - WIKIDATA:Q35120
+       # UMLS Semantic Group "Objects"
+      - UMLSSG:OBJC
+       # Entity
+      - STY:T071
+      - dcid:Thing
+############################################################
+
+#####DataCite
+#lorem ipsum
+  DataCite:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Person
+#a basic/standard definition of a person, which later can be further defined as scientist, beam scientist, user, etc.
+  Person:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: schema:Person
+    mixins:
+      #- HasAliases
+    slots:
+      - primary_email
+      - birth_date
+      - age_in_years
+      - gender
+      - has_employment_history
+      #- has_familial_relationships
+      #- has_medical_history
+    aliases:
+      - human being
+      - individual 
+    # structured_aliases:
+    #   - literal_form: Homo sapiens
+    #     alias_predicate: skos:exactMapping
+    #     source: Linnaeus
+    #   - literal_form: Persona
+    #     alias_predicate: skos:exactMapping
+    #     source: Google Translate
+    #     in_language: es
+
+
+#####Project
+#lorem ipsum
+  Project:
+    is_a: NamedEntity
+    description: >-
+      lorem
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Device
+#lorem ipsum
+  Device:
+    is_a: NamedEntity
+    description: >-
+      A thing made or adapted for a particular purpose, especially
+      a piece of mechanical or electronic equipment
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+    narrow_mappings:
+      # Devices
+      - UMLSSG:DEVI
+      # Medical Device
+      - STY:T074
+      # Research Device
+      - STY:T075
+      # Drug Delivery Device
+      - STY:T203
+      # Biomedical or Dental Material
+      - STY:T122    
+
+#####Sample
+#lorem ipsum
+  Sample:
+    is_a: NamedEntity
+    description: >-
+      Information about a generic laboratory sample, discipline agnostic.
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+  #sample array
+  SampleCollection:
+    tree_root: true
+    description: >-
+      A holder for Sample objects
+    attributes:
+      entries:
+        range: Sample
+        multivalued: true
+        inlined: true    
+
+
+
+
+
+## ------------
+## SLOTS
+## ------------
+#data fields get their own section
+#here relationship between nodes can be defined in the future.
+
+slots:
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing
+  iri: 
+    description: Internationalized Resource Identifier
+  category:
+  name:
+    slot_uri: schema:name
+    description: A human-readable name for a thing
+  description:
+    slot_uri: schema:description
+    description: A human-readable description for a thing
+  primary_email:
+    slot_uri: schema:email
+    description: The main email address of a person
+  birth_date:
+    slot_uri: schema:birthDate
+    range: date
+    description: Date on which a person is born
+  age_in_years:
+    range: integer
+    description: Number of years since birth
+  vital_status:
+    range: PersonStatus
+    description: living or dead status
+  gender:
+    slot_uri: schema:gender
+    range: gender_enum
+  has_employment_history:
+  #  range: EmploymentEvent
+    multivalued: true
+    inlined_as_list: true
+  current_address:
+  #  range: Address
+
+
+
+## ------------
+## ENUMERATIONS
+## ------------
+enums:
+  #person status
+  PersonStatus:
+    permissible_values:
+      ALIVE:
+        description: the person is living
+        meaning: PATO:0001421
+      DEAD:
+        description: the person is deceased
+        meaning: PATO:0001422
+      UNKNOWN:
+        description: the vital status is not known
+        todos:
+          - map this to an ontology
+  
+  gender_enum:
+    permissible_values:
+        Woman:
+          description: identified as woman
+          meaning: GSSO:000369
+        Masculine:
+          description: masculine
+          todos:
+          - map this to an ontology
+        Diverse:
+          description: other
+          todos:
+            - map this to an ontology

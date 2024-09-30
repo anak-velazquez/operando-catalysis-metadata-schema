@@ -1,0 +1,274 @@
+---
+id: https://w3id.org/anak-velazquez/catlabs/ #this is a persitant ID- not working atm
+name: catlabs
+
+description: |-
+    Here are the classes needed for catalysis labs.
+
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_ #broken links
+  ORCID: https://orcid.org/
+
+imports: 
+- linkml:types
+- core
+
+default_range: string
+
+classes:
+
+#####Scientist
+#lorem ipsum
+  Scientist:
+    is_a: Person
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+    
+#####CatalysisSample
+#lorem ipsum
+  CatalysisSample:
+    is_a: Sample
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Catalyst
+#lorem ipsum
+  Catalyst:
+    is_a: CatalysisSample
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####ThinFilmCatalyst
+#lorem ipsum
+  ThinFilmCatalyst:
+    is_a: Catalyst
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####PowderCatalyst
+#lorem ipsum
+  PowderCatalyst:
+    is_a: Catalyst
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Recipe
+#lorem ipsum
+  Recipe:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Mixture
+#lorem ipsum
+  Mixture:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Workflow
+#lorem ipsum
+  Workflow:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Process
+#lorem ipsum
+  Process:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Experiment
+#lorem ipsum
+  Experiment:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Measurement
+#lorem ipsum
+  Measurement:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Parameter
+#lorem ipsum
+  Parameter:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Reaction
+#lorem ipsum
+  Reaction:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####ReactionProduct
+#lorem ipsum
+  ReactionProduct:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Reactor
+#lorem ipsum
+  Reactor:
+    is_a: NamedEntity
+    description: >-
+      A person (alive, dead, undead, or fictional).
+    class_uri: 
+    mixins:
+      #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+
+
+##############
+#Collections
+###############    
+  #CatalysisSample array
+  CatalysisSampleCollection:
+    tree_root: true
+    description: >-
+      A holder for CatalysisSample objects
+    attributes:
+      entries:
+        range: CatalysisSample
+        multivalued: true
+        inlined: true    
+
+  #ReactionProduct array
+  ReactionProductCollection:
+    tree_root: true
+    description: >-
+      A holder for ReactionProduct objects
+    attributes:
+      entries:
+        range: ReactionProduct
+        multivalued: true
+        inlined: true   

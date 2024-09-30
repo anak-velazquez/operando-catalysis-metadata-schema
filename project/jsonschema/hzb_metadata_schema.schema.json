@@ -1,8 +1,54 @@
 {
     "$defs": {
-        "CatalysisSample": {
+        "Beamline": {
             "additionalProperties": false,
-            "description": "core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat",
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Beamline",
+            "type": "object"
+        },
+        "BeamlineExperiment": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "BeamlineExperiment",
+            "type": "object"
+        },
+        "BeamlineScientist": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
             "properties": {
                 "age_in_years": {
                     "description": "Number of years since birth",
@@ -13,32 +59,409 @@
                     "format": "date",
                     "type": "string"
                 },
+                "gender": {
+                    "$ref": "#/$defs/GenderEnum"
+                },
+                "has_employment_history": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
                 "primary_email": {
                     "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
                     "type": "string"
-                },
-                "sample_environment": {
-                    "type": "string"
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
                 }
             },
+            "required": [
+                "id"
+            ],
+            "title": "BeamlineScientist",
+            "type": "object"
+        },
+        "CatalysisSample": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
             "title": "CatalysisSample",
+            "type": "object"
+        },
+        "CatalysisSampleCollection": {
+            "additionalProperties": false,
+            "description": "A holder for CatalysisSample objects",
+            "properties": {
+                "entries": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/CatalysisSample__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                }
+            },
+            "title": "CatalysisSampleCollection",
+            "type": "object"
+        },
+        "CatalysisSample__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "CatalysisSample",
+            "type": "object"
+        },
+        "Catalyst": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Catalyst",
+            "type": "object"
+        },
+        "DataCite": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DataCite",
             "type": "object"
         },
         "Device": {
             "additionalProperties": false,
             "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
             "title": "Device",
             "type": "object"
         },
-        "NamedThing": {
+        "EMILOAESE": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "EMILOAESE",
+            "type": "object"
+        },
+        "EMILPink": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "EMILPink",
+            "type": "object"
+        },
+        "Experiment": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Experiment",
+            "type": "object"
+        },
+        "GenderEnum": {
+            "description": "",
+            "enum": [
+                "Woman",
+                "Masculine",
+                "Diverse"
+            ],
+            "title": "GenderEnum",
+            "type": "string"
+        },
+        "Measurement": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Measurement",
+            "type": "object"
+        },
+        "Mixture": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Mixture",
+            "type": "object"
+        },
+        "MySpot": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MySpot",
+            "type": "object"
+        },
+        "NamedEntity": {
             "additionalProperties": false,
             "description": "a databased entity or concept/class",
-            "title": "NamedThing",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedEntity",
+            "type": "object"
+        },
+        "Parameter": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Parameter",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "age_in_years": {
+                    "description": "Number of years since birth",
+                    "type": "integer"
+                },
+                "birth_date": {
+                    "description": "Date on which a person is born",
+                    "format": "date",
+                    "type": "string"
+                },
+                "gender": {
+                    "$ref": "#/$defs/GenderEnum"
+                },
+                "has_employment_history": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Person",
             "type": "object"
         },
         "PersonStatus": {
@@ -51,9 +474,323 @@
             "title": "PersonStatus",
             "type": "string"
         },
+        "PowderCatalyst": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PowderCatalyst",
+            "type": "object"
+        },
+        "Process": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Process",
+            "type": "object"
+        },
+        "Project": {
+            "additionalProperties": false,
+            "description": "lorem",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Project",
+            "type": "object"
+        },
+        "Reaction": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Reaction",
+            "type": "object"
+        },
+        "ReactionProduct": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ReactionProduct",
+            "type": "object"
+        },
+        "ReactionProductCollection": {
+            "additionalProperties": false,
+            "description": "A holder for ReactionProduct objects",
+            "properties": {
+                "entries": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ReactionProduct__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                }
+            },
+            "title": "ReactionProductCollection",
+            "type": "object"
+        },
+        "ReactionProduct__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "ReactionProduct",
+            "type": "object"
+        },
+        "Reactor": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Reactor",
+            "type": "object"
+        },
+        "Recipe": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Recipe",
+            "type": "object"
+        },
         "Sample": {
             "additionalProperties": false,
-            "description": "Represents a Sample",
+            "description": "Information about a generic laboratory sample, discipline agnostic.",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Sample",
+            "type": "object"
+        },
+        "SampleCollection": {
+            "additionalProperties": false,
+            "description": "A holder for Sample objects",
+            "properties": {
+                "entries": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Sample__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                }
+            },
+            "title": "SampleCollection",
+            "type": "object"
+        },
+        "SampleEnvironment": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SampleEnvironment",
+            "type": "object"
+        },
+        "SamplePositioning": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SamplePositioning",
+            "type": "object"
+        },
+        "Sample__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Information about a generic laboratory sample, discipline agnostic.",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [],
+            "title": "Sample",
+            "type": "object"
+        },
+        "Scientist": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
             "properties": {
                 "age_in_years": {
                     "description": "Number of years since birth",
@@ -64,31 +801,82 @@
                     "format": "date",
                     "type": "string"
                 },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": "string"
+                "gender": {
+                    "$ref": "#/$defs/GenderEnum"
                 },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
-                }
-            },
-            "title": "Sample",
-            "type": "object"
-        },
-        "SampleCollection": {
-            "additionalProperties": false,
-            "description": "A holder for Sample objects",
-            "properties": {
-                "entries": {
+                "has_employment_history": {
                     "items": {
-                        "$ref": "#/$defs/Sample"
+                        "type": "string"
                     },
                     "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "type": "string"
                 }
             },
-            "title": "SampleCollection",
+            "required": [
+                "id"
+            ],
+            "title": "Scientist",
+            "type": "object"
+        },
+        "ThinFilmCatalyst": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ThinFilmCatalyst",
+            "type": "object"
+        },
+        "Workflow": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iri": {
+                    "description": "Internationalized Resource Identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Workflow",
             "type": "object"
         }
     },
@@ -99,10 +887,17 @@
     "metamodel_version": "1.7.0",
     "properties": {
         "entries": {
-            "items": {
-                "$ref": "#/$defs/Sample"
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/Sample__identifier_optional"
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
             },
-            "type": "array"
+            "type": "object"
         }
     },
     "title": "hzb-metadata-schema",

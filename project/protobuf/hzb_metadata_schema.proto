@@ -1,37 +1,265 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
-message CatalysisSample
+// A person (alive, dead, undead, or fictional).
+message Beamline
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message BeamlineExperiment
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message BeamlineScientist
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
   string primaryEmail = 0
   date birthDate = 0
   integer ageInYears = 0
-  personStatus vitalStatus = 0
-  string sampleEnvironment = 0
+  genderEnum gender = 0
+ repeated  string hasEmploymentHistory = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message CatalysisSample
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A holder for CatalysisSample objects
+message CatalysisSampleCollection
+ {
+ repeated  catalysisSample entries = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Catalyst
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message DataCite
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
  }
 // A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
 message Device
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message EMILOAESE
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message EMILPink
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Experiment
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Measurement
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Mixture
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message MySpot
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
  }
 // a databased entity or concept/class
-message NamedThing
+message NamedEntity
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
  }
-// Represents a Sample
-message Sample
+// A person (alive, dead, undead, or fictional).
+message Parameter
  {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Person
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
   string category = 0
   string primaryEmail = 0
   date birthDate = 0
   integer ageInYears = 0
-  personStatus vitalStatus = 0
+  genderEnum gender = 0
+ repeated  string hasEmploymentHistory = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message PowderCatalyst
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Process
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// lorem
+message Project
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Reaction
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message ReactionProduct
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A holder for ReactionProduct objects
+message ReactionProductCollection
+ {
+ repeated  reactionProduct entries = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Reactor
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Recipe
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// Information about a generic laboratory sample, discipline agnostic.
+message Sample
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
  }
 // A holder for Sample objects
 message SampleCollection
  {
  repeated  sample entries = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message SampleEnvironment
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message SamplePositioning
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Scientist
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+  string primaryEmail = 0
+  date birthDate = 0
+  integer ageInYears = 0
+  genderEnum gender = 0
+ repeated  string hasEmploymentHistory = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message ThinFilmCatalyst
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A person (alive, dead, undead, or fictional).
+message Workflow
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
  }

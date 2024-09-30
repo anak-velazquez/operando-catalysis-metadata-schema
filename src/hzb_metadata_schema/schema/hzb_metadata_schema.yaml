@@ -26,18 +26,30 @@ prefixes:
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  prov: http://www.w3.org/ns/prov#
+  GSSO: http://purl.bioontology.org/ontology/GSSO/ #gender ontology
+  BFO: http://purl.obolibrary.org/obo/BFO_
+  #skos: 
 
 default_prefix: hzb_metadata_schema
 default_range: string
 
 ## ------------
-## TYPES
+## Imports and types
 ## ------------
-imports:
+imports: #[linkml:types, test]
+  
   - linkml:types
+  - core
+  - catlabs
+  - BESSY
+  - operandoCatalysis
 
-types:
+  #- ../enums/all-enums #this does not work yet, gotta fix it!
+
+#optional: schema type extensions
+types: 
 
 #as in Biolink
   chemical formula value:
@@ -47,204 +59,21 @@ types:
     notes:
       - Should be implemented as a stronger type
 
-## ------------
-## SLOTS
-## ------------
-
-#here relationship between nodes can be defined in the future.
-
-slots:
-  id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
-    description: A unique identifier for a thing
-  name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
-
-enums:
-  PersonStatus:
-    permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
 
 ## ------------
 ## CLASSES
 ## ------------
 classes:
+
   #Chemical
   chemical or drug or treatment:
     mixin: true
     id_prefixes:
-      - PUBCHEM.COMPOUND
-      - CHEMBL.COMPOUND
-      - CHEBI
-      - MAXO
+      #- PUBCHEM.COMPOUND
+      #- CHEMBL.COMPOUND
+      #- CHEBI
+      #- MAXO
   
-  #Device
-  device:
-    is_a: namedThing
-    description: >-
-      A thing made or adapted for a particular purpose, especially
-      a piece of mechanical or electronic equipment
-    narrow_mappings:
-      # Devices
-      - UMLSSG:DEVI
-      # Medical Device
-      - STY:T074
-      # Research Device
-      - STY:T075
-      # Drug Delivery Device
-      - STY:T203
-      # Biomedical or Dental Material
-      - STY:T122
-
-  #Catalysis Sample Core
-  catalysisSample:
-    is_a: sample
-    description: >-
-     core parameters of a catalysis sample #metadata terms (parameters) are mapped to nfdi voc4cat
- 
-    attributes:
-      sample_environment:
-       #range: sample_environment
-      # GasComposition:
-      #   description: Describe gas composition
-      #   range: string
-      # GasSystem:
-      #   description: Describe various flow meter and calibration permissible_values
-      #   range: GasSystemData
-
-  #Sample
-  sample:
-    is_a: namedThing
-    description: >-
-      Represents a Sample
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-  
-  #samples 
-  sampleCollection:
-    tree_root: true
-    description: >-
-      A holder for Sample objects
-    attributes:
-      entries:
-        range: sample
-        multivalued: true
-        inlined: true    
-
-  #Experiment
-  experiment:
-    is_a: namedThing
-    description: >-
-      something following a protocol?
- 
-
-  ##### Operando, ROCKIT #############
-
-  #Experiment
-  Rockit_experiment:
-    is_a: beamlineExperiment
-    description: >-
-      describing the standard setup for ROCK-IT beamline experiment.
-      Sonal + Ana
- 
- 
- ##### MATTER #############
- 
-  #Beamline
-  beamline:
-    is_a: namedThing
-    description: >-
-      Sonal
-
-  #Beamline Experiment
-  beamlineExperiment:
-    is_a: experiment
-    description: >-
-      Sonal
-
-  #myspot Beamline
-  MySpot_beamline:
-    is_a: beamline
-    description: >-
-      Sonal
-
-
-
-
-   ## ------
-   ## THINGS
-   ## ------
-
-  entity:
-    description: >-
-      Root Biolink Model class for all things and informational relationships, real or imagined.
-    abstract: true
-    slots:
-      - id
-      #- iri
-      #- category
-      #- type    # rdf:type
-      - name
-      - description
-      #- has attribute
-      #- deprecated
-       # evidence code(s)?
-
-  namedThing:
-    is_a: entity
-    description: "a databased entity or concept/class"
-    slots:
-      #- provided by
-      #- xref
-      #- full name
-      #- synonym
-    slot_usage:
-      category:
-        required: true
-    exact_mappings:
-      - BFO:0000001
-      - WIKIDATA:Q35120
-       # UMLS Semantic Group "Objects"
-      - UMLSSG:OBJC
-       # Entity
-      - STY:T071
-      - dcid:Thing
-
-
 
 #comment
 #...
