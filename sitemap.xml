@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/AlternateIdentifier/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Beamline/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
@@ -51,6 +56,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Contributor/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Curie/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
@@ -81,6 +91,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Description/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Device/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
@@ -106,7 +121,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/EnvironmentDynamics/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Experiment/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/File/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -116,7 +141,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Format/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/FundingReference/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/GenderEnum/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/GeoLocation/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -132,6 +172,11 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Jsonpointer/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Language/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -201,6 +246,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Publisher/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Reaction/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
@@ -222,6 +272,26 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Recipe/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/RelatedIdentifier/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/RelatedItem/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/ResourceType/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Rights/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -251,12 +321,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Size/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Sparqlpath/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/String/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Subject/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -277,6 +357,11 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Uriorcurie/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/Version/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -302,6 +387,11 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/category/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/creators/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -341,6 +431,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/identifier/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/identifierType/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/iri/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
@@ -352,6 +452,11 @@
     </url>
     <url>
          <loc>https://anak-velazquez.github.io/hzb-metadata-schema/primary_email/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://anak-velazquez.github.io/hzb-metadata-schema/title/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
     </url>

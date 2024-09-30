@@ -200,7 +200,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-datacite">Class: DataCite</h1>
-<p><em>A person (alive, dead, undead, or fictional).</em></p>
+<p>_Represents metadata for datasets according to DataCite standard. Core properties of DataCite standard (basics for citation/publications.) DataCite already considers DublinCore elements. _</p>
 <p>URI: <a href="https://w3id.org/anak-velazquez/hzb-metadata-schema/DataCite">hzb_metadata_schema:DataCite</a></p>
 <div class="mermaid"> classDiagram
     class DataCite
@@ -208,11 +208,58 @@
       NamedEntity &lt;|-- DataCite
         click NamedEntity href "../NamedEntity"
 
+      DataCite : AlternateIdentifier
+
+      DataCite : Contributor
+
+      DataCite : creators
+
+
+
+
+    DataCite --&gt; "1..*" Person : creators
+    click Person href "../Person"
+
+
+      DataCite : Date
+
+      DataCite : Description
+
+      DataCite : Format
+
+      DataCite : FundingReference
+
+      DataCite : GeoLocation
+
       DataCite : id
+
+      DataCite : identifier
+
+      DataCite : identifierType
 
       DataCite : iri
 
+      DataCite : Language
+
       DataCite : name
+
+      DataCite : Publisher
+
+      DataCite : RelatedIdentifier
+
+      DataCite : RelatedItem
+
+      DataCite : ResourceType
+
+      DataCite : Rights
+
+      DataCite : Size
+
+      DataCite : Subject
+
+      DataCite : title
+
+      DataCite : Version
 
 
 </div>
@@ -238,10 +285,130 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../identifier/">identifier</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>The Identifier is a unique string that identifies a resource (i</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../identifierType/">identifierType</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>type of identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../creators/">creators</a></td>
+<td>1..* <br/> <a href="../Person/">Person</a></td>
+<td>Creator(s) of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../title/">title</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Title of the resource/dataset</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Publisher/">Publisher</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ResourceType/">ResourceType</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Subject/">Subject</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Contributor/">Contributor</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Date/">Date</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Language/">Language</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../AlternateIdentifier/">AlternateIdentifier</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>An identifier other than the primary Identifier applied to the resource being...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../RelatedIdentifier/">RelatedIdentifier</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Identifiers of related resources</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Size/">Size</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Size (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Format/">Format</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Technical format of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Version/">Version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Rights/">Rights</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../Description/">Description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../GeoLocation/">GeoLocation</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../FundingReference/">FundingReference</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../RelatedItem/">RelatedItem</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Creator of the resource</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable name for a thing</td>
-<td><a href="../NamedEntity/">NamedEntity</a>, <a href="../Entity/">Entity</a></td>
+<td><a href="../Entity/">Entity</a>, <a href="../NamedEntity/">NamedEntity</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -286,19 +453,412 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: DataCite
-description: A person (alive, dead, undead, or fictional).
+description: 'Represents metadata for datasets according to DataCite standard. Core
+  properties of DataCite standard (basics for citation/publications.) DataCite already
+  considers DublinCore elements. '
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 is_a: NamedEntity
+attributes:
+  identifier:
+    name: identifier
+    description: The Identifier is a unique string that identifies a resource (i.e.,
+      DOI).
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    identifier: true
+    domain_of:
+    - DataCite
+    range: string
+    required: true
+  identifierType:
+    name: identifierType
+    description: type of identifier.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    identifier: true
+    domain_of:
+    - DataCite
+    range: string
+    required: true
+  creators:
+    name: creators
+    description: Creator(s) of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: Person
+    required: true
+    multivalued: true
+  title:
+    name: title
+    description: Title of the resource/dataset.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+    required: true
+  Publisher:
+    name: Publisher
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  ResourceType:
+    name: ResourceType
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Subject:
+    name: Subject
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Contributor:
+    name: Contributor
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Date:
+    name: Date
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Language:
+    name: Language
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  AlternateIdentifier:
+    name: AlternateIdentifier
+    description: An identifier other than the primary Identifier applied to the resource
+      being registered. This may be any alphanumeric string which is unique within
+      its domain of issue. May be used for local identifiers, a serial number of an
+      instrument or an inventory number. The AlternateIdentifier should be an additional
+      identifier for the same instance of the resource (i.e., same location, same
+      file).
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  RelatedIdentifier:
+    name: RelatedIdentifier
+    description: Identifiers of related resources. These must be globally unique identifiers.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Size:
+    name: Size
+    description: Size (e.g., bytes, pages, inches, etc.) or duration (extent), e.g.,
+      hours, minutes, days, etc., of a resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Format:
+    name: Format
+    description: Technical format of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Version:
+    name: Version
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Rights:
+    name: Rights
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  Description:
+    name: Description
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  GeoLocation:
+    name: GeoLocation
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  FundingReference:
+    name: FundingReference
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
+  RelatedItem:
+    name: RelatedItem
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    domain_of:
+    - DataCite
+    range: string
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: DataCite
-description: A person (alive, dead, undead, or fictional).
+description: 'Represents metadata for datasets according to DataCite standard. Core
+  properties of DataCite standard (basics for citation/publications.) DataCite already
+  considers DublinCore elements. '
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 is_a: NamedEntity
 attributes:
+  identifier:
+    name: identifier
+    description: The Identifier is a unique string that identifies a resource (i.e.,
+      DOI).
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    identifier: true
+    alias: identifier
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+    required: true
+  identifierType:
+    name: identifierType
+    description: type of identifier.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    identifier: true
+    alias: identifierType
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+    required: true
+  creators:
+    name: creators
+    description: Creator(s) of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: creators
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: Person
+    required: true
+    multivalued: true
+  title:
+    name: title
+    description: Title of the resource/dataset.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: title
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+    required: true
+  Publisher:
+    name: Publisher
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Publisher
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  ResourceType:
+    name: ResourceType
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: ResourceType
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Subject:
+    name: Subject
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Subject
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Contributor:
+    name: Contributor
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Contributor
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Date:
+    name: Date
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Date
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Language:
+    name: Language
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Language
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  AlternateIdentifier:
+    name: AlternateIdentifier
+    description: An identifier other than the primary Identifier applied to the resource
+      being registered. This may be any alphanumeric string which is unique within
+      its domain of issue. May be used for local identifiers, a serial number of an
+      instrument or an inventory number. The AlternateIdentifier should be an additional
+      identifier for the same instance of the resource (i.e., same location, same
+      file).
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: AlternateIdentifier
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  RelatedIdentifier:
+    name: RelatedIdentifier
+    description: Identifiers of related resources. These must be globally unique identifiers.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: RelatedIdentifier
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Size:
+    name: Size
+    description: Size (e.g., bytes, pages, inches, etc.) or duration (extent), e.g.,
+      hours, minutes, days, etc., of a resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Size
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Format:
+    name: Format
+    description: Technical format of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Format
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Version:
+    name: Version
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Version
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Rights:
+    name: Rights
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Rights
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  Description:
+    name: Description
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: Description
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  GeoLocation:
+    name: GeoLocation
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: GeoLocation
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  FundingReference:
+    name: FundingReference
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: FundingReference
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
+  RelatedItem:
+    name: RelatedItem
+    description: Creator of the resource.
+    from_schema: https://w3id.org/anak-velazquez/core/
+    rank: 1000
+    alias: RelatedItem
+    owner: DataCite
+    domain_of:
+    - DataCite
+    range: string
   name:
     name: name
     description: A human-readable name for a thing
