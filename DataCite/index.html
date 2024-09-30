@@ -217,7 +217,7 @@
 
 
 
-    DataCite --&gt; "1..*" Person : creators
+    DataCite --&gt; "1" Person : creators
     click Person href "../Person"
 
 
@@ -292,13 +292,13 @@
 </tr>
 <tr>
 <td><a href="../identifierType/">identifierType</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>type of identifier</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../creators/">creators</a></td>
-<td>1..* <br/> <a href="../Person/">Person</a></td>
+<td>1 <br/> <a href="../Person/">Person</a></td>
 <td>Creator(s) of the resource</td>
 <td>direct</td>
 </tr>
@@ -465,7 +465,6 @@ attributes:
       DOI).
     from_schema: https://w3id.org/anak-velazquez/core/
     rank: 1000
-    identifier: true
     domain_of:
     - DataCite
     range: string
@@ -475,11 +474,9 @@ attributes:
     description: type of identifier.
     from_schema: https://w3id.org/anak-velazquez/core/
     rank: 1000
-    identifier: true
     domain_of:
     - DataCite
     range: string
-    required: true
   creators:
     name: creators
     description: Creator(s) of the resource.
@@ -489,7 +486,6 @@ attributes:
     - DataCite
     range: Person
     required: true
-    multivalued: true
   title:
     name: title
     description: Title of the resource/dataset.
@@ -651,7 +647,6 @@ attributes:
       DOI).
     from_schema: https://w3id.org/anak-velazquez/core/
     rank: 1000
-    identifier: true
     alias: identifier
     owner: DataCite
     domain_of:
@@ -663,13 +658,11 @@ attributes:
     description: type of identifier.
     from_schema: https://w3id.org/anak-velazquez/core/
     rank: 1000
-    identifier: true
     alias: identifierType
     owner: DataCite
     domain_of:
     - DataCite
     range: string
-    required: true
   creators:
     name: creators
     description: Creator(s) of the resource.
@@ -681,7 +674,6 @@ attributes:
     - DataCite
     range: Person
     required: true
-    multivalued: true
   title:
     name: title
     description: Title of the resource/dataset.
