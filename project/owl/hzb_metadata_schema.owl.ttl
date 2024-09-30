@@ -15,45 +15,45 @@
         linkml:ClassDefinition ;
     rdfs:label "BeamlineExperiment" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/catlabs/:Experiment> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "An experimental investigation conducted using a beamline." ;
     skos:inScheme <https://w3id.org/anak-velazquez/BESSY/> .
 
 <https://w3id.org/anak-velazquez/BESSY/:BeamlineScientist> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "BeamlineScientist" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:Person> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "An expert responsible for the operation and scientific application of beamlines  in a research facility." ;
     skos:inScheme <https://w3id.org/anak-velazquez/BESSY/> .
 
 <https://w3id.org/anak-velazquez/BESSY/:EMILOAESE> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "EMIL_OAESE" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/BESSY/:Beamline> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "OAESE beamline description." ;
     skos:inScheme <https://w3id.org/anak-velazquez/BESSY/> .
 
 <https://w3id.org/anak-velazquez/BESSY/:EMILPink> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "EMIL_Pink" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/BESSY/:Beamline> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Pink beamline description." ;
     skos:inScheme <https://w3id.org/anak-velazquez/BESSY/> .
 
 <https://w3id.org/anak-velazquez/BESSY/:MySpot> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "mySpot" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/BESSY/:Beamline> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Myspot beamline description." ;
     skos:inScheme <https://w3id.org/anak-velazquez/BESSY/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:CatalysisSampleCollection> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CatalysisSampleCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/anak-velazquez/catlabs/:CatalysisSample> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://w3id.org/anak-velazquez/catlabs/:entries> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://w3id.org/anak-velazquez/catlabs/:CatalysisSample> ;
             owl:onProperty <https://w3id.org/anak-velazquez/catlabs/:entries> ] ;
     skos:definition "A holder for CatalysisSample objects" ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
@@ -62,52 +62,52 @@
         linkml:ClassDefinition ;
     rdfs:label "Measurement" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Storing and describing measurements to perform on a sample." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Mixture> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Mixture" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A combination of two or more substances that are mixed together,  which may retain their individual properties or interact chemically. " ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Parameter> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Parameter" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Associates parameters on demand to a certain experiment or measurement." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:PowderCatalyst> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "PowderCatalyst" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/catlabs/:Catalyst> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Catalyst type. Core properties of a powder catalyst." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Process> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Process" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A defined series of actions, steps, or operations undertaken to achieve a  specific scientific or experimental outcome (e.g. atomic layer deposition)." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Reaction> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Reaction" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A chemical process in which one or more substances (reactants) undergo transformation to produce new substances (products). " ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:ReactionProductCollection> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ReactionProductCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/anak-velazquez/catlabs/:ReactionProduct> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://w3id.org/anak-velazquez/catlabs/:entries> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://w3id.org/anak-velazquez/catlabs/:ReactionProduct> ;
             owl:onProperty <https://w3id.org/anak-velazquez/catlabs/:entries> ] ;
     skos:definition "A holder for ReactionProduct objects" ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
@@ -116,49 +116,229 @@
         linkml:ClassDefinition ;
     rdfs:label "Reactor" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Equipment designed to facilitate and control chemical reactions under specified  conditions, such as temperature, pressure, and flow rates. " ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Recipe> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Recipe" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A detailed set of instructions outlining the materials, quantities, and procedures  required to perform a specific chemical reaction or experimental process." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Scientist> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Scientist" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:Person> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "An individual involved in research activities, and their details that are important  to be referenced on experiments, projects, publivations, etc." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:ThinFilmCatalyst> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ThinFilmCatalyst" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/catlabs/:Catalyst> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Catalyst type. Core properties of a thin film." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Workflow> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Workflow" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A structured sequence of tasks, activities, or processes designed to accomplish a  specific research objective or experimental goal." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/core/:DataCite> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DataCite" ;
-    rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Language> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:creators> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:creators> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:RelatedIdentifier> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:ResourceType> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Publisher> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:AlternateIdentifier> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Format> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Language> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Format> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Date> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Subject> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:ResourceType> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:FundingReference> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:RelatedIdentifier> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:FundingReference> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Rights> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:AlternateIdentifier> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Description> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:GeoLocation> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Contributor> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:identifierType> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:ResourceType> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:identifier> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Rights> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Size> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:title> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:RelatedItem> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:GeoLocation> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Description> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:identifierType> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:RelatedIdentifier> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Size> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Size> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Subject> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:RelatedItem> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Description> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Version> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/anak-velazquez/core/:Person> ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:creators> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Date> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:title> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Contributor> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:identifierType> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:GeoLocation> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Subject> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:FundingReference> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Language> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:title> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Contributor> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Format> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:AlternateIdentifier> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Publisher> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Version> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Publisher> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:identifier> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Version> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Rights> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:Date> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:identifier> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:RelatedItem> ],
+        <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
+    skos:definition "Represents metadata for datasets according to DataCite standard. Core properties of DataCite standard (basics for citation/publications.) DataCite already considers DublinCore elements. " ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
 <https://w3id.org/anak-velazquez/core/:Device> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Device" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment" ;
+    skos:definition "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment." ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> ;
     skos:narrowMatch <STY:T074>,
         <STY:T075>,
@@ -170,7 +350,7 @@
         linkml:ClassDefinition ;
     rdfs:label "Project" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "lorem" ;
+    skos:definition "A research activity or initiative with defined objectives, funding, and timelines, involving one or more researchers, designed to generate data, publications, and other outputs. The project may involve multiple experiments, datasets, and contributors, and can be linked to specific funding sources and institutions." ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
 <https://w3id.org/anak-velazquez/core/:SampleCollection> a owl:Class,
@@ -208,64 +388,78 @@ hzb_metadata_schema:ChemicalOrDrugOrTreatment a owl:Class,
     rdfs:label "chemical or drug or treatment" ;
     skos:inScheme <https://w3id.org/anak-velazquez/hzb-metadata-schema> .
 
+<https://w3id.org/anak-velazquez/operandoCatalysis/:EnvironmentDynamics> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "EnvironmentDynamics" ;
+    rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
+    skos:definition "Dynamic or time-resolved environmental conditions during an  experiment (e.g.for in-situ measurements)." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/operandoCatalysis/> .
+
+<https://w3id.org/anak-velazquez/operandoCatalysis/:File> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "File" ;
+    rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
+    skos:definition "Stores data related to the experiment (e.g. images, videos, or other files)." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/operandoCatalysis/> .
+
 <https://w3id.org/anak-velazquez/operandoCatalysis/:SampleEnvironment> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SampleEnvironment" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Controlled environment in which the sample is studied (operando research)." ;
     skos:inScheme <https://w3id.org/anak-velazquez/operandoCatalysis/> .
 
 <https://w3id.org/anak-velazquez/operandoCatalysis/:SamplePositioning> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SamplePositioning" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "The arrangement or location of samples within an experimental setup,  critical for ensuring accurate data collection and analysis. " ;
     skos:inScheme <https://w3id.org/anak-velazquez/operandoCatalysis/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Experiment> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Experiment" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A systematic investigation designed to test hypotheses, gather data, or explore  scientific principles through controlled conditions." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:ReactionProduct> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ReactionProduct" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A substance formed as a result of a chemical reaction, representing the end products  generated from the transformation of reactants." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/core/:Entity> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Entity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:iri> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:iri> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:iri> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:id> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:id> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:iri> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:iri> ] ;
     skos:definition "An entity is anything that exists or has existed or will exist.  Model class for all things and informational relationships, real or imagined." ;
     skos:exactMatch BFO:0000001 ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
@@ -306,73 +500,21 @@ PATO:0001422 a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CatalysisSample" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:Sample> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "Core properties of a catalysis sample." ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:Catalyst> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Catalyst" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/catlabs/:CatalysisSample> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "A substance or material that increases the rate of a chemical reaction.  Class including core properties of the synthesis characterization, and other experiments. " ;
     skos:inScheme <https://w3id.org/anak-velazquez/catlabs/> .
-
-<https://w3id.org/anak-velazquez/core/:Person> a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "Person" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:primary_email> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom hzb_metadata_schema:GenderEnum ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:gender> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:gender> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:birth_date> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:age_in_years> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:age_in_years> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:primary_email> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:birth_date> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:birth_date> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:age_in_years> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:primary_email> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:gender> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
-        <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:altLabel "human being",
-        "individual" ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
-    skos:exactMatch schema1:Person ;
-    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
 <https://w3id.org/anak-velazquez/core/:Sample> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Sample" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "Information about a generic laboratory sample, discipline agnostic." ;
+    skos:definition "Core properties of a sample, discipline agnostic." ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
 <https://w3id.org/anak-velazquez/core/:entries> a owl:ObjectProperty,
@@ -404,8 +546,156 @@ PATO:0001422 a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Beamline" ;
     rdfs:subClassOf <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
-    skos:definition "A person (alive, dead, undead, or fictional)." ;
+    skos:definition "System within a facility designed to direct a beam of radiation toward a sample for  the purpose of analysis or experimentation." ;
     skos:inScheme <https://w3id.org/anak-velazquez/BESSY/> .
+
+<https://w3id.org/anak-velazquez/core/:AlternateIdentifier> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "AlternateIdentifier" ;
+    skos:definition "An identifier other than the primary Identifier applied to the resource being registered. This may be any alphanumeric string which is unique within its domain of issue. May be used for local identifiers, a serial number of an instrument or an inventory number. The AlternateIdentifier should be an additional identifier for the same instance of the resource (i.e., same location, same file)." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Contributor> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Contributor" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Date> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Date" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Description> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Description" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Format> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Format" ;
+    skos:definition "Technical format of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:FundingReference> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "FundingReference" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:GeoLocation> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "GeoLocation" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Language> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Language" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Person> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:birth_date> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:birth_date> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:gender> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:primary_email> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:age_in_years> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:primary_email> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:age_in_years> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:age_in_years> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom hzb_metadata_schema:GenderEnum ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:gender> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:has_employment_history> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:primary_email> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:gender> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:birth_date> ],
+        <https://w3id.org/anak-velazquez/core/:NamedEntity> ;
+    skos:altLabel "human being",
+        "individual" ;
+    skos:definition "A basic/standard definition of a person, which later can be further defined as scientist, beam scientist, user, etc." ;
+    skos:exactMatch schema1:Person ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Publisher> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Publisher" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:RelatedIdentifier> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "RelatedIdentifier" ;
+    skos:definition "Identifiers of related resources. These must be globally unique identifiers." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:RelatedItem> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "RelatedItem" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:ResourceType> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ResourceType" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Rights> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Rights" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Size> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Size" ;
+    skos:definition "Size (e.g., bytes, pages, inches, etc.) or duration (extent), e.g., hours, minutes, days, etc., of a resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Subject> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Subject" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:Version> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Version" ;
+    skos:definition "Creator of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
 <https://w3id.org/anak-velazquez/core/:age_in_years> a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -426,6 +716,12 @@ PATO:0001422 a owl:Class,
     rdfs:label "category" ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
+<https://w3id.org/anak-velazquez/core/:creators> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "creators" ;
+    skos:definition "Creator(s) of the resource." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
 <https://w3id.org/anak-velazquez/core/:gender> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "gender" ;
@@ -439,6 +735,18 @@ PATO:0001422 a owl:Class,
     skos:definition "A unique identifier for a thing" ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
+<https://w3id.org/anak-velazquez/core/:identifier> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identifier" ;
+    skos:definition "The Identifier is a unique string that identifies a resource (i.e., DOI)." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:identifierType> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identifierType" ;
+    skos:definition "type of identifier." ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
 <https://w3id.org/anak-velazquez/core/:iri> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "iri" ;
@@ -449,6 +757,12 @@ PATO:0001422 a owl:Class,
         linkml:SlotDefinition ;
     rdfs:label "primary_email" ;
     skos:definition "The main email address of a person" ;
+    skos:inScheme <https://w3id.org/anak-velazquez/core/> .
+
+<https://w3id.org/anak-velazquez/core/:title> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "title" ;
+    skos:definition "Title of the resource/dataset." ;
     skos:inScheme <https://w3id.org/anak-velazquez/core/> .
 
 <https://w3id.org/anak-velazquez/catlabs/:entries> a owl:ObjectProperty,
@@ -478,23 +792,23 @@ hzb_metadata_schema:GenderEnum a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedEntity" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/anak-velazquez/core/:category> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:category> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://w3id.org/anak-velazquez/core/:category> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:category> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://w3id.org/anak-velazquez/core/:name> ],
         <https://w3id.org/anak-velazquez/core/:Entity> ;
     skos:definition "a databased entity or concept/class" ;
     skos:exactMatch <STY:T071>,

@@ -111,7 +111,27 @@ linkml:Sparqlpath xsd:string
 
 <https://w3id.org/anak-velazquez/core/DataCite> CLOSED {
     (  $<https://w3id.org/anak-velazquez/core/DataCite_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
-          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ? ;
+          <https://w3id.org/anak-velazquez/core/identifier> @linkml:String ;
+          <https://w3id.org/anak-velazquez/core/identifierType> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/creators> @<https://w3id.org/anak-velazquez/core/Person> ;
+          <https://w3id.org/anak-velazquez/core/title> @linkml:String ;
+          <https://w3id.org/anak-velazquez/core/Publisher> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/ResourceType> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Subject> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Contributor> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Date> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Language> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/AlternateIdentifier> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/RelatedIdentifier> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Size> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Format> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Version> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Rights> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/Description> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/GeoLocation> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/FundingReference> @linkml:String ? ;
+          <https://w3id.org/anak-velazquez/core/RelatedItem> @linkml:String ?
        ) ;
        rdf:type [ <https://w3id.org/anak-velazquez/core/DataCite> ]
     )
@@ -151,6 +171,15 @@ linkml:Sparqlpath xsd:string
     } OR @<https://w3id.org/anak-velazquez/core/NamedEntity>
 )
 
+<https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics_tes> ( 
+          &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics> ]
+    )
+}
+
 <https://w3id.org/anak-velazquez/catlabs/Experiment>  (
     CLOSED {
        (  $<https://w3id.org/anak-velazquez/catlabs/Experiment_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
@@ -160,6 +189,14 @@ linkml:Sparqlpath xsd:string
        )
     } OR @<https://w3id.org/anak-velazquez/BESSY/BeamlineExperiment>
 )
+
+<https://w3id.org/anak-velazquez/operandoCatalysis/File> CLOSED {
+    (  $<https://w3id.org/anak-velazquez/operandoCatalysis/File_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
+          rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ] ?
+       ) ;
+       rdf:type [ <https://w3id.org/anak-velazquez/operandoCatalysis/File> ]
+    )
+}
 
 <https://w3id.org/anak-velazquez/catlabs/Measurement> CLOSED {
     (  $<https://w3id.org/anak-velazquez/catlabs/Measurement_tes> (  &<https://w3id.org/anak-velazquez/core/NamedEntity_tes> ;
@@ -194,7 +231,8 @@ linkml:Sparqlpath xsd:string
           rdf:type [ <https://w3id.org/anak-velazquez/core/NamedEntity> ]
        )
     } OR @<https://w3id.org/anak-velazquez/BESSY/Beamline> OR @<https://w3id.org/anak-velazquez/core/DataCite> OR
-    @<https://w3id.org/anak-velazquez/core/Device> OR @<https://w3id.org/anak-velazquez/catlabs/Experiment> OR
+    @<https://w3id.org/anak-velazquez/core/Device> OR @<https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics> OR
+    @<https://w3id.org/anak-velazquez/catlabs/Experiment> OR @<https://w3id.org/anak-velazquez/operandoCatalysis/File> OR
     @<https://w3id.org/anak-velazquez/catlabs/Measurement> OR @<https://w3id.org/anak-velazquez/catlabs/Mixture> OR
     @<https://w3id.org/anak-velazquez/catlabs/Parameter> OR @<https://w3id.org/anak-velazquez/core/Person> OR
     @<https://w3id.org/anak-velazquez/catlabs/Process> OR @<https://w3id.org/anak-velazquez/core/Project> OR

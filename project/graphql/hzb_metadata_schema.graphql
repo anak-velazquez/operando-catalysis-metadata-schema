@@ -59,6 +59,26 @@ type DataCite
     iri: String
     name: String
     category: String!
+    identifier: String!
+    identifierType: String
+    creators: Person!
+    title: String!
+    publisher: String
+    resourceType: String
+    subject: String
+    contributor: String
+    date: String
+    language: String
+    alternateIdentifier: String
+    relatedIdentifier: String
+    size: String
+    format: String
+    version: String
+    rights: String
+    description: String
+    geoLocation: String
+    fundingReference: String
+    relatedItem: String
   }
 
 type Device
@@ -92,7 +112,23 @@ interface Entity
     name: String
   }
 
+type EnvironmentDynamics
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
 type Experiment
+  {
+    id: Uriorcurie!
+    iri: String
+    name: String
+    category: String!
+  }
+
+type File
   {
     id: Uriorcurie!
     iri: String

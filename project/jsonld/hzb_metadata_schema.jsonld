@@ -589,6 +589,269 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "dataCite__identifier",
+      "description": "The Identifier is a unique string that identifies a resource (i.e., DOI).",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/identifier",
+      "alias": "identifier",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__identifierType",
+      "description": "type of identifier.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/identifierType",
+      "alias": "identifierType",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__creators",
+      "description": "Creator(s) of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/creators",
+      "alias": "creators",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "Person",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__title",
+      "description": "Title of the resource/dataset.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/title",
+      "alias": "title",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Publisher",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Publisher",
+      "alias": "Publisher",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__ResourceType",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/ResourceType",
+      "alias": "ResourceType",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Subject",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Subject",
+      "alias": "Subject",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Contributor",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Contributor",
+      "alias": "Contributor",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Date",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Date",
+      "alias": "Date",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Language",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Language",
+      "alias": "Language",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__AlternateIdentifier",
+      "description": "An identifier other than the primary Identifier applied to the resource being registered. This may be any alphanumeric string which is unique within its domain of issue. May be used for local identifiers, a serial number of an instrument or an inventory number. The AlternateIdentifier should be an additional identifier for the same instance of the resource (i.e., same location, same file).",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/AlternateIdentifier",
+      "alias": "AlternateIdentifier",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__RelatedIdentifier",
+      "description": "Identifiers of related resources. These must be globally unique identifiers.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/RelatedIdentifier",
+      "alias": "RelatedIdentifier",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Size",
+      "description": "Size (e.g., bytes, pages, inches, etc.) or duration (extent), e.g., hours, minutes, days, etc., of a resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Size",
+      "alias": "Size",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Format",
+      "description": "Technical format of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Format",
+      "alias": "Format",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Version",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Version",
+      "alias": "Version",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Rights",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Rights",
+      "alias": "Rights",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__Description",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/Description",
+      "alias": "Description",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__GeoLocation",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/GeoLocation",
+      "alias": "GeoLocation",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__FundingReference",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/FundingReference",
+      "alias": "FundingReference",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataCite__RelatedItem",
+      "description": "Creator of the resource.",
+      "from_schema": "https://w3id.org/anak-velazquez/core/",
+      "slot_uri": "https://w3id.org/anak-velazquez/core/RelatedItem",
+      "alias": "RelatedItem",
+      "owner": "DataCite",
+      "domain_of": [
+        "DataCite"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "sampleCollection__entries",
       "from_schema": "https://w3id.org/anak-velazquez/core/",
       "slot_uri": "https://w3id.org/anak-velazquez/core/entries",
@@ -703,23 +966,168 @@
     {
       "name": "DataCite",
       "definition_uri": "https://w3id.org/anak-velazquez/core//DataCite",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Represents metadata for datasets according to DataCite standard. Core properties of DataCite standard (basics for citation/publications.) DataCite already considers DublinCore elements. ",
       "from_schema": "https://w3id.org/anak-velazquez/core/",
       "is_a": "NamedEntity",
       "slots": [
         "id",
         "iri",
         "name",
-        "NamedEntity_category"
+        "NamedEntity_category",
+        "dataCite__identifier",
+        "dataCite__identifierType",
+        "dataCite__creators",
+        "dataCite__title",
+        "dataCite__Publisher",
+        "dataCite__ResourceType",
+        "dataCite__Subject",
+        "dataCite__Contributor",
+        "dataCite__Date",
+        "dataCite__Language",
+        "dataCite__AlternateIdentifier",
+        "dataCite__RelatedIdentifier",
+        "dataCite__Size",
+        "dataCite__Format",
+        "dataCite__Version",
+        "dataCite__Rights",
+        "dataCite__Description",
+        "dataCite__GeoLocation",
+        "dataCite__FundingReference",
+        "dataCite__RelatedItem"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "identifier",
+          "description": "The Identifier is a unique string that identifies a resource (i.e., DOI).",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "identifierType",
+          "description": "type of identifier.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "creators",
+          "description": "Creator(s) of the resource.",
+          "range": "Person",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "title",
+          "description": "Title of the resource/dataset.",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Publisher",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "ResourceType",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Subject",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Contributor",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Date",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Language",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "AlternateIdentifier",
+          "description": "An identifier other than the primary Identifier applied to the resource being registered. This may be any alphanumeric string which is unique within its domain of issue. May be used for local identifiers, a serial number of an instrument or an inventory number. The AlternateIdentifier should be an additional identifier for the same instance of the resource (i.e., same location, same file).",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "RelatedIdentifier",
+          "description": "Identifiers of related resources. These must be globally unique identifiers.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Size",
+          "description": "Size (e.g., bytes, pages, inches, etc.) or duration (extent), e.g., hours, minutes, days, etc., of a resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Format",
+          "description": "Technical format of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Version",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Rights",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "Description",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "GeoLocation",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "FundingReference",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "RelatedItem",
+          "description": "Creator of the resource.",
+          "range": "string",
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/anak-velazquez/core/DataCite",
       "@type": "ClassDefinition"
     },
     {
       "name": "Person",
       "definition_uri": "https://w3id.org/anak-velazquez/core//Person",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A basic/standard definition of a person, which later can be further defined as scientist, beam scientist, user, etc.",
       "from_schema": "https://w3id.org/anak-velazquez/core/",
       "aliases": [
         "human being",
@@ -747,7 +1155,7 @@
     {
       "name": "Project",
       "definition_uri": "https://w3id.org/anak-velazquez/core//Project",
-      "description": "lorem",
+      "description": "A research activity or initiative with defined objectives, funding, and timelines, involving one or more researchers, designed to generate data, publications, and other outputs. The project may involve multiple experiments, datasets, and contributors, and can be linked to specific funding sources and institutions.",
       "from_schema": "https://w3id.org/anak-velazquez/core/",
       "is_a": "NamedEntity",
       "slots": [
@@ -763,7 +1171,7 @@
     {
       "name": "Device",
       "definition_uri": "https://w3id.org/anak-velazquez/core//Device",
-      "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
+      "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment.",
       "from_schema": "https://w3id.org/anak-velazquez/core/",
       "narrow_mappings": [
         "UMLSSG:DEVI",
@@ -786,7 +1194,7 @@
     {
       "name": "Sample",
       "definition_uri": "https://w3id.org/anak-velazquez/core//Sample",
-      "description": "Information about a generic laboratory sample, discipline agnostic.",
+      "description": "Core properties of a sample, discipline agnostic.",
       "from_schema": "https://w3id.org/anak-velazquez/core/",
       "is_a": "NamedEntity",
       "slots": [
@@ -824,7 +1232,7 @@
     {
       "name": "Scientist",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Scientist",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "An individual involved in research activities, and their details that are important  to be referenced on experiments, projects, publivations, etc.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "Person",
       "slots": [
@@ -845,7 +1253,7 @@
     {
       "name": "CatalysisSample",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//CatalysisSample",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Core properties of a catalysis sample.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "Sample",
       "slots": [
@@ -861,7 +1269,7 @@
     {
       "name": "Catalyst",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Catalyst",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A substance or material that increases the rate of a chemical reaction.  Class including core properties of the synthesis characterization, and other experiments. ",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "CatalysisSample",
       "slots": [
@@ -877,7 +1285,7 @@
     {
       "name": "ThinFilmCatalyst",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//ThinFilmCatalyst",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Catalyst type. Core properties of a thin film.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "Catalyst",
       "slots": [
@@ -893,7 +1301,7 @@
     {
       "name": "PowderCatalyst",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//PowderCatalyst",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Catalyst type. Core properties of a powder catalyst.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "Catalyst",
       "slots": [
@@ -909,7 +1317,7 @@
     {
       "name": "Recipe",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Recipe",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A detailed set of instructions outlining the materials, quantities, and procedures  required to perform a specific chemical reaction or experimental process.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -925,7 +1333,7 @@
     {
       "name": "Mixture",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Mixture",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A combination of two or more substances that are mixed together,  which may retain their individual properties or interact chemically. ",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -941,7 +1349,7 @@
     {
       "name": "Workflow",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Workflow",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A structured sequence of tasks, activities, or processes designed to accomplish a  specific research objective or experimental goal.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -957,7 +1365,7 @@
     {
       "name": "Process",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Process",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A defined series of actions, steps, or operations undertaken to achieve a  specific scientific or experimental outcome (e.g. atomic layer deposition).",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -973,7 +1381,7 @@
     {
       "name": "Experiment",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Experiment",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A systematic investigation designed to test hypotheses, gather data, or explore  scientific principles through controlled conditions.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -989,7 +1397,7 @@
     {
       "name": "Measurement",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Measurement",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Storing and describing measurements to perform on a sample.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1005,7 +1413,7 @@
     {
       "name": "Parameter",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Parameter",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Associates parameters on demand to a certain experiment or measurement.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1021,7 +1429,7 @@
     {
       "name": "Reaction",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Reaction",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A chemical process in which one or more substances (reactants) undergo transformation to produce new substances (products). ",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1037,7 +1445,7 @@
     {
       "name": "ReactionProduct",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//ReactionProduct",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "A substance formed as a result of a chemical reaction, representing the end products  generated from the transformation of reactants.",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1053,7 +1461,7 @@
     {
       "name": "Reactor",
       "definition_uri": "https://w3id.org/anak-velazquez/catlabs//Reactor",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Equipment designed to facilitate and control chemical reactions under specified  conditions, such as temperature, pressure, and flow rates. ",
       "from_schema": "https://w3id.org/anak-velazquez/catlabs/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1113,7 +1521,7 @@
     {
       "name": "Beamline",
       "definition_uri": "https://w3id.org/anak-velazquez/BESSY//Beamline",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "System within a facility designed to direct a beam of radiation toward a sample for  the purpose of analysis or experimentation.",
       "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1129,7 +1537,7 @@
     {
       "name": "BeamlineExperiment",
       "definition_uri": "https://w3id.org/anak-velazquez/BESSY//BeamlineExperiment",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "An experimental investigation conducted using a beamline.",
       "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
       "is_a": "Experiment",
       "slots": [
@@ -1145,7 +1553,7 @@
     {
       "name": "BeamlineScientist",
       "definition_uri": "https://w3id.org/anak-velazquez/BESSY//BeamlineScientist",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "An expert responsible for the operation and scientific application of beamlines  in a research facility.",
       "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
       "is_a": "Person",
       "slots": [
@@ -1166,7 +1574,7 @@
     {
       "name": "MySpot",
       "definition_uri": "https://w3id.org/anak-velazquez/BESSY//MySpot",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Myspot beamline description.",
       "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
       "is_a": "Beamline",
       "slots": [
@@ -1182,7 +1590,7 @@
     {
       "name": "EMILPink",
       "definition_uri": "https://w3id.org/anak-velazquez/BESSY//EMILPink",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Pink beamline description.",
       "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
       "is_a": "Beamline",
       "slots": [
@@ -1198,7 +1606,7 @@
     {
       "name": "EMILOAESE",
       "definition_uri": "https://w3id.org/anak-velazquez/BESSY//EMILOAESE",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "OAESE beamline description.",
       "from_schema": "https://w3id.org/anak-velazquez/BESSY/",
       "is_a": "Beamline",
       "slots": [
@@ -1214,7 +1622,7 @@
     {
       "name": "SampleEnvironment",
       "definition_uri": "https://w3id.org/anak-velazquez/operandoCatalysis//SampleEnvironment",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "Controlled environment in which the sample is studied (operando research).",
       "from_schema": "https://w3id.org/anak-velazquez/operandoCatalysis/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1228,9 +1636,25 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "EnvironmentDynamics",
+      "definition_uri": "https://w3id.org/anak-velazquez/operandoCatalysis//EnvironmentDynamics",
+      "description": "Dynamic or time-resolved environmental conditions during an  experiment (e.g.for in-situ measurements).",
+      "from_schema": "https://w3id.org/anak-velazquez/operandoCatalysis/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "SamplePositioning",
       "definition_uri": "https://w3id.org/anak-velazquez/operandoCatalysis//SamplePositioning",
-      "description": "A person (alive, dead, undead, or fictional).",
+      "description": "The arrangement or location of samples within an experimental setup,  critical for ensuring accurate data collection and analysis. ",
       "from_schema": "https://w3id.org/anak-velazquez/operandoCatalysis/",
       "is_a": "NamedEntity",
       "slots": [
@@ -1242,13 +1666,29 @@
       "slot_usage": {},
       "class_uri": "https://w3id.org/anak-velazquez/operandoCatalysis/SamplePositioning",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "File",
+      "definition_uri": "https://w3id.org/anak-velazquez/operandoCatalysis//File",
+      "description": "Stores data related to the experiment (e.g. images, videos, or other files).",
+      "from_schema": "https://w3id.org/anak-velazquez/operandoCatalysis/",
+      "is_a": "NamedEntity",
+      "slots": [
+        "id",
+        "iri",
+        "name",
+        "NamedEntity_category"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/anak-velazquez/operandoCatalysis/File",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "hzb_metadata_schema.yaml",
-  "source_file_date": "2024-09-27T16:14:27",
+  "source_file_date": "2024-09-30T15:23:53",
   "source_file_size": 1774,
-  "generation_date": "2024-09-27T16:18:28",
+  "generation_date": "2024-09-30T17:56:38",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/hzb_metadata_schema.context.jsonld",

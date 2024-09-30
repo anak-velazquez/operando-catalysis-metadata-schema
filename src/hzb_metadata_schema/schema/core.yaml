@@ -70,15 +70,14 @@ classes:
         identifier: 
           description: The Identifier is a unique string that identifies a resource (i.e., DOI).
           required: true
-          identifier: true
+         # identifier: true fix this cause theres already ID slot
           range: string
         identifierType: 
           description: type of identifier.
-          identifier: true
           range: string            
         creators: 
           description: Creator(s) of the resource.
-          multivalued: true
+          #multivalued: true
           required: true
           range: Person 
         title: 

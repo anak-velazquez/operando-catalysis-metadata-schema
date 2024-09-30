@@ -1,5 +1,5 @@
 # Auto generated from hzb_metadata_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-27T16:18:29
+# Generation date: 2024-09-30T17:56:39
 # Schema: hzb-metadata-schema
 #
 # id: https://w3id.org/anak-velazquez/hzb-metadata-schema
@@ -175,7 +175,15 @@ class SampleEnvironmentId(NamedEntityId):
     pass
 
 
+class EnvironmentDynamicsId(NamedEntityId):
+    pass
+
+
 class SamplePositioningId(NamedEntityId):
+    pass
+
+
+class FileId(NamedEntityId):
     pass
 
 
@@ -256,7 +264,8 @@ class NamedEntity(Entity):
 @dataclass
 class DataCite(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    Represents metadata for datasets according to DataCite standard. Core properties of DataCite standard (basics for
+    citation/publications.) DataCite already considers DublinCore elements.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -267,6 +276,26 @@ class DataCite(NamedEntity):
 
     id: Union[str, DataCiteId] = None
     category: str = None
+    identifier: str = None
+    creators: Union[str, PersonId] = None
+    title: str = None
+    identifierType: Optional[str] = None
+    Publisher: Optional[str] = None
+    ResourceType: Optional[str] = None
+    Subject: Optional[str] = None
+    Contributor: Optional[str] = None
+    Date: Optional[str] = None
+    Language: Optional[str] = None
+    AlternateIdentifier: Optional[str] = None
+    RelatedIdentifier: Optional[str] = None
+    Size: Optional[str] = None
+    Format: Optional[str] = None
+    Version: Optional[str] = None
+    Rights: Optional[str] = None
+    Description: Optional[str] = None
+    GeoLocation: Optional[str] = None
+    FundingReference: Optional[str] = None
+    RelatedItem: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -274,13 +303,80 @@ class DataCite(NamedEntity):
         if not isinstance(self.id, DataCiteId):
             self.id = DataCiteId(self.id)
 
+        if self._is_empty(self.identifier):
+            self.MissingRequiredField("identifier")
+        if not isinstance(self.identifier, str):
+            self.identifier = str(self.identifier)
+
+        if self._is_empty(self.creators):
+            self.MissingRequiredField("creators")
+        if not isinstance(self.creators, PersonId):
+            self.creators = PersonId(self.creators)
+
+        if self._is_empty(self.title):
+            self.MissingRequiredField("title")
+        if not isinstance(self.title, str):
+            self.title = str(self.title)
+
+        if self.identifierType is not None and not isinstance(self.identifierType, str):
+            self.identifierType = str(self.identifierType)
+
+        if self.Publisher is not None and not isinstance(self.Publisher, str):
+            self.Publisher = str(self.Publisher)
+
+        if self.ResourceType is not None and not isinstance(self.ResourceType, str):
+            self.ResourceType = str(self.ResourceType)
+
+        if self.Subject is not None and not isinstance(self.Subject, str):
+            self.Subject = str(self.Subject)
+
+        if self.Contributor is not None and not isinstance(self.Contributor, str):
+            self.Contributor = str(self.Contributor)
+
+        if self.Date is not None and not isinstance(self.Date, str):
+            self.Date = str(self.Date)
+
+        if self.Language is not None and not isinstance(self.Language, str):
+            self.Language = str(self.Language)
+
+        if self.AlternateIdentifier is not None and not isinstance(self.AlternateIdentifier, str):
+            self.AlternateIdentifier = str(self.AlternateIdentifier)
+
+        if self.RelatedIdentifier is not None and not isinstance(self.RelatedIdentifier, str):
+            self.RelatedIdentifier = str(self.RelatedIdentifier)
+
+        if self.Size is not None and not isinstance(self.Size, str):
+            self.Size = str(self.Size)
+
+        if self.Format is not None and not isinstance(self.Format, str):
+            self.Format = str(self.Format)
+
+        if self.Version is not None and not isinstance(self.Version, str):
+            self.Version = str(self.Version)
+
+        if self.Rights is not None and not isinstance(self.Rights, str):
+            self.Rights = str(self.Rights)
+
+        if self.Description is not None and not isinstance(self.Description, str):
+            self.Description = str(self.Description)
+
+        if self.GeoLocation is not None and not isinstance(self.GeoLocation, str):
+            self.GeoLocation = str(self.GeoLocation)
+
+        if self.FundingReference is not None and not isinstance(self.FundingReference, str):
+            self.FundingReference = str(self.FundingReference)
+
+        if self.RelatedItem is not None and not isinstance(self.RelatedItem, str):
+            self.RelatedItem = str(self.RelatedItem)
+
         super().__post_init__(**kwargs)
 
 
 @dataclass
 class Person(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A basic/standard definition of a person, which later can be further defined as scientist, beam scientist, user,
+    etc.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -325,7 +421,9 @@ class Person(NamedEntity):
 @dataclass
 class Project(NamedEntity):
     """
-    lorem
+    A research activity or initiative with defined objectives, funding, and timelines, involving one or more
+    researchers, designed to generate data, publications, and other outputs. The project may involve multiple
+    experiments, datasets, and contributors, and can be linked to specific funding sources and institutions.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -349,7 +447,7 @@ class Project(NamedEntity):
 @dataclass
 class Device(NamedEntity):
     """
-    A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+    A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -373,7 +471,7 @@ class Device(NamedEntity):
 @dataclass
 class Sample(NamedEntity):
     """
-    Information about a generic laboratory sample, discipline agnostic.
+    Core properties of a sample, discipline agnostic.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -417,7 +515,8 @@ class SampleCollection(YAMLRoot):
 @dataclass
 class Scientist(Person):
     """
-    A person (alive, dead, undead, or fictional).
+    An individual involved in research activities, and their details that are important to be referenced on
+    experiments, projects, publivations, etc.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -441,7 +540,7 @@ class Scientist(Person):
 @dataclass
 class CatalysisSample(Sample):
     """
-    A person (alive, dead, undead, or fictional).
+    Core properties of a catalysis sample.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -465,7 +564,8 @@ class CatalysisSample(Sample):
 @dataclass
 class Catalyst(CatalysisSample):
     """
-    A person (alive, dead, undead, or fictional).
+    A substance or material that increases the rate of a chemical reaction. Class including core properties of the
+    synthesis characterization, and other experiments.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -489,7 +589,7 @@ class Catalyst(CatalysisSample):
 @dataclass
 class ThinFilmCatalyst(Catalyst):
     """
-    A person (alive, dead, undead, or fictional).
+    Catalyst type. Core properties of a thin film.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -513,7 +613,7 @@ class ThinFilmCatalyst(Catalyst):
 @dataclass
 class PowderCatalyst(Catalyst):
     """
-    A person (alive, dead, undead, or fictional).
+    Catalyst type. Core properties of a powder catalyst.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -537,7 +637,8 @@ class PowderCatalyst(Catalyst):
 @dataclass
 class Recipe(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A detailed set of instructions outlining the materials, quantities, and procedures required to perform a specific
+    chemical reaction or experimental process.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -561,7 +662,8 @@ class Recipe(NamedEntity):
 @dataclass
 class Mixture(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A combination of two or more substances that are mixed together, which may retain their individual properties or
+    interact chemically.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -585,7 +687,8 @@ class Mixture(NamedEntity):
 @dataclass
 class Workflow(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A structured sequence of tasks, activities, or processes designed to accomplish a specific research objective or
+    experimental goal.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -609,7 +712,8 @@ class Workflow(NamedEntity):
 @dataclass
 class Process(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A defined series of actions, steps, or operations undertaken to achieve a specific scientific or experimental
+    outcome (e.g. atomic layer deposition).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -633,7 +737,8 @@ class Process(NamedEntity):
 @dataclass
 class Experiment(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A systematic investigation designed to test hypotheses, gather data, or explore scientific principles through
+    controlled conditions.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -657,7 +762,7 @@ class Experiment(NamedEntity):
 @dataclass
 class Measurement(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    Storing and describing measurements to perform on a sample.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -681,7 +786,7 @@ class Measurement(NamedEntity):
 @dataclass
 class Parameter(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    Associates parameters on demand to a certain experiment or measurement.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -705,7 +810,8 @@ class Parameter(NamedEntity):
 @dataclass
 class Reaction(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A chemical process in which one or more substances (reactants) undergo transformation to produce new substances
+    (products).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -729,7 +835,8 @@ class Reaction(NamedEntity):
 @dataclass
 class ReactionProduct(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    A substance formed as a result of a chemical reaction, representing the end products generated from the
+    transformation of reactants.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -753,7 +860,8 @@ class ReactionProduct(NamedEntity):
 @dataclass
 class Reactor(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    Equipment designed to facilitate and control chemical reactions under specified conditions, such as temperature,
+    pressure, and flow rates.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -817,7 +925,8 @@ class ReactionProductCollection(YAMLRoot):
 @dataclass
 class Beamline(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    System within a facility designed to direct a beam of radiation toward a sample for the purpose of analysis or
+    experimentation.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -841,7 +950,7 @@ class Beamline(NamedEntity):
 @dataclass
 class BeamlineExperiment(Experiment):
     """
-    A person (alive, dead, undead, or fictional).
+    An experimental investigation conducted using a beamline.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -865,7 +974,7 @@ class BeamlineExperiment(Experiment):
 @dataclass
 class BeamlineScientist(Person):
     """
-    A person (alive, dead, undead, or fictional).
+    An expert responsible for the operation and scientific application of beamlines  in a research facility.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -889,7 +998,7 @@ class BeamlineScientist(Person):
 @dataclass
 class MySpot(Beamline):
     """
-    A person (alive, dead, undead, or fictional).
+    Myspot beamline description.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -913,7 +1022,7 @@ class MySpot(Beamline):
 @dataclass
 class EMILPink(Beamline):
     """
-    A person (alive, dead, undead, or fictional).
+    Pink beamline description.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -937,7 +1046,7 @@ class EMILPink(Beamline):
 @dataclass
 class EMILOAESE(Beamline):
     """
-    A person (alive, dead, undead, or fictional).
+    OAESE beamline description.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -961,7 +1070,7 @@ class EMILOAESE(Beamline):
 @dataclass
 class SampleEnvironment(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    Controlled environment in which the sample is studied (operando research).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -983,9 +1092,34 @@ class SampleEnvironment(NamedEntity):
 
 
 @dataclass
+class EnvironmentDynamics(NamedEntity):
+    """
+    Dynamic or time-resolved environmental conditions during an  experiment (e.g.for in-situ measurements).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "EnvironmentDynamics"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.EnvironmentDynamics
+
+    id: Union[str, EnvironmentDynamicsId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, EnvironmentDynamicsId):
+            self.id = EnvironmentDynamicsId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class SamplePositioning(NamedEntity):
     """
-    A person (alive, dead, undead, or fictional).
+    The arrangement or location of samples within an experimental setup, critical for ensuring accurate data
+    collection and analysis.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1002,6 +1136,30 @@ class SamplePositioning(NamedEntity):
             self.MissingRequiredField("id")
         if not isinstance(self.id, SamplePositioningId):
             self.id = SamplePositioningId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class File(NamedEntity):
+    """
+    Stores data related to the experiment (e.g. images, videos, or other files).
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://w3id.org/anak-velazquez/operandoCatalysis/File")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "File"
+    class_model_uri: ClassVar[URIRef] = HZB_METADATA_SCHEMA.File
+
+    id: Union[str, FileId] = None
+    category: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FileId):
+            self.id = FileId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -1081,6 +1239,66 @@ slots.has_employment_history = Slot(uri="str(uriorcurie)", name="has_employment_
 
 slots.current_address = Slot(uri="str(uriorcurie)", name="current_address", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.current_address, domain=None, range=Optional[str])
+
+slots.dataCite__identifier = Slot(uri="str(uriorcurie)", name="dataCite__identifier", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__identifier, domain=None, range=str)
+
+slots.dataCite__identifierType = Slot(uri="str(uriorcurie)", name="dataCite__identifierType", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__identifierType, domain=None, range=Optional[str])
+
+slots.dataCite__creators = Slot(uri="str(uriorcurie)", name="dataCite__creators", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__creators, domain=None, range=Union[str, PersonId])
+
+slots.dataCite__title = Slot(uri="str(uriorcurie)", name="dataCite__title", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__title, domain=None, range=str)
+
+slots.dataCite__Publisher = Slot(uri="str(uriorcurie)", name="dataCite__Publisher", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Publisher, domain=None, range=Optional[str])
+
+slots.dataCite__ResourceType = Slot(uri="str(uriorcurie)", name="dataCite__ResourceType", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__ResourceType, domain=None, range=Optional[str])
+
+slots.dataCite__Subject = Slot(uri="str(uriorcurie)", name="dataCite__Subject", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Subject, domain=None, range=Optional[str])
+
+slots.dataCite__Contributor = Slot(uri="str(uriorcurie)", name="dataCite__Contributor", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Contributor, domain=None, range=Optional[str])
+
+slots.dataCite__Date = Slot(uri="str(uriorcurie)", name="dataCite__Date", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Date, domain=None, range=Optional[str])
+
+slots.dataCite__Language = Slot(uri="str(uriorcurie)", name="dataCite__Language", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Language, domain=None, range=Optional[str])
+
+slots.dataCite__AlternateIdentifier = Slot(uri="str(uriorcurie)", name="dataCite__AlternateIdentifier", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__AlternateIdentifier, domain=None, range=Optional[str])
+
+slots.dataCite__RelatedIdentifier = Slot(uri="str(uriorcurie)", name="dataCite__RelatedIdentifier", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__RelatedIdentifier, domain=None, range=Optional[str])
+
+slots.dataCite__Size = Slot(uri="str(uriorcurie)", name="dataCite__Size", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Size, domain=None, range=Optional[str])
+
+slots.dataCite__Format = Slot(uri="str(uriorcurie)", name="dataCite__Format", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Format, domain=None, range=Optional[str])
+
+slots.dataCite__Version = Slot(uri="str(uriorcurie)", name="dataCite__Version", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Version, domain=None, range=Optional[str])
+
+slots.dataCite__Rights = Slot(uri="str(uriorcurie)", name="dataCite__Rights", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Rights, domain=None, range=Optional[str])
+
+slots.dataCite__Description = Slot(uri="str(uriorcurie)", name="dataCite__Description", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__Description, domain=None, range=Optional[str])
+
+slots.dataCite__GeoLocation = Slot(uri="str(uriorcurie)", name="dataCite__GeoLocation", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__GeoLocation, domain=None, range=Optional[str])
+
+slots.dataCite__FundingReference = Slot(uri="str(uriorcurie)", name="dataCite__FundingReference", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__FundingReference, domain=None, range=Optional[str])
+
+slots.dataCite__RelatedItem = Slot(uri="str(uriorcurie)", name="dataCite__RelatedItem", curie=None,
+                   model_uri=HZB_METADATA_SCHEMA.dataCite__RelatedItem, domain=None, range=Optional[str])
 
 slots.sampleCollection__entries = Slot(uri="str(uriorcurie)", name="sampleCollection__entries", curie=None,
                    model_uri=HZB_METADATA_SCHEMA.sampleCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, SampleId], Union[dict, Sample]], List[Union[dict, Sample]]]])

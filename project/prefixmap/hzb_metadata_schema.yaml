@@ -45,8 +45,14 @@
    "Entity": {
       "@id": "https://w3id.org/anak-velazquez/core/Entity"
    },
+   "EnvironmentDynamics": {
+      "@id": "https://w3id.org/anak-velazquez/operandoCatalysis/EnvironmentDynamics"
+   },
    "Experiment": {
       "@id": "https://w3id.org/anak-velazquez/catlabs/Experiment"
+   },
+   "File": {
+      "@id": "https://w3id.org/anak-velazquez/operandoCatalysis/File"
    },
    "Measurement": {
       "@id": "https://w3id.org/anak-velazquez/catlabs/Measurement"

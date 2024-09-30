@@ -1,7 +1,7 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// A person (alive, dead, undead, or fictional).
+// System within a facility designed to direct a beam of radiation toward a sample for  the purpose of analysis or experimentation.
 message Beamline
  {
   uriorcurie id = 0
@@ -9,7 +9,7 @@ message Beamline
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// An experimental investigation conducted using a beamline.
 message BeamlineExperiment
  {
   uriorcurie id = 0
@@ -17,7 +17,7 @@ message BeamlineExperiment
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// An expert responsible for the operation and scientific application of beamlines  in a research facility.
 message BeamlineScientist
  {
   uriorcurie id = 0
@@ -30,7 +30,7 @@ message BeamlineScientist
   genderEnum gender = 0
  repeated  string hasEmploymentHistory = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Core properties of a catalysis sample.
 message CatalysisSample
  {
   uriorcurie id = 0
@@ -43,7 +43,7 @@ message CatalysisSampleCollection
  {
  repeated  catalysisSample entries = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A substance or material that increases the rate of a chemical reaction.  Class including core properties of the synthesis characterization, and other experiments. 
 message Catalyst
  {
   uriorcurie id = 0
@@ -51,15 +51,35 @@ message Catalyst
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Represents metadata for datasets according to DataCite standard. Core properties of DataCite standard (basics for citation/publications.) DataCite already considers DublinCore elements. 
 message DataCite
  {
   uriorcurie id = 0
   string iri = 0
   string name = 0
   string category = 0
+  string identifier = 0
+  string identifierType = 0
+  person creators = 0
+  string title = 0
+  string publisher = 0
+  string resourceType = 0
+  string subject = 0
+  string contributor = 0
+  string date = 0
+  string language = 0
+  string alternateIdentifier = 0
+  string relatedIdentifier = 0
+  string size = 0
+  string format = 0
+  string version = 0
+  string rights = 0
+  string description = 0
+  string geoLocation = 0
+  string fundingReference = 0
+  string relatedItem = 0
  }
-// A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+// A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment.
 message Device
  {
   uriorcurie id = 0
@@ -67,7 +87,7 @@ message Device
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// OAESE beamline description.
 message EMILOAESE
  {
   uriorcurie id = 0
@@ -75,7 +95,7 @@ message EMILOAESE
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Pink beamline description.
 message EMILPink
  {
   uriorcurie id = 0
@@ -83,7 +103,15 @@ message EMILPink
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Dynamic or time-resolved environmental conditions during an  experiment (e.g.for in-situ measurements).
+message EnvironmentDynamics
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// A systematic investigation designed to test hypotheses, gather data, or explore  scientific principles through controlled conditions.
 message Experiment
  {
   uriorcurie id = 0
@@ -91,7 +119,15 @@ message Experiment
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Stores data related to the experiment (e.g. images, videos, or other files).
+message File
+ {
+  uriorcurie id = 0
+  string iri = 0
+  string name = 0
+  string category = 0
+ }
+// Storing and describing measurements to perform on a sample.
 message Measurement
  {
   uriorcurie id = 0
@@ -99,7 +135,7 @@ message Measurement
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A combination of two or more substances that are mixed together,  which may retain their individual properties or interact chemically. 
 message Mixture
  {
   uriorcurie id = 0
@@ -107,7 +143,7 @@ message Mixture
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Myspot beamline description.
 message MySpot
  {
   uriorcurie id = 0
@@ -123,7 +159,7 @@ message NamedEntity
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Associates parameters on demand to a certain experiment or measurement.
 message Parameter
  {
   uriorcurie id = 0
@@ -131,7 +167,7 @@ message Parameter
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A basic/standard definition of a person, which later can be further defined as scientist, beam scientist, user, etc.
 message Person
  {
   uriorcurie id = 0
@@ -144,7 +180,7 @@ message Person
   genderEnum gender = 0
  repeated  string hasEmploymentHistory = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Catalyst type. Core properties of a powder catalyst.
 message PowderCatalyst
  {
   uriorcurie id = 0
@@ -152,7 +188,7 @@ message PowderCatalyst
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A defined series of actions, steps, or operations undertaken to achieve a  specific scientific or experimental outcome (e.g. atomic layer deposition).
 message Process
  {
   uriorcurie id = 0
@@ -160,7 +196,7 @@ message Process
   string name = 0
   string category = 0
  }
-// lorem
+// A research activity or initiative with defined objectives, funding, and timelines, involving one or more researchers, designed to generate data, publications, and other outputs. The project may involve multiple experiments, datasets, and contributors, and can be linked to specific funding sources and institutions.
 message Project
  {
   uriorcurie id = 0
@@ -168,7 +204,7 @@ message Project
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A chemical process in which one or more substances (reactants) undergo transformation to produce new substances (products). 
 message Reaction
  {
   uriorcurie id = 0
@@ -176,7 +212,7 @@ message Reaction
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A substance formed as a result of a chemical reaction, representing the end products  generated from the transformation of reactants.
 message ReactionProduct
  {
   uriorcurie id = 0
@@ -189,7 +225,7 @@ message ReactionProductCollection
  {
  repeated  reactionProduct entries = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Equipment designed to facilitate and control chemical reactions under specified  conditions, such as temperature, pressure, and flow rates. 
 message Reactor
  {
   uriorcurie id = 0
@@ -197,7 +233,7 @@ message Reactor
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A detailed set of instructions outlining the materials, quantities, and procedures  required to perform a specific chemical reaction or experimental process.
 message Recipe
  {
   uriorcurie id = 0
@@ -205,7 +241,7 @@ message Recipe
   string name = 0
   string category = 0
  }
-// Information about a generic laboratory sample, discipline agnostic.
+// Core properties of a sample, discipline agnostic.
 message Sample
  {
   uriorcurie id = 0
@@ -218,7 +254,7 @@ message SampleCollection
  {
  repeated  sample entries = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Controlled environment in which the sample is studied (operando research).
 message SampleEnvironment
  {
   uriorcurie id = 0
@@ -226,7 +262,7 @@ message SampleEnvironment
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// The arrangement or location of samples within an experimental setup,  critical for ensuring accurate data collection and analysis. 
 message SamplePositioning
  {
   uriorcurie id = 0
@@ -234,7 +270,7 @@ message SamplePositioning
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// An individual involved in research activities, and their details that are important  to be referenced on experiments, projects, publivations, etc.
 message Scientist
  {
   uriorcurie id = 0
@@ -247,7 +283,7 @@ message Scientist
   genderEnum gender = 0
  repeated  string hasEmploymentHistory = 0
  }
-// A person (alive, dead, undead, or fictional).
+// Catalyst type. Core properties of a thin film.
 message ThinFilmCatalyst
  {
   uriorcurie id = 0
@@ -255,7 +291,7 @@ message ThinFilmCatalyst
   string name = 0
   string category = 0
  }
-// A person (alive, dead, undead, or fictional).
+// A structured sequence of tasks, activities, or processes designed to accomplish a  specific research objective or experimental goal.
 message Workflow
  {
   uriorcurie id = 0
