@@ -208,11 +208,64 @@
       Experiment &lt;|-- BeamlineExperiment
         click Experiment href "../Experiment"
 
+      BeamlineExperiment : catalyst
+
+
+
+
+    BeamlineExperiment --&gt; "0..1" Catalyst : catalyst
+    click Catalyst href "../Catalyst"
+
+
+      BeamlineExperiment : end_date
+
+      BeamlineExperiment : experiment_id
+
+      BeamlineExperiment : experiment_name
+
       BeamlineExperiment : id
 
       BeamlineExperiment : iri
 
       BeamlineExperiment : name
+
+      BeamlineExperiment : performed_by
+
+
+
+
+    BeamlineExperiment --&gt; "0..1" Scientist : performed_by
+    click Scientist href "../Scientist"
+
+
+      BeamlineExperiment : reaction
+
+
+
+
+    BeamlineExperiment --&gt; "0..1" Reaction : reaction
+    click Reaction href "../Reaction"
+
+
+      BeamlineExperiment : related_project
+
+
+
+
+    BeamlineExperiment --&gt; "0..1" Project : related_project
+    click Project href "../Project"
+
+
+      BeamlineExperiment : sample
+
+
+
+
+    BeamlineExperiment --&gt; "0..1" Sample : sample
+    click Sample href "../Sample"
+
+
+      BeamlineExperiment : start_date
 
 
 </div>
@@ -240,6 +293,60 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../experiment_id/">experiment_id</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The Identifier is a unique string that identifies a resource (i</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../experiment_name/">experiment_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../performed_by/">performed_by</a></td>
+<td>0..1 <br/> <a href="../Scientist/">Scientist</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../related_project/">related_project</a></td>
+<td>0..1 <br/> <a href="../Project/">Project</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst/">catalyst</a></td>
+<td>0..1 <br/> <a href="../Catalyst/">Catalyst</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../sample/">sample</a></td>
+<td>0..1 <br/> <a href="../Sample/">Sample</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../reaction/">reaction</a></td>
+<td>0..1 <br/> <a href="../Reaction/">Reaction</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../start_date/">start_date</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../end_date/">end_date</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
@@ -302,6 +409,106 @@ description: An experimental investigation conducted using a beamline.
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 is_a: Experiment
 attributes:
+  experiment_id:
+    name: experiment_id
+    description: The Identifier is a unique string that identifies a resource (i.e.,
+      DOI).
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: experiment_id
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: string
+    required: false
+  experiment_name:
+    name: experiment_name
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: experiment_name
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: string
+    required: false
+  performed_by:
+    name: performed_by
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: performed_by
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: Scientist
+    required: false
+  related_project:
+    name: related_project
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: related_project
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: Project
+    required: false
+  catalyst:
+    name: catalyst
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: Catalyst
+    required: false
+  sample:
+    name: sample
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: sample
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: Sample
+    required: false
+  reaction:
+    name: reaction
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: reaction
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: Reaction
+    required: false
+  start_date:
+    name: start_date
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: start_date
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: string
+    required: false
+  end_date:
+    name: end_date
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: end_date
+    owner: BeamlineExperiment
+    domain_of:
+    - Experiment
+    range: string
+    required: false
   name:
     name: name
     description: A human-readable name for a thing

@@ -208,11 +208,80 @@
       Catalyst &lt;|-- ThinFilmCatalyst
         click Catalyst href "../Catalyst"
 
+      ThinFilmCatalyst : active_site
+
+      ThinFilmCatalyst : catalyst_activity
+
+      ThinFilmCatalyst : catalyst_components
+
+      ThinFilmCatalyst : catalyst_form
+
+      ThinFilmCatalyst : catalyst_name
+
+      ThinFilmCatalyst : catalyst_phase
+
+      ThinFilmCatalyst : catalyst_stability
+
+      ThinFilmCatalyst : catalyst_structure
+
+      ThinFilmCatalyst : catalyst_type
+
+      ThinFilmCatalyst : characterization_method
+
+      ThinFilmCatalyst : chemical__formula
+
+      ThinFilmCatalyst : chemical_composition
+
+      ThinFilmCatalyst : creator_institution
+
+      ThinFilmCatalyst : creator_name
+
+      ThinFilmCatalyst : creator_role
+
+      ThinFilmCatalyst : crystalline_structure
+
+      ThinFilmCatalyst : eln_name
+
       ThinFilmCatalyst : id
+
+      ThinFilmCatalyst : institution_abbreviation
+
+      ThinFilmCatalyst : institution_name
 
       ThinFilmCatalyst : iri
 
+      ThinFilmCatalyst : laboratory_name
+
+      ThinFilmCatalyst : loading
+
+      ThinFilmCatalyst : morphology
+
       ThinFilmCatalyst : name
+
+      ThinFilmCatalyst : particle_size
+
+      ThinFilmCatalyst : pore_size_distribution
+
+      ThinFilmCatalyst : project_sample
+
+
+
+
+    ThinFilmCatalyst --&gt; "0..1" Project : project_sample
+    click Project href "../Project"
+
+
+      ThinFilmCatalyst : purity
+
+      ThinFilmCatalyst : sample_ELN_id
+
+      ThinFilmCatalyst : support
+
+      ThinFilmCatalyst : surface_area
+
+      ThinFilmCatalyst : surface_chemistry
+
+      ThinFilmCatalyst : synthesis_method
 
 
 </div>
@@ -246,6 +315,192 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../sample_ELN_id/">sample_ELN_id</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The Identifier is a unique string that identifies a resource (i</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../eln_name/">eln_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../creator_name/">creator_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../creator_institution/">creator_institution</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../creator_role/">creator_role</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../laboratory_name/">laboratory_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../project_sample/">project_sample</a></td>
+<td>0..1 <br/> <a href="../Project/">Project</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../institution_name/">institution_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../institution_abbreviation/">institution_abbreviation</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_type/">catalyst_type</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_phase/">catalyst_phase</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_form/">catalyst_form</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_name/">catalyst_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../chemical__formula/">chemical__formula</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_components/">catalyst_components</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_structure/">catalyst_structure</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../active_site/">active_site</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../support/">support</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../loading/">loading</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../purity/">purity</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../synthesis_method/">synthesis_method</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../characterization_method/">characterization_method</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../surface_area/">surface_area</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../particle_size/">particle_size</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../morphology/">morphology</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../pore_size_distribution/">pore_size_distribution</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../crystalline_structure/">crystalline_structure</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../chemical_composition/">chemical_composition</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../surface_chemistry/">surface_chemistry</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_stability/">catalyst_stability</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
+<tr>
+<td><a href="../catalyst_activity/">catalyst_activity</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The ORCID Identifier is a unique string that identifies a researcher</td>
+<td><a href="../CatalysisSample/">CatalysisSample</a></td>
+</tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
@@ -308,6 +563,348 @@ description: Catalyst type. Core properties of a thin film.
 from_schema: https://w3id.org/anak-velazquez/hzb-metadata-schema
 is_a: Catalyst
 attributes:
+  sample_ELN_id:
+    name: sample_ELN_id
+    description: The Identifier is a unique string that identifies a resource (i.e.,
+      DOI).
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: sample_ELN_id
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  eln_name:
+    name: eln_name
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: eln_name
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  creator_name:
+    name: creator_name
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: creator_name
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  creator_institution:
+    name: creator_institution
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: creator_institution
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  creator_role:
+    name: creator_role
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: creator_role
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  laboratory_name:
+    name: laboratory_name
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: laboratory_name
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  project_sample:
+    name: project_sample
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: project_sample
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: Project
+    required: false
+  institution_name:
+    name: institution_name
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: institution_name
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  institution_abbreviation:
+    name: institution_abbreviation
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: institution_abbreviation
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_type:
+    name: catalyst_type
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_type
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_phase:
+    name: catalyst_phase
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_phase
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_form:
+    name: catalyst_form
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_form
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_name:
+    name: catalyst_name
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_name
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  chemical_ formula:
+    name: chemical_ formula
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: chemical__formula
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_components:
+    name: catalyst_components
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_components
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_structure:
+    name: catalyst_structure
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_structure
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  active_site:
+    name: active_site
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: active_site
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  support:
+    name: support
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: support
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  loading:
+    name: loading
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: loading
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  purity:
+    name: purity
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: purity
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  synthesis_method:
+    name: synthesis_method
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: synthesis_method
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  characterization_method:
+    name: characterization_method
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: characterization_method
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  surface_area:
+    name: surface_area
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: surface_area
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  particle_size:
+    name: particle_size
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: particle_size
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  morphology:
+    name: morphology
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: morphology
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  pore_size_distribution:
+    name: pore_size_distribution
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: pore_size_distribution
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  crystalline_structure:
+    name: crystalline_structure
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: crystalline_structure
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  chemical_composition:
+    name: chemical_composition
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: chemical_composition
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  surface_chemistry:
+    name: surface_chemistry
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: surface_chemistry
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_stability:
+    name: catalyst_stability
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_stability
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
+  catalyst_activity:
+    name: catalyst_activity
+    description: The ORCID Identifier is a unique string that identifies a researcher.
+    from_schema: https://w3id.org/anak-velazquez/catlabs/
+    rank: 1000
+    alias: catalyst_activity
+    owner: ThinFilmCatalyst
+    domain_of:
+    - CatalysisSample
+    range: string
+    required: false
   name:
     name: name
     description: A human-readable name for a thing
