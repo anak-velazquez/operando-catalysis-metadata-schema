@@ -28,6 +28,7 @@ classes:
     description: >-
       An individual involved in research activities, and their details that are important 
       to be referenced on experiments, projects, publivations, etc.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -43,6 +44,132 @@ classes:
     is_a: Sample
     description: >-
       Core properties of a catalysis sample.
+    #category: "CatLabs"
+    attributes:
+        sample_ELN_id: 
+          description: The Identifier is a unique string that identifies a resource (i.e., DOI).
+          required: false
+          range: string
+        eln_name: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        creator_name: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        creator_institution: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        creator_role: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string          
+        laboratory_name: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        project_sample: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: Project          
+        institution_name: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        institution_abbreviation: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string      
+        catalyst_type: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string                   
+        catalyst_phase: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string     
+        catalyst_form: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string     
+        catalyst_name: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string     
+        chemical_ formula: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        catalyst_components: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        catalyst_structure: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string    
+        active_site: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string    
+        support: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string    
+        loading: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string    
+        purity: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string    
+        synthesis_method: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string 
+        characterization_method: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string 
+        surface_area: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string 
+        particle_size: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string                     
+        morphology: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string  
+        pore_size_distribution: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string  
+        crystalline_structure: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string                      
+        chemical_composition: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string   
+        surface_chemistry: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string             
+        catalyst_stability: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string   
+        catalyst_activity: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string 
     class_uri: 
     mixins:
       #- HasAliases
@@ -59,6 +186,7 @@ classes:
     description: >-
       A substance or material that increases the rate of a chemical reaction. 
       Class including core properties of the synthesis characterization, and other experiments. 
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -74,6 +202,7 @@ classes:
     is_a: Catalyst
     description: >-
       Catalyst type. Core properties of a thin film.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -89,6 +218,7 @@ classes:
     is_a: Catalyst
     description: >-
       Catalyst type. Core properties of a powder catalyst.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -105,6 +235,7 @@ classes:
     description: >-
       A detailed set of instructions outlining the materials, quantities, and procedures 
       required to perform a specific chemical reaction or experimental process.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -121,6 +252,7 @@ classes:
     description: >-
       A combination of two or more substances that are mixed together, 
       which may retain their individual properties or interact chemically. 
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -137,6 +269,7 @@ classes:
     description: >-
       A structured sequence of tasks, activities, or processes designed to accomplish a 
       specific research objective or experimental goal.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -153,6 +286,352 @@ classes:
     description: >-
       A defined series of actions, steps, or operations undertaken to achieve a 
       specific scientific or experimental outcome (e.g. atomic layer deposition).
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+##############
+#Process types
+
+#####Process: Synthesis
+#
+  SynthesisProcess:
+    is_a: Process
+    description: >-
+      A defined series of actions, steps, or operations undertaken to achieve a 
+      synthesis process. Update this definition.
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+#####Process: Synthesis
+#
+  CleaningProcess:
+    is_a: Process
+    description: >-
+      A defined series of actions, steps, or operations undertaken to achieve a 
+      cleaning process.
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Characterization: Process
+#
+  CharacterizationProcess:
+    is_a: Process
+    description: >-
+      A defined series of actions, steps, or operations undertaken to achieve a 
+      analysis of a Catalysis sample process.
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####CatalyticActivityAssesment: Process
+#
+  CatalyticActivityAssesmentProcess:
+    is_a: Process
+    description: >-
+      A defined series of actions, steps, or operations undertaken to achieve a 
+      analysis of a Catalysis sample process.
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Analytics: Process
+#
+  AnalyticsProcess:
+    is_a: Process
+    description: >-
+      A defined series of actions, steps, or operations undertaken to achieve a 
+      analysis of a Catalysis sample process.
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+###############################
+# Cleaning processes
+################################
+
+#####
+#
+  OzoneCleaning:
+    is_a: CleaningProcess
+    description: >-
+      Surface treatment technique used in thin-film catalysis, especially for preparing or 
+      regenerating catalyst surfaces. It involves using ozone (O₃), a highly reactive form 
+      of oxygen, to clean and modify the surface properties of thin films.
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+###############################
+# Synthesis processes
+################################
+
+#####ALD: generic
+#
+  ALD:
+    is_a: SynthesisProcess
+    description: >-
+      Atomic Layer Deposition (ALD) is a thin-film deposition technique that enables precise control over film thickness at the atomic level. 
+      This method is highly valued for its ability to deposit ultra-thin, conformal films with excellent uniformity, even on complex 3D surfaces.  
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####ALD: BeneQ
+#
+  ALD_BeneQ:
+    is_a: ALD
+    description: >-
+      Atomic Layer Deposition (ALD) performed in BeneQ device.  
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####CVD: generic
+#
+  CVD:
+    is_a: SynthesisProcess
+    description: >-
+      Chemical Vapor Deposition (CVD) is a process used to produce thin films and coatings by depositing 
+      material onto a substrate through chemical reactions of vapor-phase precursors. 
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####CVD: nanofab (Oxford cluster)
+#
+  CVD_nanofab:
+    is_a: CVD
+    description: >-
+      Chemical Vapor Deposition (CVD) performed in the Nanofab chamber from the Oxford Cluster. 
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####CVD: pc1 (von Adenne)
+#
+  CVD_pc1:
+    is_a: CVD
+    description: >-
+      Chemical Vapor Deposition (CVD) performed in the pc1 chamber from the von Adenne cluster. 
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####CVD: pc1 (von Adenne)
+#
+  CVD_pc2:
+    is_a: CVD
+    description: >-
+      Chemical Vapor Deposition (CVD) performed in the pc2 chamber from the von Adenne cluster. 
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Sputtering: generic
+#
+  Sputtering:
+    is_a: SynthesisProcess
+    description: >-
+      Physical vapor deposition (PVD) technique used to deposit thin films onto a substrate.
+      In sputtering, high-energy ions (usually from a plasma) bombard a target material, 
+      causing atoms from the target to be ejected. These ejected atoms then travel through
+      a vacuum chamber and settle on a substrate, forming a thin film. 
+    #category: "CatLabs"
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Sputtering: Prevac
+#
+  Sputtering_prevac:
+    is_a: Sputtering
+    description: >-
+      Physical vapor deposition (PVD) technique used to deposit thin films onto a substrate, particularly 
+      with the Prevac sputtering machine. 
+      In sputtering, high-energy ions (usually from a plasma) bombard a target material, 
+      causing atoms from the target to be ejected. These ejected atoms then travel through
+      a vacuum chamber and settle on a substrate, forming a thin film. 
+    #category: "CatLabs"
+    attributes:
+        sputtering_prevac_id: 
+          description: Identifier of the sputtering process in the prevac machine.
+          required: false
+          range: string
+        substrate_id:
+          description: Identifier of the substrate material (usually Silicon).
+          required: false
+          range: string  
+        sample_owner:
+          description: Person owning the sample.
+          required: false
+          range: string
+        process_user:
+          description: Person performing the process on the sample.
+          required: false
+          range: string
+        date:
+          description: Date on which the process was performed.
+          required: false
+          range: string
+        holder:
+          description: Type of sample holder.
+          required: false
+          range: string
+        notes:
+          description: Any notes for supporting the documentation of the process.
+          required: false
+          range: string
+        step_number:
+          description: Many consecutive processes or steps of sputtering can be performed to layer the materials. This parameter documents the number of step or id.
+          required: false
+          range: integer
+        orientation:
+          description: Refers to the spatial alignment and positioning of the target within the sputtering chamber. The target is typically positioned at an angle relative to the substrate. This angle can affect the trajectory of the sputtered atoms and the uniformity of deposition on the substrate.
+          range: string
+        sputter_pressure:
+          description: Pressure of the gas (typically argon) inside the vacuum chamber during the sputtering process. This pressure is usually measured in millibars (mbar), and it plays a critical role in determining the behavior of the plasma, the ion bombardment, and the deposition quality.
+          range: float
+        substrate_temperature:
+          description: Temperature of the substrate onto which the thin film is being deposited during the sputtering process. This parameter is crucial because it can significantly influence the properties of the deposited film, such as its microstructure, morphology, adhesion, and overall performance.
+          range: float
+        ramp:
+          description: Controlled increase or decrease of temperature.
+          range: float
+        rotation:
+          description: Angular velocity at which the target material (or in some cases, the substrate) is rotated during the sputtering process.
+          range: float      
+        z_position:
+          description: Vertical position of the substrate or the target material in the sputtering chamber.
+          range: float
+        gas:
+          description: Gas used to ionize and bombard the target material (usually Argon).
+          range: string
+        flow_rate:
+          description: Rate at which gases (typically inert gases like argon or reactive gases like oxygen or nitrogen) are introduced into the sputtering chamber. It plays a crucial role in controlling the plasma formation and the quality of the deposited thin film.
+          range: float
+        target_position:
+          description: Position of the target source. In this machine case, from 1-8.
+          range: integer
+        target:
+          description: Target is the material that gets bombarded by ions and subsequently ejected (sputtered) onto a substrate to form a thin film. (e.g. Al, Ti, Pt, etc).
+          range: string
+        target_power:
+          description: The amount of electrical power applied to the sputtering target to generate the plasma and eject atoms from the target surface.
+          range: float
+        DC_RF:
+          description: DC (Direct Current) and RF (Radio Frequency) refer to the types of electrical power used to energize the sputtering target, and the choice between them depends on the properties of the target material.
+          range: string
+        time:
+          description: Duration time of the sputtering step/process.
+          range: string
+        base_pressure:
+          description: Pressure inside the vacuum chamber before the introduction of the working gas (usually argon) for the sputtering process.
+          range: float
+        temperature:
+          description: Temperature inside the vacuum chamber before the introduction of the working gas (usually argon) for the sputtering process.
+          range: float
+        step_notes:
+          description: To add any notes regarding to the observations on that exact step on the whole process. For example, inhomogeneous, detached, dirty sample.
+          range: string              
+    class_uri: 
+    mixins:
+    #- HasAliases
+    slots:
+    #  - id
+    aliases:
+    #  - human being
+
+
+#####Sputtering: von Adenne (PC3)
+#
+  sputtering_vonAdenne:
+    is_a: Sputtering
+    description: >-
+      Physical vapor deposition (PVD) technique used to deposit thin films onto a substrate, particularly 
+      with the von Adenne (PC3 chamber) machine.  
+    #category: "CatLabs"
     class_uri: 
     mixins:
     #- HasAliases
@@ -169,6 +648,44 @@ classes:
     description: >-
       A systematic investigation designed to test hypotheses, gather data, or explore 
       scientific principles through controlled conditions.
+    #category: "CatLabs"
+    attributes:
+        experiment_id: 
+          description: The Identifier is a unique string that identifies a resource (i.e., DOI).
+          required: false
+          range: string
+        experiment_name: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        performed_by: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: Scientist
+        related_project: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: Project
+        catalyst: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: Catalyst
+        sample: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: Sample
+        reaction: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: Reaction
+        start_date: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string
+        end_date: 
+          description: The ORCID Identifier is a unique string that identifies a researcher.
+          required: false
+          range: string                                                               
     class_uri: 
     mixins:
       #- HasAliases
@@ -184,6 +701,7 @@ classes:
     is_a: NamedEntity
     description: >-
       Storing and describing measurements to perform on a sample.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -199,6 +717,7 @@ classes:
     is_a: NamedEntity
     description: >-
       Associates parameters on demand to a certain experiment or measurement.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -214,6 +733,7 @@ classes:
     is_a: NamedEntity
     description: >-
       A chemical process in which one or more substances (reactants) undergo transformation to produce new substances (products). 
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -230,6 +750,7 @@ classes:
     description: >-
       A substance formed as a result of a chemical reaction, representing the end products 
       generated from the transformation of reactants.
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -246,6 +767,7 @@ classes:
     description: >-
       Equipment designed to facilitate and control chemical reactions under specified 
       conditions, such as temperature, pressure, and flow rates. 
+    #category: "CatLabs"
     class_uri: 
     mixins:
       #- HasAliases
@@ -256,13 +778,12 @@ classes:
 
 
 
-
 ##############
 #Collections
 ###############    
   #CatalysisSample array
   CatalysisSampleCollection:
-    tree_root: true
+    #tree_root: true
     description: >-
       A holder for CatalysisSample objects
     attributes:
@@ -273,7 +794,7 @@ classes:
 
   #ReactionProduct array
   ReactionProductCollection:
-    tree_root: true
+    #tree_root: true
     description: >-
       A holder for ReactionProduct objects
     attributes:
